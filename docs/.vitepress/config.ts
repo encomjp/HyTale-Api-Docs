@@ -110,8 +110,20 @@ export default withMermaid(defineConfig({
                 {
                     text: 'Art Packs',
                     items: [
-                        { text: 'Overview', link: '/art-packs/' },
-                        { text: 'Creating Textures', link: '/art-packs/textures' },
+                        { text: 'Overview', link: '/art-packs/' }
+                    ]
+                },
+                {
+                    text: '1. Textures',
+                    collapsed: false,
+                    items: [
+                        { text: 'Creating Textures', link: '/art-packs/textures' }
+                    ]
+                },
+                {
+                    text: '2. 3D Models',
+                    collapsed: false,
+                    items: [
                         { text: 'Custom Models', link: '/art-packs/models' },
                         { text: 'Animations', link: '/art-packs/animations' }
                     ]
@@ -122,8 +134,20 @@ export default withMermaid(defineConfig({
                     text: 'Resource Packs',
                     items: [
                         { text: 'Overview', link: '/resource-packs/' },
-                        { text: 'File Structure', link: '/resource-packs/structure' },
-                        { text: 'Sounds & Music', link: '/resource-packs/sounds' },
+                        { text: 'File Structure', link: '/resource-packs/structure' }
+                    ]
+                },
+                {
+                    text: '1. Audio',
+                    collapsed: false,
+                    items: [
+                        { text: 'Sounds & Music', link: '/resource-packs/sounds' }
+                    ]
+                },
+                {
+                    text: '2. Languages',
+                    collapsed: false,
+                    items: [
                         { text: 'Localization', link: '/resource-packs/localization' }
                     ]
                 }
