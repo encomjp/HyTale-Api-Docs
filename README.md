@@ -23,45 +23,33 @@ npm run build
 
 ## Documentation Structure
 
+The documentation is organized into clear, beginner-friendly sections:
+
 ```
 docs/
-├── getting-started/    Setup guides and tutorials
-├── guide/              Plugin development guides
-├── api/                API reference documentation
-├── reference/          ID lists (entities, events, sounds)
-├── art-packs/          Art pack creation guides
-└── resource-packs/     Resource pack guides
+├── getting-started/    # Setup guides (IDE, Server, First Plugin)
+├── guide/              # core Plugin logic (Events, Commands, Permissions)
+├── art-packs/          # Visuals (Textures, Models, Animations)
+├── resource-packs/     # Audio & Text (Sounds, Localization)
+├── api/                # Technical API Reference
+└── reference/          # ID Lists (Entities, Sounds, Blocks)
 ```
 
-## Topics Covered
+## Key Features
 
-**Getting Started**
-- Server installation (Windows, Linux, Docker)
-- IDE setup (VS Code, IntelliJ IDEA)
-- Project configuration (Gradle, Maven)
-- Hello World plugin tutorial
-
-**Plugin Development**
-- Events and listeners
-- Custom commands
-- Permissions system
-- Configuration files
-- Prefabs
-
-**Reference Data**
-- 500+ Entity IDs
-- Event types
-- Sound IDs
-- Block and Item IDs
+- **Beginner Friendly**: "Hand-holding" style guides for all major topics.
+- **Visual Diagrams**: Mermaid diagrams explaining complex flows (Events, Lifecycles).
+- **Art & Resources**: Dedicated sections for custom content creation using industry tools like Blockbench.
+- **Troubleshooting**: Common error solutions for every topic.
 
 ## Built With
 
 - [VitePress](https://vitepress.dev/) - Static site generator
-- Markdown with custom containers
+- **Mermaid** - Diagramming tool
 
 ## Contributing
 
-Contributions welcome! Please ensure your documentation follows the existing style before submitting pull requests.
+Contributions welcome! Please ensure your documentation follows the existing style (simple language, visual aids) before submitting pull requests.
 
 ## License
 

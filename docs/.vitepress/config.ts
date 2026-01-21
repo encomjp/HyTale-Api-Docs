@@ -246,7 +246,7 @@ export default withMermaid(defineConfig({
         },
 
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/encomjp/Essentials-Lite' }
+            { icon: 'github', link: 'https://github.com/encomjp/HyTale-Api-Docs' }
         ],
 
         search: {

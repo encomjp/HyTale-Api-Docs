@@ -4,33 +4,32 @@ layout: home
 hero:
   name: Hytale Developer Docs
   text: Build Amazing Server Experiences
-  tagline: Learn to create plugins, art packs, and resource packs for your Hytale server
+  tagline: The complete guide to Plugins, Art Packs, and Resource Packs for Hytale.
   actions:
     - theme: brand
-      text: Get Started
+      text: Start Building Plugins
       link: /getting-started/
     - theme: alt
-      text: API Reference
+      text: Browse API
       link: /api/
 
 features:
-  - title: Plugin Development
-    details: Create server-side plugins with Java or Kotlin. Add commands, events, permissions, and custom game mechanics.
+  - title: Plugin Guide
+    details: Step-by-step tutorials for creating server commands, handling events, and managing permissions.
     link: /guide/
   - title: Art Packs
-    details: Design custom textures, models, and visual assets to give your server a unique look.
+    details: Learn to create custom textures, 3D models with Blockbench, and animations.
     link: /art-packs/
   - title: Resource Packs
-    details: Bundle sounds, configurations, and assets into distributable resource packs.
+    details: Add custom sounds, music, and translations to your server.
     link: /resource-packs/
   - title: API Reference
-    details: Complete documentation for Player, World, Events, Commands, and all server APIs.
+    details: Comprehensive documentation for the Hytale Server API, Events, and Entities.
     link: /api/
   - title: Server Setup
-    details: Download and configure your development server with the Hytale Downloader.
+    details: Get your development server running on Windows, Linux, or Docker.
     link: /getting-started/server-setup
-  - title: Quick Start Tutorial
-    details: Build your first plugin in 10 minutes with our step-by-step guide.
-    link: /getting-started/first-plugin
+  - title: Visual Explanations
+    details: Learn faster with our new diagrams for Lifeecycles, Events, and more.
+    link: /guide/events
 ---
-
