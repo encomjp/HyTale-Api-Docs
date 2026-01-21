@@ -1,109 +1,146 @@
-# Plugin Best Practices
+# Best Practices
 
-As your plugins grow in complexity, organizing your code becomes critical. Here are industry-standard patterns for Hytale development.
+Writing a plugin that "works" is easy. Writing one that is readable, stable, and fast is a bit harder.
 
-## Project Architecture
+Here are some industry standards to make your code better.
 
-Avoid putting everything in your specific `Plugin` class. Instead, use a modular structure:
+## 1. Keep Your Main Class Clean
 
-```
-src/main/java/com/example/myplugin/
-├── MyPlugin.java           # Entrypoint (Lightweight)
-├── commands/               # Command handlers
-│   ├── CommandManager.java # Registration logic
-│   └── TeleportCommand.java
-├── listeners/              # Event listeners
-│   └── PlayerListener.java
-├── managers/               # Business logic
-│   └── EconomyManager.java
-└── models/                 # Data objects
-    └── PlayerProfile.java
+Your main class (`MyPlugin.java`) should **only** handle setup and cleanup. Don't put your command logic there!
+
+### ❌ Bad: Everything in one file
+```java
+public class MyPlugin extends Plugin {
+    public void onEnable(Context ctx) {
+        // ... 500 lines of command logic
+    }
+}
 ```
 
-### The "Manager" Pattern
+### ✅ Good: Organized structure
+```java
+public class MyPlugin extends Plugin {
+    public void onEnable(Context ctx) {
+        // Register classes
+        registerCommands();
+        registerEvents();
+    }
+}
+```
 
-Create singletons or context-based managers for specific features.
+---
+
+## 2. Don't Freeze the Server
+
+The main thread runs the game. If you pause it for even 0.05 seconds (50ms), players will feel lag.
+
+**Dangerous Operations (Move to Async):**
+- Connecting to a database (MySQL, MongoDB)
+- Downloading files from the internet
+- Reading/Writing large files to disk
+- Heavy calculations (pathfinding, complex math)
+
+Use `runAsync` for these! (See [Scheduling](./scheduling))
+
+---
+
+## 3. Manager Classes
+
+Often you need to store data, like a player's money or stats. Don't use `static` variables everywhere! Use a **Manager** class.
 
 ```java
 public class EconomyManager {
-    private final PluginContext context;
-    private final Map<String, Double> balances = new HashMap<>();
-
-    public EconomyManager(PluginContext context) {
-        this.context = context;
+    private final Map<UUID, Double> balances = new HashMap<>();
+    
+    public void setBalance(Player p, double amount) {
+        balances.put(p.getUuid(), amount);
     }
-
-    public void addBalance(String player, double amount) {
-        balances.merge(player, amount, Double::sum);
+    
+    public double getBalance(Player p) {
+        return balances.getOrDefault(p.getUuid(), 0.0);
     }
 }
 ```
 
-Then initialize them in your main class:
+Then create **one** instance of this in your main class and pass it around.
 
 ```java
-public class MyPlugin implements Plugin {
-    private EconomyManager economyManager;
-
-    @Override
-    public void onEnable(PluginContext context) {
-        this.economyManager = new EconomyManager(context);
+public class MyPlugin extends Plugin {
+    private EconomyManager economy;
+    
+    public void onEnable(Context ctx) {
+        this.economy = new EconomyManager();
         
-        // Pass manager to commands
-        // registerCommand(new PayCommand(economyManager));
+        // Pass it to commands
+        ctx.getCommandManager().register(new PayCommand(economy));
     }
 }
 ```
 
-## Performance Tips
+---
 
-### 1. Avoid Heavy Tasks on Main Thread
-The Hytale server runs on a main loop. If you block it (e.g., database calls, web requests), the server will lag.
+## 4. Clean Up Your Mess
 
-**Bad:**
-```java
-@EventHandler
-public void onJoin(PlayerJoinEvent event) {
-    // Blocks the server until database responds!
-    PlayerData data = database.load(event.getPlayer().getUid());
-}
-```
+When your plugin shuts down (`onDisable`), you must clean up.
 
-**Good:**
-```java
-@EventHandler
-public void onJoin(PlayerJoinEvent event) {
-    // Run asynchronously
-    context.getScheduler().runAsync(() -> {
-        PlayerData data = database.load(event.getPlayer().getUid());
-        
-        // Return to main thread to apply changes
-        context.getScheduler().runTask(() -> {
-            applyData(event.getPlayer(), data);
-        });
-    });
-}
-```
+- **Cancel Tasks:** Stop any repeating loops.
+- **Save Data:** Write player stats to disk/database.
+- **Close Connections:** Disconnect from the database.
 
-### 2. Caching
-Don't fetch data from disk or database every time. Cache it in memory (`HashMap`) and save it periodically or on server shutdown.
-
-## Resource Management
-
-Always clean up resources in `onDisable()`:
-
-- Cancel running tasks
-- Close database connections
-- Save pending data
+If you don't do this, you might lose data or cause memory leaks!
 
 ```java
 @Override
 public void onDisable() {
-    // Save all data before stopping
-    if (this.economyManager != null) {
-        this.economyManager.saveAll();
-    }
+    // Stop tasks
+    scheduler.cancelAll();
     
-    context.getLogger().info("Plugin disabled safely.");
+    // Save data
+    economyManager.saveAll();
+    
+    logger.info("Goodbye!");
 }
 ```
+
+---
+
+## 5. Handle Errors Gracefully
+
+Don't let your plugin crash the server just because one thing failed.
+
+### ❌ Bad
+```java
+public void onCommand() {
+    // If config is null, this crashes the entire command!
+    int value = config.get("value"); 
+}
+```
+
+### ✅ Good
+```java
+public void onCommand() {
+    if (config == null) {
+        player.sendMessage("Error: Config not loaded!");
+        return;
+    }
+    // ...
+}
+```
+
+---
+
+## Summary Checklist
+
+Before releasing your plugin, check these:
+
+- [ ] **Organization:** Are commands and events in their own files?
+- [ ] **Performance:** No database/web calls on the main thread?
+- [ ] **Safety:** Do we check for `null` before using things?
+- [ ] **Cleanup:** Does `onDisable` save everything?
+- [ ] **User Friendly:** Do commands send helpful error messages?
+
+---
+
+**That's it!** You have completed the guide. You are now ready to build amazing things in Hytale.
+
+Go forth and create! 🚀

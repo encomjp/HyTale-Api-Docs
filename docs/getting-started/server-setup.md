@@ -102,7 +102,7 @@ Plugins go in the `mods/` directory. Each plugin is a JAR file:
 ```
 mods/
 ├── my-plugin-1.0.0.jar
-├── de.europeanpepe_essentials-lite/  # Plugin data folder
+├── com.example_essentials-lite/  # Plugin data folder
 └── essentials-lite-1.2.0.jar
 ```
 

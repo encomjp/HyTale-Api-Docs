@@ -1,276 +1,245 @@
-# Plugin Configuration
+# Configuration
 
-Learn how to add configurable settings to your plugin.
+Hard-coding values is bad. If you want to change a message or a setting, you shouldn't have to recompile your entire plugin!
 
-## Basic Configuration
+That's where **configuration** comes in. It lets server owners tweak your plugin without touching code.
 
-### Creating a Config Class
+## How it Works
 
-```java
-public class PluginConfig {
-    private String welcomeMessage = "Welcome to the server!";
-    private int teleportDelay = 3;
-    private boolean announceJoins = true;
-    
-    // Getters
-    public String getWelcomeMessage() { return welcomeMessage; }
-    public int getTeleportDelay() { return teleportDelay; }
-    public boolean isAnnounceJoins() { return announceJoins; }
-    
-    // Setters
-    public void setWelcomeMessage(String msg) { welcomeMessage = msg; }
-    public void setTeleportDelay(int delay) { teleportDelay = delay; }
-    public void setAnnounceJoins(boolean announce) { announceJoins = announce; }
-}
-```
+We use **JSON** files for configuration. It's a simple text format that both humans and computers can read.
 
-### Loading Configuration
+1. **config.json** stores the settings
+2. **Config.java** represents those settings in code
+3. **onEnable()** loads the file into the Java object
 
-Load config in `onEnable()`:
+---
 
-```java
-public class MyPlugin implements Plugin {
-    private PluginContext context;
-    private PluginConfig config;
-    
-    @Override
-    public void onEnable(PluginContext context) {
-        this.context = context;
-        this.config = loadConfig();
-        
-        context.getLogger().info("Teleport delay: " + config.getTeleportDelay());
-    }
-    
-    private PluginConfig loadConfig() {
-        Path configFile = context.getDataFolder().resolve("config.json");
-        
-        if (Files.exists(configFile)) {
-            try {
-                String json = Files.readString(configFile);
-                return parseConfig(json);
-            } catch (IOException e) {
-                context.getLogger().error("Failed to load config", e);
-            }
-        }
-        
-        // Create default config
-        PluginConfig defaultConfig = new PluginConfig();
-        saveConfig(defaultConfig);
-        return defaultConfig;
-    }
-}
-```
+## 1. The Configuration File
 
-## JSON Configuration
+Let's say we want to configure a welcome message and a teleport delay. Create a file `config.json` in your plugin's data folder:
 
-### Config File Format
-
-`config.json`:
 ```json
 {
-  "welcomeMessage": "Welcome to our server!",
+  "welcomeMessage": "Welcome to the server!",
   "teleportDelay": 5,
-  "announceJoins": true,
-  "spawn": {
-    "x": 0,
-    "y": 64,
-    "z": 0
-  }
+  "enableFeatures": true
 }
 ```
 
-### Parsing JSON
+---
 
-Using a JSON library (like Gson):
+## 2. The Config Class
+
+Now create a Java class that looks just like your JSON. The field names must match exactly!
+
+```java
+public class MyConfig {
+    // Default values (used if file is missing)
+    public String welcomeMessage = "Default welcome message";
+    public int teleportDelay = 3;
+    public boolean enableFeatures = true;
+}
+```
+
+::: tip Why public fields?
+For simple config classes, `public` fields are fine. GSON (the library we use) can read them easily. If you prefer encapsulation, you can use private fields with getters/setters.
+:::
+
+---
+
+## 3. Loading the Config
+
+We need a way to read the file and turn it into our `MyConfig` object. We'll use **GSON**, a library built into Hytale/Java.
+
+Add this helper method to your plugin class (or a separate `ConfigManager` class):
 
 ```java
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
-public class ConfigManager {
-    private final Gson gson = new GsonBuilder()
-        .setPrettyPrinting()
-        .create();
+public class MyPlugin implements Plugin {
+    private MyConfig config;
+    private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     
-    public PluginConfig load(Path file) throws IOException {
-        String json = Files.readString(file);
-        return gson.fromJson(json, PluginConfig.class);
+    @Override
+    public void onEnable(PluginContext context) {
+        // Load the config
+        reloadConfig(context);
+        
+        // Use it!
+        context.getLogger().info("Teleport delay is: " + config.teleportDelay);
     }
     
-    public void save(Path file, PluginConfig config) throws IOException {
-        String json = gson.toJson(config);
-        Files.writeString(file, json);
+    public void reloadConfig(PluginContext context) {
+        Path configFile = context.getDataFolder().resolve("config.json");
+        
+        try {
+            // Check if file exists
+            if (!Files.exists(configFile)) {
+                // If not, create default
+                saveConfig(context, new MyConfig());
+            }
+            
+            // Read file
+            String json = Files.readString(configFile);
+            this.config = gson.fromJson(json, MyConfig.class);
+            
+        } catch (Exception e) {
+            context.getLogger().error("Failed to load config!", e);
+        }
+    }
+    
+    public void saveConfig(PluginContext context, MyConfig newConfig) {
+        Path configFile = context.getDataFolder().resolve("config.json");
+        
+        try {
+            // Create folder if missing
+            Files.createDirectories(context.getDataFolder());
+            
+            // Write JSON
+            String json = gson.toJson(newConfig);
+            Files.writeString(configFile, json);
+            this.config = newConfig;
+            
+        } catch (Exception e) {
+            context.getLogger().error("Failed to save config!", e);
+        }
     }
 }
 ```
 
-## Data Folder
+---
 
-Each plugin has its own data folder:
+## Using Configuration in Your Code
+
+Now that `config` is loaded, you can use it anywhere!
+
+### In Event Listeners
+
+Pass the config to your listener:
 
 ```java
-// Get your plugin's data folder
-Path dataFolder = context.getDataFolder();
-
-// Create subfolders
-Path warpsFolder = dataFolder.resolve("warps");
-Files.createDirectories(warpsFolder);
-
-// Save data files
-Path warpFile = warpsFolder.resolve("spawn.json");
-Files.writeString(warpFile, warpJson);
+public class PlayerListener {
+    private final MyConfig config;
+    
+    public PlayerListener(MyConfig config) {
+        this.config = config;
+    }
+    
+    @EventHandler
+    public void onJoin(PlayerJoinEvent event) {
+        // Use the configured message
+        String msg = config.welcomeMessage;
+        event.getPlayer().sendMessage(Message.raw(msg));
+    }
+}
 ```
 
-Data folder location:
-```
-mods/
-├── my-plugin-1.0.0.jar
-└── com.example_my-plugin/     <-- Your data folder
-    ├── config.json
-    └── warps/
-        └── spawn.json
+### In Commands
+
+Same for commands:
+
+```java
+public class TeleportCommand implements Command {
+    private final MyConfig config;
+    // ...
+    
+    @Override
+    public void execute(CommandContext ctx) {
+        int delay = config.teleportDelay;
+        ctx.getPlayer().sendMessage("Teleporting in " + delay + " seconds...");
+    }
+}
 ```
 
-## Reload Configuration
+---
 
-Allow reloading config without restart:
+## Advanced: Reloading Without Restart
+
+Server admins hate restarting. Let's add a `/myplugin reload` command!
 
 ```java
 public class ReloadCommand implements Command {
     private final MyPlugin plugin;
     
+    public ReloadCommand(MyPlugin plugin) {
+        this.plugin = plugin;
+    }
+
     @Override
-    public String getName() { return "myreload"; }
-    
+    public String getName() { return "mypluginreload"; }
+
     @Override
-    public void execute(CommandContext context) {
-        if (!context.getPlayer().hasPermission("myplugin.admin")) {
-            context.getPlayer().sendMessage("No permission!");
-            return;
-        }
+    public void execute(CommandContext ctx) {
+        if (!ctx.getPlayer().hasPermission("myplugin.admin")) return;
         
-        plugin.reloadConfig();
-        context.getPlayer().sendMessage("Configuration reloaded!");
+        // Reload!
+        plugin.reloadConfig(ctx.getPluginContext());
+        ctx.getPlayer().sendMessage("Configuration reloaded!");
     }
 }
 ```
 
-In your main plugin class:
+Because we update the `plugin.config` field, anything referencing it will see the new values next time they check!
 
-```java
-public void reloadConfig() {
-    this.config = loadConfig();
-    context.getLogger().info("Configuration reloaded");
-}
-```
+---
 
-## Configuration Validation
+## Complex Configurations
 
-Validate settings on load:
+JSON can do more than just simple values. You can nest objects!
 
-```java
-private PluginConfig loadConfig() {
-    PluginConfig config = loadFromFile();
-    
-    // Validate and fix invalid values
-    if (config.getTeleportDelay() < 0) {
-        context.getLogger().warn("Invalid teleport delay, using default");
-        config.setTeleportDelay(3);
-    }
-    
-    if (config.getTeleportDelay() > 60) {
-        context.getLogger().warn("Teleport delay too high, capping at 60");
-        config.setTeleportDelay(60);
-    }
-    
-    return config;
-}
-```
+### Nested JSON
 
-## Default Config Generation
-
-Generate a default config file with comments:
-
-```java
-private void createDefaultConfig(Path configFile) throws IOException {
-    String defaultConfig = """
-        {
-          // Welcome message shown to players on join
-          "welcomeMessage": "Welcome to the server!",
-          
-          // Seconds to wait before teleporting (0 for instant)
-          "teleportDelay": 3,
-          
-          // Announce when players join/leave
-          "announceJoins": true
-        }
-        """;
-    
-    Files.writeString(configFile, defaultConfig);
-}
-```
-
-## Nested Configuration
-
-Handle complex nested configs:
-
-```java
-public class PluginConfig {
-    private GeneralSettings general = new GeneralSettings();
-    private TeleportSettings teleport = new TeleportSettings();
-    private Map<String, WarpConfig> warps = new HashMap<>();
-    
-    public static class GeneralSettings {
-        public String prefix = "[MyPlugin]";
-        public boolean debug = false;
-    }
-    
-    public static class TeleportSettings {
-        public int delay = 3;
-        public boolean cancelOnMove = true;
-        public boolean cancelOnDamage = true;
-    }
-    
-    public static class WarpConfig {
-        public double x, y, z;
-        public String world;
-    }
-}
-```
-
-JSON format:
 ```json
 {
-  "general": {
-    "prefix": "[MyPlugin]",
-    "debug": false
+  "database": {
+    "host": "localhost",
+    "port": 3306
   },
-  "teleport": {
-    "delay": 5,
-    "cancelOnMove": true,
-    "cancelOnDamage": true
-  },
-  "warps": {
-    "spawn": { "x": 0, "y": 64, "z": 0, "world": "overworld" },
-    "hub": { "x": 100, "y": 80, "z": -50, "world": "overworld" }
+  "messages": {
+    "welcome": "Hello!",
+    "goodbye": "Bye!"
   }
 }
 ```
 
-## Environment Variables
-
-Support environment variable overrides:
+### Matching Java Classes
 
 ```java
-private int getTeleportDelay() {
-    String envValue = System.getenv("MYPLUGIN_TELEPORT_DELAY");
-    if (envValue != null) {
-        try {
-            return Integer.parseInt(envValue);
-        } catch (NumberFormatException e) {
-            context.getLogger().warn("Invalid env var MYPLUGIN_TELEPORT_DELAY");
-        }
+public class MyConfig {
+    public DatabaseConfig database = new DatabaseConfig();
+    public MessagesConfig messages = new MessagesConfig();
+    
+    public static class DatabaseConfig {
+        public String host = "localhost";
+        public int port = 3306;
     }
-    return config.getTeleportDelay();
+    
+    public static class MessagesConfig {
+        public String welcome = "Hello!";
+        public String goodbye = "Bye!";
+    }
 }
 ```
+
+Access it like this: `config.database.host` or `config.messages.welcome`.
+
+---
+
+## Tips & Best Practices
+
+1. **Default Values:** Always set good defaults in your Java class. If the file is empty or missing fields, GSON will use your defaults.
+2. **Validation:** Check values after loading. If `teleportDelay` is -1, maybe set it back to 0.
+3. **Wait, where is the file?** 
+   It's in `server/mods/com.yourname.plugin/config.json`.
+   The `context.getDataFolder()` method automatically finds the right folder for your plugin ID.
+
+---
+
+## Next Steps
+
+Now you have configured your plugin. Next, let's look at how to make things happen **over time**:
+
+→ **Next: [Scheduling Tasks](./scheduling)**

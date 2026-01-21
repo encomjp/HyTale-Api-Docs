@@ -1,19 +1,20 @@
 # Creating Custom UIs
 
-This guide covers how to create custom user interfaces for your Hytale plugins using Hytale's native UI system.
+This guide covers how to create custom user interfaces (UIs) using `.ui` files and Java code.
 
-## Overview
+## How it Works
 
-Hytale provides a powerful UI system that allows plugins to create interactive menus, settings panels, and HUDs. The system consists of two parts:
-
-1. **UI Definition Files (`.ui`)** - Define the visual layout and styling
-2. **Java Page Classes** - Handle logic, data binding, and events
+1. **Draw** the UI in a `.ui` file (like HTML/CSS)
+2. **Control** it with a Java class
+3. **Listen** for clicks and inputs
 
 ## Prerequisites
 
-- JDK 25 or later
-- A working plugin project (see [Project Setup](../getting-started/project-setup.md))
-- Basic understanding of the Hytale server API
+Before starting, make sure you have:
+
+- [x] A working plugin
+- [x] Ability to reload/restart your server
+- [x] Basic knowledge of Java classes
 
 ## Project Structure
 

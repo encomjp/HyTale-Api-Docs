@@ -1,278 +1,198 @@
 # Permissions
 
-Permissions control which players can access specific features of your plugin. This guide covers checking permissions and integrating with the server's permission system.
+Permissions are the keys to your plugin's features. They let you control who can do what - like letting admins ban players but stopping regular players from using God mode.
+
+## How Permissions Work
+
+It's a simple lock-and-key system:
+
+1. **The Lock:** Your code checks for a permission string (e.g., `myplugin.admin`)
+2. **The Key:** The server gives that permission to specific players or groups
+3. **The Result:** If they have the key, the door opens (code executes)
+
+---
 
 ## Checking Permissions
 
-### Basic Permission Check
+### The Basics
+
+Checking a permission is just one line of code:
 
 ```java
-if (player.hasPermission("myplugin.admin")) {
-    // Player has the permission
-    player.sendMessage("Welcome, admin!");
+if (player.hasPermission("myplugin.coolfeature")) {
+    player.sendMessage("You have access!");
+} else {
+    player.sendMessage("Access denied.");
 }
 ```
 
 ### In Commands
+
+This is where you'll use permissions most often. You don't want everyone using `/ban`!
 
 ```java
 @Override
 public void execute(CommandContext context) {
     Player player = context.getPlayer();
     
-    if (!player.hasPermission("myplugin.teleport")) {
-        player.sendMessage("You don't have permission to teleport!");
-        return;
+    // 1. Check for the key
+    if (!player.hasPermission("myplugin.admin.ban")) {
+        player.sendMessage("You don't have permission to use this!");
+        return; // Stop right here!
     }
     
-    // Execute teleport
+    // 2. Do the admin stuff
+    handleBan(player);
 }
 ```
 
-### Command Permission Property
+### Auto-Checking Commands
 
-Define required permission in the command:
+You can also tell Hytale to check for you automatically:
 
 ```java
-@Override
-public String getPermission() {
-    return "myplugin.mycommand";
+public class BanCommand implements Command {
+    // ... name, description ...
+
+    @Override
+    public String getPermission() {
+        return "myplugin.admin.ban";
+    }
+    
+    @Override
+    public void execute(CommandContext context) {
+        // This only runs if they have permission!
+        handleBan(context.getPlayer());
+    }
 }
 ```
 
-The server automatically checks this before calling `execute()`.
+---
 
-## Permission Naming
+## Naming Your Permissions
 
-Use a consistent naming scheme:
+Permissions are just strings, but you should follow a pattern to keep them organized.
 
-```
-pluginname.feature
-pluginname.feature.subfeature
-pluginname.admin
-```
+### The Dot Pattern
 
-Examples:
-```
-essentials.spawn
-essentials.warp.create
-essentials.warp.delete
-essentials.admin
-```
+Use dots to create categories:
 
-## Permission Hierarchy
+`pluginName.category.action`
 
-Structure permissions hierarchically:
+| Permission | What it allows |
+|------------|----------------|
+| `essentials.spawn` | Using /spawn |
+| `essentials.warp.use` | Using warps |
+| `essentials.warp.create` | Creating new warps |
+| `essentials.warp.delete` | Deleting warps |
+| `essentials.admin` | All admin features |
 
-| Permission | Grants Access To |
-|------------|------------------|
-| `myplugin.*` | All plugin permissions |
-| `myplugin.warp.*` | All warp-related permissions |
-| `myplugin.warp.use` | Using warps |
-| `myplugin.warp.create` | Creating warps |
-| `myplugin.warp.delete` | Deleting warps |
+::: tip Best Practice
+Always start with your **plugin ID** or name. This prevents conflicts with other plugins!
+:::
 
-## Server Permissions File
+---
 
-Players are granted permissions in `permissions.json`:
+## Giving Permissions to Players
+
+As a plugin developer, you **check** for permissions. The server admin **gives** them.
+
+Admins configure this in the server's `permissions.json` file:
 
 ```json
 {
-  "players": {
-    "PlayerName": {
-      "permissions": [
-        "myplugin.spawn",
-        "myplugin.warp.use"
-      ],
-      "groups": ["default"]
-    },
-    "AdminPlayer": {
-      "permissions": ["*"],
-      "groups": ["admin"]
-    }
-  },
   "groups": {
     "default": {
       "permissions": [
-        "myplugin.spawn",
-        "myplugin.help"
+        "essentials.spawn",
+        "essentials.warp.use"
       ]
     },
-    "moderator": {
-      "permissions": [
-        "myplugin.warp.*",
-        "myplugin.kick"
-      ],
-      "inherit": ["default"]
-    },
     "admin": {
-      "permissions": ["*"]
+      "permissions": [
+        "*"  // Grants everything!
+      ]
     }
   }
 }
 ```
 
-## Wildcard Permissions
+### Wildcards
 
-The `*` permission grants access to everything:
+The `*` is a wildcard. It matches anything.
 
-```java
-// This will return true for admins with "*" permission
-player.hasPermission("any.permission.here")
-```
+- `*` = All permissions
+- `essentials.*` = All permissions starting with "essentials."
+- `essentials.warp.*` = All warp permissions (create, delete, use)
 
-Partial wildcards:
-```
-myplugin.*        // All myplugin permissions
-myplugin.warp.*   // All warp permissions
-```
+---
 
-## Negating Permissions
+## Advanced Usage
 
-Prefix with `-` to deny:
+### Feature Toggling
 
-```json
-{
-  "permissions": [
-    "myplugin.*",
-    "-myplugin.admin"
-  ]
-}
-```
-
-This grants all `myplugin` permissions except `myplugin.admin`.
-
-## Permission-Based Features
-
-### Show Different Messages
+You can use permissions to enable special features for VIPs:
 
 ```java
 @EventHandler
 public void onJoin(PlayerJoinEvent event) {
     Player player = event.getPlayer();
     
-    if (player.hasPermission("myplugin.vip")) {
-        broadcastMessage("VIP " + player.getName() + " has joined!");
-    } else {
-        broadcastMessage(player.getName() + " has joined!");
+    // VIPs get a special welcome
+    if (player.hasPermission("myplugin.vip.welcome")) {
+        FireworkUtil.launchFirework(player.getLocation());
+        broadcast("Welcome VIP " + player.getName() + "!");
+    }
+    
+    // Admins get notified of reports
+    if (player.hasPermission("myplugin.admin.alerts")) {
+        player.sendMessage("There are 3 unresolved reports.");
     }
 }
 ```
 
-### Feature Toggles
+### Negating Permissions
+
+Sometimes you want to give a group everything *except* one thing. You can check for negative permissions by looking for standard ones, but admins can configure them with a `-` prefix.
+
+If an admin gives `-essentials.spawn`, then `hasPermission("essentials.spawn")` returns `false`, even if they have `essentials.*`.
+
+---
+
+## Common Patterns
+
+### The "Admin Bypass"
+
+Allow admins to bypass restrictions (like cooldowns or costs):
 
 ```java
-public void handleTeleport(Player player, Location destination) {
-    // Check for instant teleport permission
-    if (player.hasPermission("myplugin.teleport.instant")) {
-        player.teleport(destination);
-        return;
-    }
-    
-    // Normal players get a delay
-    player.sendMessage("Teleporting in 3 seconds...");
-    scheduleDelayedTeleport(player, destination, 3);
-}
-```
-
-### Command Subpermissions
-
-```java
-@Override
-public void execute(CommandContext context) {
-    Player player = context.getPlayer();
-    String subcommand = context.getArgs()[0];
-    
-    switch (subcommand) {
-        case "create":
-            if (!player.hasPermission("myplugin.warp.create")) {
-                player.sendMessage("No permission!");
-                return;
-            }
-            handleCreate(player);
-            break;
-            
-        case "delete":
-            if (!player.hasPermission("myplugin.warp.delete")) {
-                player.sendMessage("No permission!");
-                return;
-            }
-            handleDelete(player);
-            break;
-    }
-}
-```
-
-## Best Practices
-
-### Document Permissions
-
-Create a reference for server admins:
-
-| Permission | Description | Default |
-|------------|-------------|---------|
-| `myplugin.spawn` | Use /spawn command | Everyone |
-| `myplugin.spawn.instant` | No teleport delay | OP only |
-| `myplugin.warp.use` | Use warps | Everyone |
-| `myplugin.warp.create` | Create warps | OP only |
-| `myplugin.admin` | Admin commands | OP only |
-
-### Default Permissions
-
-Handle missing permissions gracefully:
-
-```java
-// Bad: assumes permission exists
-boolean canUse = player.hasPermission("myplugin.feature");
-
-// Good: explicit default
-boolean canUse = player.hasPermission("myplugin.feature");
-if (!hasExplicitPermission(player, "myplugin.feature")) {
-    canUse = true; // Default to allowed
-}
-```
-
-### Check Early
-
-Check permissions at the start of command execution:
-
-```java
-@Override
-public void execute(CommandContext context) {
-    // Check permission first
-    if (!context.getPlayer().hasPermission("myplugin.admin")) {
-        context.getPlayer().sendMessage("No permission!");
-        return;
-    }
-    
-    // Now do the actual work
-    String[] args = context.getArgs();
-    // ... rest of command logic
-}
-```
-
-## Example: Role-Based Access
-
-```java
-public class RoleManager {
-    
-    public boolean canModify(Player player, Location location) {
-        // Admins can modify anywhere
-        if (player.hasPermission("myplugin.admin")) {
-            return true;
+public void teleport(Player player) {
+    // Check cooldown
+    if (isOnCooldown(player)) {
+        // BUT let admins skip the wait
+        if (!player.hasPermission("myplugin.admin.bypass")) {
+            player.sendMessage("Please wait before teleporting again.");
+            return;
         }
-        
-        // Moderators can modify in specific zones
-        if (player.hasPermission("myplugin.moderator")) {
-            return isModeratorZone(location);
-        }
-        
-        // Regular players can only modify their own areas
-        if (player.hasPermission("myplugin.build")) {
-            return isOwnedBy(player, location);
-        }
-        
-        return false;
     }
+    
+    doTeleport(player);
 }
 ```
+
+### Hierarchy
+
+Think about your permission structure:
+
+- `myplugin.user` (Basic features)
+- `myplugin.vip` (Cosmetics, cool stuff)
+- `myplugin.mod` (Kicking, muting)
+- `myplugin.admin` (Banning, config reload, critical stuff)
+
+---
+
+## Next Steps
+
+Now that you can control **who** can do things, let's look at **configuring** how they work:
+
+→ **Next: [Configuration](./configuration)**

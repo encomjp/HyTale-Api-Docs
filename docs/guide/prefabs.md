@@ -1,130 +1,134 @@
-# Prefabs Guide
+# Prefabs
 
-Prefabs are reusable structures in Hytale—think of them as "templates" for buildings, dungeons, or any other construction you want to save and reuse.
+Prefabs are Hytale's way of saving structures. Think of them like "Copy & Paste" for buildings, trees, or entire dungeons.
 
-## Key Concepts
+You build something in-game, save it as a file, and then your plugin can paste it anywhere!
 
-- **Prefab Editing Worlds**: Special worlds where you build and edit prefabs
-- **Prefabs as Files**: Saved as JSON files, making them portable and shareable
-- **Multiple Prefabs per World**: One editing world can contain many different prefabs
+## How It Works
 
-## Creating Your First Prefab
+1. **Build** your structure in a special "Editing World".
+2. **Select** it with a tool.
+3. **Save** it to a `.json` file.
+4. **Paste** it using your plugin (or the brush tool).
 
-### Step 1: Open a Prefab Editing World
+---
 
-Create a new editing world to work in:
+## Step 1: The Editing World
 
+You can't just build prefabs anywhere. You need a dedicated **Editing World**.
+
+Run this command:
 ```
-/editprefab new my_structures
-```
-
-This creates a world named `my_structures`. The world name is **not** the prefab name—worlds can hold multiple prefabs.
-
-### Step 2: Build Your Structure
-
-Construct whatever you want to save. This could be a house, a dungeon room, a tree, or anything else.
-
-### Step 3: Select the Area
-
-Use the **Selection Brush** tool to highlight the region containing your structure.
-
-### Step 4: Save as Prefab
-
-Save the selected area:
-
-```
-/prefab save
+/editprefab new my_prefabs
 ```
 
-You'll be prompted to name your prefab.
+This creates an empty void world where you can build without distractions.
 
-### Step 5: Exit the Editing World
+::: tip World Name vs Prefab Name
+`my_prefabs` is the name of the **world**. You can save hundreds of different prefabs (houses, trees, rocks) inside this one world.
+:::
 
-When finished:
+---
+
+## Step 2: Build & Select
+
+Build your structure. Let's say you built a small house.
+
+Now, you need to tell Hytale "this is the thing I want to save".
+
+1. Open the Creative Menu and search for **"Selection Brush"**.
+2. Equip it.
+3. **Left-click** one corner of your house (bottom-left).
+4. **Right-click** the opposite corner (top-right).
+
+You should see a box appear around your house.
+
+---
+
+## Step 3: Save the Prefab
+
+With your selection box active, save it:
 
 ```
-/editprefab exit
+/prefab save my_cool_house
 ```
 
-### Step 6: Use Your Prefab
+Success! You just created `my_cool_house.json`.
 
-To paste your prefab elsewhere:
-1. Equip the **Paste Brush**
-2. Press `E` to open the prefab selector
-3. Look under the "server" dropdown (top right)
-4. Select your prefab
+---
 
-You can also browse prefabs with:
+## Step 4: Testing It
 
+Now let's see if it works.
+
+1. Move away from your house.
+2. Search for the **"Paste Brush"** in the Creative Menu.
+3. Press **E** (Open Inventory) while holding the brush to see settings.
+4. In the top-right dropdown, select **"Server"**.
+5. Find `my_cool_house` in the list.
+6. Click anywhere in the world to paste it!
+
+---
+
+## Managing Prefabs
+
+### List All Prefabs
 ```
 /prefab list
 ```
 
-## Commands Reference
+### Delete a Prefab
+```
+/prefab delete my_cool_house
+```
 
-### `/prefab` - Manage Prefab Files
+### Edit an Existing Prefab
+If you closed the server and want to edit your house again:
+```
+/editprefab load my_prefabs
+```
+(Remember to load the *world*, not the prefab file!)
 
-| Subcommand | Description |
-|------------|-------------|
-| `save` | Write the current prefab to disk |
-| `load` | Load a prefab from disk into the game |
-| `delete` | Remove a prefab file permanently |
-| `list` | Show all available prefabs |
+---
 
-::: tip
-Add `--help` to any command for detailed options, e.g., `/prefab save --help`
+## Using Prefabs in Plugins
+
+Now that you have a prefab, you probably want to spawn it with code (like generating a dungeon).
+
+```java
+public void spawnHouse(Location location) {
+    // 1. Get the prefab
+    Prefab prefab = context.getPrefabManager().get("my_cool_house");
+    
+    if (prefab == null) {
+        context.getLogger().error("Prefab not found!");
+        return;
+    }
+    
+    // 2. Paste it
+    prefab.paste(location);
+}
+```
+
+::: warning Path
+By default, custom prefabs are saved in the server's root `prefabs/` folder or your plugin's resources. Make sure your plugin can find them!
 :::
 
-### `/editprefab` - Edit Prefab Structures
-
-| Subcommand | Description |
-|------------|-------------|
-| `new <name>` | Create a fresh editing world |
-| `load` | Open an existing prefab for editing |
-| `exit` | Leave the current editing world |
-| `select` | Highlight a prefab within 200 blocks |
-| `save` | Save using current or selected area |
-| `saveui` | Open the save interface for the world |
-| `saveas` | Save selection as a new prefab file |
-| `setbox` | Adjust the prefab's bounding box |
-| `info` | Display details about selected prefab |
-| `tp` | Open teleport menu for the editing world |
-| `modified` | List all unsaved prefabs in this world |
-| `kill` | Remove all entities from selected prefab |
-
-## Tips & Best Practices
-
-### Organizing Prefabs
-
-- Use descriptive names: `village_house_small`, `dungeon_entrance_stone`
-- Group related prefabs in themed editing worlds
-- Keep backup copies before major edits
-
-### Testing Prefabs
-
-After creating a prefab, test it by:
-1. Pasting it in a regular world
-2. Checking for missing blocks or entity issues
-3. Verifying lighting and ambient effects
-
-### Sharing Prefabs
-
-Prefab files are stored as JSON. You can:
-- Share them with other server operators
-- Include them in resource packs
-- Version control them with Git
+---
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| Prefab not appearing in list | Check you saved with `/prefab save`, not just `/editprefab save` |
-| Selection not working | Ensure you're using the Selection Brush tool |
-| Can't find "server" dropdown | Make sure you're using the Paste Brush, press `E` |
-| Entities missing after paste | Some entities may need to be re-spawned manually |
+| Problem | Solution |
+|---------|----------|
+| **Can't select area** | Make sure you are using the **Selection Brush**, not the Paste Brush. |
+| **"Prefab not found"** | Did you save it? Check `/prefab list`. |
+| **Entities missing** | Some complex entities (like NPCs) might not save correctly in basic prefabs. |
+| **Pasted in wrong direction** | The direction you face when **saving** determines the "front" of the prefab. |
 
-::: warning Known Limitations
-- Very large prefabs may cause performance issues
-- Some entity states may not persist through save/load
-- Always test prefabs after creation
-:::
+---
+
+## Next Steps
+
+You've learned the basics!
+
+- **[Best Practices](./best-practices)** - Write better code
