@@ -68,16 +68,40 @@ export default defineConfig({
                 {
                     text: 'Plugin Guide',
                     items: [
-                        { text: 'Overview', link: '/guide/' },
+                        { text: 'Overview', link: '/guide/' }
+                    ]
+                },
+                {
+                    text: '1. Plugin Basics',
+                    collapsed: false,
+                    items: [
                         { text: 'Manifest File', link: '/guide/manifest' },
                         { text: 'Events & Listeners', link: '/guide/events' },
-                        { text: 'Commands', link: '/guide/commands' },
+                        { text: 'Commands', link: '/guide/commands' }
+                    ]
+                },
+                {
+                    text: '2. Player & World',
+                    collapsed: false,
+                    items: [
                         { text: 'Permissions', link: '/guide/permissions' },
                         { text: 'Configuration', link: '/guide/configuration' },
-                        { text: 'Scheduling Tasks', link: '/guide/scheduling' },
+                        { text: 'Scheduling Tasks', link: '/guide/scheduling' }
+                    ]
+                },
+                {
+                    text: '3. Advanced Features',
+                    collapsed: false,
+                    items: [
                         { text: 'Custom UIs', link: '/guide/custom-ui' },
-                        { text: 'Prefabs', link: '/guide/prefabs' },
-                        { text: 'Best Practices', link: '/guide/best-practices' }
+                        { text: 'Prefabs', link: '/guide/prefabs' }
+                    ]
+                },
+                {
+                    text: 'Best Practices',
+                    collapsed: true,
+                    items: [
+                        { text: 'Code Style', link: '/guide/best-practices' }
                     ]
                 }
             ],
