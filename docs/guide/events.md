@@ -8,29 +8,10 @@ This is the heart of plugin development!
 
 Think of events like a notification system:
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│  1. SOMETHING HAPPENS                                         │
-│     Player joins the server                                   │
-└──────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌──────────────────────────────────────────────────────────────┐
-│  2. SERVER CREATES AN EVENT                                   │
-│     new PlayerJoinEvent(player)                              │
-└──────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌──────────────────────────────────────────────────────────────┐
-│  3. SERVER NOTIFIES ALL LISTENERS                             │
-│     "Hey plugins, a player joined!"                          │
-└──────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌──────────────────────────────────────────────────────────────┐
-│  4. YOUR PLUGIN REACTS                                        │
-│     Send welcome message, give items, log to console, etc.   │
-└──────────────────────────────────────────────────────────────┘
+```mermaid
+graph LR
+    Action[1. Player Joins] --> Server[2. Server Creates Event]
+    Server --> Plugin[3. Plugin Reacts]
 ```
 
 ---
@@ -266,9 +247,9 @@ When multiple plugins listen to the same event, who goes first?
 
 ### The Priority Order
 
-```
-LOWEST  →  LOW  →  NORMAL  →  HIGH  →  HIGHEST  →  MONITOR
-(first)                                              (last)
+```mermaid
+graph LR
+    L[LOWEST] --> N[NORMAL] --> H[HIGHEST]
 ```
 
 By default, all handlers use `NORMAL` priority.

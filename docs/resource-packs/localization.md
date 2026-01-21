@@ -1,138 +1,80 @@
-# Localization
+# Localization (Languages)
 
-Add multiple language support to your resource pack.
+Not everyone speaks English. Localization (i18n) lets you support multiple languages easily.
 
-## Language Files
+## How it Works
 
-Create JSON files in the `lang/` directory:
+Instead of hardcoding text like `"Hello!"`, you use a **Translation Key** like `"message.welcome"`. Hytale swaps it for the correct language at runtime.
 
-```
-lang/
-├── en.json     # English (default)
-├── de.json     # German
-├── fr.json     # French
-├── es.json     # Spanish
-└── ja.json     # Japanese
+```mermaid
+graph LR
+    Code[player.sendMessage 'msg.hi'] -->|Lookup| Lang{User Language?}
+    Lang -->|English| EN["Hello!"]
+    Lang -->|German| DE["Hallo!"]
 ```
 
-## Format
+---
 
-Simple key-value JSON:
+## 1. Creating Language Files
 
+Create JSON files in `assets/my_plugin/lang/`:
+
+**en_us.json** (English):
 ```json
 {
-  "menu.title": "My Server",
-  "menu.play": "Play",
-  "menu.settings": "Settings",
-  "menu.quit": "Quit",
-  
-  "item.custom_sword.name": "Custom Sword",
-  "item.custom_sword.description": "A powerful blade",
-  
-  "message.welcome": "Welcome to the server!",
-  "message.goodbye": "See you later!"
+  "item.my_plugin.sword": "Super Sword",
+  "message.my_plugin.welcome": "Welcome back, {0}!"
 }
 ```
 
-## Language Codes
-
-| Code | Language |
-|------|----------|
-| en | English |
-| de | German |
-| fr | French |
-| es | Spanish |
-| pt | Portuguese |
-| it | Italian |
-| ru | Russian |
-| ja | Japanese |
-| ko | Korean |
-| zh | Chinese |
-
-## Variables
-
-Use placeholders for dynamic content:
-
+**de_de.json** (German):
 ```json
 {
-  "message.welcome": "Welcome, {player}!",
-  "message.balance": "You have {amount} coins",
-  "message.players": "{count} players online"
+  "item.my_plugin.sword": "Superschwert",
+  "message.my_plugin.welcome": "Willkommen zurück, {0}!"
 }
 ```
 
-## Pluralization
+---
 
-Handle singular/plural forms:
+## 2. Using Keys in Code
 
-```json
-{
-  "item.count.one": "{count} item",
-  "item.count.other": "{count} items"
-}
+```java
+// DON'T do this:
+player.sendMessage("Welcome back, " + player.getName() + "!");
+
+// DO this:
+player.sendTranslatedMessage("message.my_plugin.welcome", player.getName());
 ```
 
-## Best Practices
+Hytale automatically fills in `{0}` with the player's name.
 
-1. **Use consistent keys** - Follow a naming convention
-2. **Start with English** - Use as the fallback language
-3. **Keep strings short** - UI space is limited
-4. **Test all languages** - Verify nothing breaks
-5. **Use native speakers** - Get accurate translations
+---
 
-## Adding New Languages
+## Standards
 
-1. Copy `en.json` to your new language file
-2. Translate all values
-3. Keep the same keys
-4. Test in-game
+- **Items:** `item.my_plugin.item_name`
+- **Blocks:** `tile.my_plugin.block_name`
+- **Messages:** `message.my_plugin.description`
 
-## Example: Complete Language File
+---
 
-`lang/en.json`:
-```json
-{
-  "server.name": "My Awesome Server",
-  
-  "menu.play": "Play",
-  "menu.settings": "Settings", 
-  "menu.quit": "Quit Game",
-  
-  "ui.inventory": "Inventory",
-  "ui.crafting": "Crafting",
-  "ui.close": "Close",
-  
-  "item.sword.name": "Iron Sword",
-  "item.sword.desc": "A reliable blade",
-  
-  "command.spawn.success": "Teleported to spawn!",
-  "command.spawn.error": "Could not teleport",
-  
-  "error.permission": "You don't have permission",
-  "error.not_found": "Not found"
-}
-```
+## Troubleshooting
 
-`lang/de.json`:
-```json
-{
-  "server.name": "Mein Toller Server",
-  
-  "menu.play": "Spielen",
-  "menu.settings": "Einstellungen",
-  "menu.quit": "Spiel beenden",
-  
-  "ui.inventory": "Inventar",
-  "ui.crafting": "Handwerk",
-  "ui.close": "Schliessen",
-  
-  "item.sword.name": "Eisenschwert",
-  "item.sword.desc": "Eine zuverlässige Klinge",
-  
-  "command.spawn.success": "Zum Spawn teleportiert!",
-  "command.spawn.error": "Teleport fehlgeschlagen",
-  
-  "error.permission": "Keine Berechtigung",
-  "error.not_found": "Nicht gefunden"
-}
-```
+| Problem | Solution |
+|---------|----------|
+| **Shows Raw Key** | If players see `message.welcome` instead of "Hello", the key is missing in the JSON file. |
+| **Wrong Language** | Make sure your filename matches the language code (e.g. `es_es.json`). |
+
+---
+
+## Summary
+
+You've reached the end of the Resource Pack guide!
+
+You now know how to:
+- [x] Organize your files
+- [x] Add custom sounds
+- [x] Translate your plugin
+
+Time to build something amazing!

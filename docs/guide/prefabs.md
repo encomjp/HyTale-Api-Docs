@@ -4,6 +4,11 @@ Prefabs are Hytale's way of saving structures. Think of them like "Copy & Paste"
 
 You build something in-game, save it as a file, and then your plugin can paste it anywhere!
 
+```mermaid
+graph LR
+    Build --> Select --> Save --> Paste
+```
+
 ## How It Works
 
 1. **Build** your structure in a special "Editing World".

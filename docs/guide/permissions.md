@@ -10,6 +10,12 @@ It's a simple lock-and-key system:
 2. **The Key:** The server gives that permission to specific players or groups
 3. **The Result:** If they have the key, the door opens (code executes)
 
+```mermaid
+graph LR
+    Player -->|Has| Key[Permission Key]
+    Key -->|Unlocks| Door[Feature]
+```
+
 ---
 
 ## Checking Permissions

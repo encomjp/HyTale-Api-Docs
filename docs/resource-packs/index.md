@@ -1,72 +1,34 @@
-# Resource Packs Overview
+# Resource Packs
 
-Resource packs bundle game assets for distribution to players connecting to your server.
+**Resource Packs** control the "feel" of the game. While Art Packs add 3D objects, Resource Packs handle the **sounds**, **music**, and **text**.
 
-## What Are Resource Packs?
+## What's Inside?
 
-Resource packs contain:
+| Feature | Description |
+|---------|-------------|
+| **[Sounds](./sounds)** | Effect sounds, music discs, ambient tracks. |
+| **[Localization](./localization)** | Translating your plugin into different languages. |
+| **[Structure](./structure)** | How to organize these files. |
 
-- **Sounds** - Music and sound effects
-- **Configurations** - Game settings and data
-- **Localization** - Translated text
-- **Combined assets** - Art and data together
+## How It Works
 
-## Resource Pack Structure
+It's just like Art Packs: the server sends them to the player automatically.
 
-```
-my-resource-pack/
-├── manifest.json           # Pack metadata
-├── sounds/
-│   ├── music/             # Background music
-│   └── effects/           # Sound effects
-├── lang/
-│   ├── en.json            # English translations
-│   └── de.json            # German translations
-└── data/
-    └── config.json        # Game configurations
+```mermaid
+graph LR
+    Asset[Sound File] -->|Zipped| Pack[Resource Pack]
+    Pack -->|Downloaded| Game[Player Hears Sound]
 ```
 
-## Manifest File
+## Difference vs Minecraft
 
-```json
-{
-  "id": "com.example.my-resource-pack",
-  "name": "My Resource Pack",
-  "version": "1.0.0",
-  "description": "Custom sounds and translations",
-  "type": "resource-pack"
-}
-```
+In Minecraft, a "Resource Pack" does everything (Textures + Sounds).
+In Hytale, we often separate **Art** (Visuals) from **Resources** (Audio/Text), though they technically go in the same `assets/` folder structure.
 
-## Installation
-
-Place resource packs in the server directory:
-
-```
-Server/
-└── resource-packs/
-    └── my-resource-pack/
-        ├── manifest.json
-        └── sounds/
-```
-
-Or as a ZIP file:
-```
-Server/
-└── resource-packs/
-    └── my-resource-pack.zip
-```
-
-## Distribution
-
-Resource packs can be:
-
-1. **Pre-installed** - Included with server setup
-2. **Downloaded** - Sent to clients on connect
-3. **Optional** - Players choose to install
+---
 
 ## Next Steps
 
-- [File Structure](./structure) - Detailed directory layout
-- [Sounds & Music](./sounds) - Adding custom audio
-- [Localization](./localization) - Multiple language support
+Let's see how to organize your files:
+
+→ **Next: [File Structure](./structure)**

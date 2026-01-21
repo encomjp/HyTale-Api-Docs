@@ -25,6 +25,19 @@ public class HelloCommand implements Command {
         player.sendMessage("Hello, " + player.getName() + "!");
     }
 }
+```java
+public class HelloCommand implements Command {
+    // ...
+}
+```
+
+### The Command Lifecycle
+
+```mermaid
+graph LR
+    Input[/hello/] --> Check{Permission?}
+    Check -->|Yes| Run[Run Code]
+    Check -->|No| Deny[Send Error]
 ```
 
 ### Registering Commands

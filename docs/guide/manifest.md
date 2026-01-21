@@ -137,9 +137,12 @@ If your plugin **cannot work** without another plugin:
 ```
 
 **What happens:**
-- Server checks if `com.example.economy` is installed
-- If missing → your plugin **won't load** and server logs an error
 - If present → economy loads first, then your plugin
+
+```mermaid
+graph LR
+    MyPlugin -->|Requires| EconomyPlugin
+```
 
 ### Version Specifiers
 

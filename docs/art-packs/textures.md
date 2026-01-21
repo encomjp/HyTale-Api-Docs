@@ -1,192 +1,96 @@
 # Creating Textures
 
-Learn how to create custom textures for your Hytale art packs.
+Textures are the skin of your game. Every block, item, and entity needs a texture.
 
-## Tools
+## How it Works
 
-### Recommended Software
+Hytale uses standard `.png` images. You can use any image editor like Photoshop, Aseprite, or Blockbench.
 
-| Tool | Price | Best For |
-|------|-------|----------|
-| **Aseprite** | $20 | Pixel art, animations |
-| **GIMP** | Free | General image editing |
-| **Photoshop** | Subscription | Professional editing |
-| **Piskel** | Free (web) | Quick pixel art |
-| **Paint.NET** | Free | Simple edits |
-
-## Block Textures
-
-### Basic Block Texture
-
-Create a square PNG at your desired resolution:
-
-1. Open your image editor
-2. Create new file: 32x32 pixels
-3. Design your texture
-4. Save as PNG with transparency if needed
-
-### Multi-Sided Blocks
-
-For blocks with different sides, create separate textures:
-
-```
-textures/blocks/
-├── custom_block_top.png
-├── custom_block_bottom.png
-└── custom_block_side.png
+```mermaid
+graph LR
+    Draw[Draw Pixel Art] --> Save[Save as .png]
+    Save --> Folder[Put in correct folder]
+    Folder --> JSON[MyConfig.java / .json]
 ```
 
-Or use a texture atlas (single image with all sides):
+---
 
-```
-| Top    | Bottom |
-| Front  | Back   |
-| Left   | Right  |
-```
+## 1. File Formats & Rules
 
-## Item Textures
+- **Format:** `.png` (always!)
+- **Size:** Powers of 2 (16x16, 32x32, 64x64)
+- **Transparency:** Supported (use it for glass, leaves, etc.)
 
-### Standard Items
-
-Create a 32x32 PNG with transparent background:
-
-1. Design your item
-2. Use transparency for empty space
-3. Save as PNG
-
-### Handheld Items
-
-Items held by players may need specific orientations:
-
-```
-textures/items/
-├── sword_custom.png           # Inventory icon
-└── sword_custom_handheld.png  # In-hand model
-```
-
-## Transparency
-
-### When to Use
-
-- Item backgrounds (always)
-- Decorations (leaves, flowers)
-- Partial blocks (fences, stairs)
-
-### How to Add
-
-In GIMP/Photoshop:
-1. Select the background
-2. Delete it
-3. Ensure layer has alpha channel
-4. Export as PNG-24 with transparency
-
-### Standard Resolutions
-
-Hytale uses a mix of resolutions to achieve its unique aesthetic:
-
-- **Blocks**: Typically **32x32** pixels. This maintains a slightly coarser, classic voxel look for terrain and building materials.
-- **Characters & Mobs**: Typically **64x64** pixels. This allows for more expressive faces, detailed clothing, and distinct visual features.
-- **Items**: Often **32x32**, but can vary based on the item type (e.g. detailed weapons might be higher).
-
-::: tip Consistency
-You can use higher resolutions (like 128x), but sticking to 32x (blocks) and 64x (entities) ensures your assets blend seamlessly with the vanilla game style.
+::: tip Naming Convention
+Use `snake_case` for filenames. No spaces or capitals! 
+- ✅ `my_sword.png`
+- ❌ `My Sword.png`
 :::
 
-## Texture Tips
+---
 
-### Consistent Style
+## 2. Where to Put Them
 
-Keep a consistent art style across all textures:
-
-- Same color palette
-- Same level of detail
-- Same shading direction
-- Same outline thickness (if using outlines)
-
-### Color Palette
-
-Create a limited color palette for consistency:
+Your textures go inside your project's resource folder.
 
 ```
-Base colors:    5-8 main colors
-Shades:         2-3 shades per color
-Highlights:     1-2 per color
+src
+└── main
+    └── resources
+        └── assets
+            └── textures
+                ├── items
+                │   └── my_custom_sword.png
+                ├── blocks
+                │   └── my_custom_block.png
+                ├── entities
+                │   └── my_custom_zombie.png
+                └── ui
+                    └── my_menu_bg.png
 ```
 
-### Avoiding Tiling Issues
+---
 
-For repeating textures (like blocks):
+## 3. Registering Textures
 
-1. Make edges seamless
-2. Test by tiling the image
-3. Avoid obvious patterns that repeat
+Just having the file isn't enough. You usually need to tell Hytale about it in a JSON file or your Plugin code.
 
-## Animated Textures
+### Example: Custom Item Model
 
-Create frame-by-frame animations:
+If you have `my_sword.png`, you reference it in your item definition:
 
-```
-textures/blocks/
-└── water.png        # Strip of frames (32x128 = 4 frames)
-```
-
-Animation metadata (`water.json`):
 ```json
 {
-  "animation": {
-    "frametime": 2,
-    "frames": [0, 1, 2, 3, 2, 1]
-  }
+  "name": "my_sword",
+  "texture": "assets/textures/items/my_custom_sword.png"
 }
 ```
 
-## Replacing Default Textures
+---
 
-Match the exact filename of the texture you want to replace:
+## Tools We Recommend
 
-```
-# Find default texture name
-textures/blocks/stone.png
+| Tool | Purpose | Cost |
+|------|---------|------|
+| **Blockbench** | 3D Models & Texturing | Free |
+| **Aseprite** | Pixel Art (Best choice) | Paid |
+| **GIMP** | General Image Editing | Free |
+| **Paint.NET** | Simple Image Editing | Free |
 
-# Your replacement
-textures/blocks/stone.png  (same name, your design)
-```
+---
 
-## Creating Variations
+## Troubleshooting
 
-Add variety with random textures:
+| Problem | Cause | Solution |
+|---------|-------|----------|
+| **Purple/Black Checkerboard** | Texture missing | Check if filename matches *exactly* (case-sensitive!) |
+| **Blurry Texture** | Wrong import settings | Make sure to set scaling to "Nearest Neighbor" |
+| **White Background** | No transparency | Erase the background in your image editor |
 
-```
-textures/blocks/
-├── grass.png
-├── grass_1.png
-├── grass_2.png
-└── grass_3.png
-```
+---
 
-## Exporting
+## Next Steps
 
-### Export Settings
+Now that you have textures, let's put them on a 3D object:
 
-- **Format**: PNG
-- **Color Mode**: RGB with Alpha
-- **Bit Depth**: 8-bit (PNG-24)
-- **Interlacing**: None
-
-### File Size
-
-Keep textures optimized:
-- Use PNG optimization tools
-- Remove metadata
-- Choose appropriate resolution
-
-## Quality Checklist
-
-Before finalizing textures:
-
-- [ ] Correct dimensions (power of 2)
-- [ ] Transparency working correctly
-- [ ] No white edges around transparent areas
-- [ ] Consistent style with other textures
-- [ ] Seamless tiling (for blocks)
-- [ ] Filename matches target asset
+→ **Next: [Custom Models](./models)**

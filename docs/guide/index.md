@@ -36,34 +36,11 @@ Before we dive into code, let's understand what happens when your plugin runs.
 
 Every plugin goes through these stages:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         SERVER STARTS                            │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  1. LOAD                                                         │
-│  Server finds your JAR in the mods folder and reads manifest.json│
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  2. ENABLE                                                       │
-│  Server calls your onEnable() method - set up everything here    │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  3. RUNNING                                                      │
-│  Plugin responds to events and commands as players interact      │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  4. DISABLE                                                      │
-│  Server calls onDisable() when shutting down - clean up here     │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+graph LR
+    Load[1. LOAD FILE] --> Enable[2. ENABLE PLUGIN]
+    Enable --> Run[3. RUN GAME LOOP]
+    Run --> Disable[4. DISABLE PLUGIN]
 ```
 
 ### What Goes Where?

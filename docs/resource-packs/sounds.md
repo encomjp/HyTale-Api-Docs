@@ -1,108 +1,81 @@
 # Sounds & Music
 
-Add custom audio to your resource pack.
+Atmosphere is everything. Hytale allows you to add custom sound effects, ambient loops, and music discs.
 
-## Audio Formats
+## How it Works
 
-### Recommended: OGG Vorbis
+1. **File:** You need an `.ogg` audio file.
+2. **Definition:** You describe it in `sounds.json`.
+3. **Trigger:** You play it using the API.
 
-- Good compression
-- Excellent quality
-- Widely supported
-
-### Conversion
-
-Convert audio files using:
-
-- **Audacity** (free)
-- **FFmpeg** (command line)
-
-```bash
-# Convert WAV to OGG
-ffmpeg -i input.wav -c:a libvorbis -q:a 5 output.ogg
-
-# Convert MP3 to OGG
-ffmpeg -i input.mp3 -c:a libvorbis -q:a 5 output.ogg
+```mermaid
+graph LR
+    File[boom.ogg] --> JSON[sounds.json]
+    JSON --> Event[Event: myplugin:boom]
+    Event --> Code[Play in Code]
 ```
 
-## Sound Categories
+---
 
-Organize sounds by type:
+## 1. The Audio File
 
-```
-sounds/
-├── music/           # 2-4 minute tracks
-├── ambient/         # Environmental loops
-├── effects/         # Short sound effects
-├── ui/              # Interface sounds
-└── creatures/       # Entity sounds
-```
+- **Format:** `.ogg` (Vorbis)
+- **Channels:** Mono (for positional audio) or Stereo (for music/ambient).
+- **Location:** `assets/my_plugin/sounds/`
 
-## Sound Definitions
+::: tip Mono vs Stereo
+- **Mono (1 channel):** Sound comes from a specific block/entity (3D). Use this for effects.
+- **Stereo (2 channels):** Sound is played "in your head". Use this for music.
+:::
 
-Define sounds in `sounds.json`:
+---
+
+## 2. definitions in sounds.json
+
+Create `assets/my_plugin/sounds.json`. This tells Hytale how to play your files.
 
 ```json
 {
-  "sounds": {
-    "custom.explosion": {
-      "files": ["effects/explosion.ogg"],
-      "volume": 1.0,
-      "pitch": 1.0
-    },
-    "custom.music.combat": {
-      "files": ["music/combat.ogg"],
-      "volume": 0.5,
-      "loop": true,
-      "category": "music"
-    }
+  "my_magic_spell": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "my_plugin:sounds/magic_spell",
+        "volume": 0.8,
+        "pitch": 1.0
+      }
+    ]
   }
 }
 ```
 
-## Sound Properties
+- **my_magic_spell**: The ID you use in code.
+- **name**: The path to the file (without `.ogg`).
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `files` | string[] | List of audio files |
-| `volume` | float | 0.0 to 1.0 |
-| `pitch` | float | 0.5 to 2.0 |
-| `loop` | boolean | Repeat continuously |
-| `category` | string | music, effect, ambient |
+---
 
-## Random Variations
+## 3. Playing the Sound
 
-Add variety with multiple files:
+Now standard Hytale API can play it:
 
-```json
-{
-  "sounds": {
-    "footstep.grass": {
-      "files": [
-        "effects/footstep_grass_1.ogg",
-        "effects/footstep_grass_2.ogg",
-        "effects/footstep_grass_3.ogg"
-      ],
-      "volume": 0.8
-    }
-  }
-}
+```java
+player.playSound("my_plugin:my_magic_spell", location, 1.0f, 1.0f);
 ```
 
-The game picks randomly from the list.
+---
 
-## Audio Tips
+## Troubleshooting
 
-### Volume Levels
+| Problem | Cause | Solution |
+|---------|-------|----------|
+| **Silent** | Wrong path | Check `sounds.json` path. `my_plugin:sounds/file` means `assets/my_plugin/sounds/file.ogg`. |
+| **Silent** | Wrong format | Must be `.ogg`. MP3/WAV won't work. |
+| **Not 3D** | Stereo file | Convert the file to Mono in Audacity. |
 
-- **Music**: 0.3 - 0.5 (background)
-- **Ambient**: 0.5 - 0.7
-- **Effects**: 0.7 - 1.0
-- **UI**: 0.8 - 1.0
+---
 
-### File Optimization
+## Next Steps
 
-- Use mono for effects (smaller files)
-- Use stereo for music
-- Sample rate: 44100 Hz
-- Quality: 5-7 for OGG (-q:a flag)
+Make your plugin speak multiple languages:
+
+→ **Next: [Localization](./localization)**

@@ -32,6 +32,11 @@ Let's say we want to configure a welcome message and a teleport delay. Create a 
 
 Now create a Java class that looks just like your JSON. The field names must match exactly!
 
+```mermaid
+graph LR
+    File[config.json] -->|Load| Java[Config.java]
+```
+
 ```java
 public class MyConfig {
     // Default values (used if file is missing)

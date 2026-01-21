@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
     title: 'Hytale Developer Docs',
     description: 'Documentation for Hytale server plugins, art packs, and resource packs',
 
@@ -241,4 +242,4 @@ export default defineConfig({
     markdown: {
         lineNumbers: true
     }
-})
+}))

@@ -17,6 +17,11 @@ The server tries to run 20 ticks every second.
 `Seconds * 20 = Ticks`
 :::
 
+```mermaid
+graph LR
+    S[1 Second] === T[20 Ticks]
+```
+
 ---
 
 ## 1. Running Tasks Later
@@ -140,6 +145,12 @@ CompletableFuture.runAsync(() -> {
         player.sendMessage("Data saved!");
     });
 });
+```
+
+```mermaid
+graph TD
+    Main[Main Thread] -->|Start Work| Async[Async Thread]
+    Async -->|Work Done| Main
 ```
 
 ::: danger The Golden Rule
