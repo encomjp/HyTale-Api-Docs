@@ -1,87 +1,106 @@
-# Introduction
+# Getting Started with Hytale Development
 
-Welcome to the Hytale Developer Documentation. Whether you're looking to create plugins, design art packs, or build resource packs, this guide will help you get started.
+Welcome! This guide will walk you through everything you need to start creating plugins for Hytale.
 
-::: tip New to Hytale Development?
-Follow our guides in order:
-- **[Server Setup](./server-setup)**: Installing Java 25 and running the server.
-- **[IDE Setup](./ide-setup)**: Configuring IntelliJ for the best experience.
-- **[First Plugin](./first-plugin)**: Writing your first "Hello World".
-- **[Debugging](./debugging)**: How to read logs and fix common errors.
+::: tip Complete Beginner?
+No worries! Follow the steps below in order, and you'll have your first plugin running in about 30 minutes.
 :::
+
+## The Journey
+
+Here's what we'll do together:
+
+| Step | What You'll Do | Time |
+|------|----------------|------|
+| **1. Install the Server** | Get a Hytale server running locally | ~10 min |
+| **2. Set Up Your IDE** | Configure your code editor | ~5 min |
+| **3. Create Your Plugin** | Build and run a "Hello World" plugin | ~15 min |
+
+---
+
+## Step 1: Install the Server
+
+First, you need a Hytale server to test your plugins on.
+
+Choose your operating system:
+- 🪟 **[Windows Setup](./server-setup-windows)** - Most common
+- 🐧 **[Linux Setup](./server-setup-linux)** - For servers and advanced users
+- 🐳 **[Docker Setup](./server-setup-docker)** - For homelab enthusiasts (community image)
+
+::: info What You'll Install
+- **Java 21+** - The runtime Hytale needs
+- **Hytale Server** - Downloaded via the official Hytale Downloader
+- **Assets** - Game files the server requires
+:::
+
+---
+
+## Step 2: Set Up Your IDE
+
+An IDE (Integrated Development Environment) makes coding much easier with features like autocomplete, error highlighting, and debugging.
+
+Choose your editor:
+- 💻 **[Visual Studio Code](./ide-vscode)** - Lightweight, free, great for beginners
+- 🧠 **[IntelliJ IDEA](./ide-intellij)** - Powerful, professional, best for Java
+
+::: tip Which Should I Choose?
+**VS Code** if you want something simple and fast.
+**IntelliJ** if you want the best Java development experience.
+:::
+
+---
+
+## Step 3: Create Your Plugin
+
+Now the fun part! You'll create a project and write your first plugin.
+
+1. **[Project Setup](./project-setup)** - Create a Gradle or Maven project
+2. **[Hello World](./hello-world)** - Write code that welcomes players
+
+After completing these, your plugin will:
+- ✅ Load when the server starts
+- ✅ Welcome players when they join
+- ✅ Log messages to the console
+
+---
 
 ## What Can You Create?
 
 ### Plugins
-
-Server-side modifications written in Java or Kotlin that extend server functionality. Plugins can:
-
-- Add custom commands for players
-- React to in-game events (player joins, block breaks, etc.)
-- Implement new game mechanics and systems
-- Manage permissions and player data
-- Integrate with external services and databases
+Server-side modifications in Java or Kotlin:
+- Custom commands (`/home`, `/spawn`, `/kit`)
+- Event reactions (welcome messages, death announcements)
+- New game mechanics (economy, quests, minigames)
+- Permissions and moderation tools
 
 ### Art Packs
-
-Visual assets that customize the appearance of the game:
-
-- Custom block and item textures
+Visual customizations:
+- Block and item textures
 - Character skins and models
-- UI elements and icons
-- Particle effects and animations
+- UI elements and particles
 
 ### Resource Packs
-
-Collections of game resources distributed to clients:
-
+Game resources:
 - Sounds and music
-- Configuration files
 - Localization and translations
-- Combined art and data assets
+- Configuration files
 
-## Required Tools
+---
 
-Before you start, you'll need to install a few things. Here are the official recommended versions:
+## Quick Links
 
-### 1. Java Development Kit (JDK) 25
-Hytale runs on the latest Java technology. You **must** have Java 25 or higher.
+| Resource | Description |
+|----------|-------------|
+| [Common Issues](./common-issues) | Solutions to frequent problems |
+| [Debugging Guide](./debugging) | How to read logs and fix bugs |
+| [Port Forwarding](./port-forwarding) | Let friends connect to your server |
+| [Using Tailscale](./tailscale) | Easy way to play with friends |
 
-- **[Download JDK 25 (Adoptium)](https://adoptium.net/temurin/releases/?version=25)** - Recommended
-- [Oracle JDK 25](https://www.oracle.com/java/technologies/downloads/) - Alternative
+## Resources
 
-### 2. Code Editor (IDE)
-We recommend IntelliJ IDEA for the best experience with Kotlin/Java and Hytale's API.
-
-- **[IntelliJ IDEA Community](https://www.jetbrains.com/idea/download/)** - Free, powerful, highly recommended.
-- [Visual Studio Code](https://code.visualstudio.com/) - Good alternative if you prefer a lightweight editor.
-
-### 3. Build Tools
-Most templates include Gradle, but having it installed generally is good practice.
-
-- **[Gradle Build Tool](https://gradle.org/install/)** - The standard build system for Hytale plugins.
-
-### 4. Hytale Server
-You'll need a local server for testing.
-
-- **[Hytale Downloader](https://downloader.hytale.com/hytale-downloader.zip)** - Official tool to download/update the server jar.
-
-## Development Workflow
-
-A typical plugin development workflow looks like this:
-
-1. **Set up your environment** - Install Java, IDE, and download the server
-2. **Create a new project** - Use a template or start from scratch
-3. **Write your code** - Implement features using the Hytale API
-4. **Build your plugin** - Compile to a JAR file
-5. **Test locally** - Deploy to your development server
-6. **Iterate** - Fix bugs, add features, repeat
-
-## Getting Help
-
-If you get stuck, here are some resources:
-
-- [Community Modding Wiki](https://hytalemodding.dev/en/docs) - Community-maintained documentation
 - [Official Server Manual](https://support.hytale.com/hc/en-us/articles/45326769420827-Hytale-Server-Manual) - Official Hytale documentation
-- [Hytale Downloader](https://downloader.hytale.com/hytale-downloader.zip) - Download server files
-- **Decompiled Server JAR** - The source of truth for API symbols and methods
+- [This Documentation on GitHub](https://github.com/encomjp/HyTale-Api-Docs) - Contribute or report issues
+
+---
+
+Ready? Let's start with **[installing the server →](./server-setup-windows)**

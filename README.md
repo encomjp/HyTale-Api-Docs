@@ -1,8 +1,10 @@
-# HyTale API Docs
+# HyTale API Documentation
 
 Community-maintained documentation for Hytale server plugins, art packs, and resource packs.
 
-## 🚀 Quick Start
+**Repository**: [github.com/encomjp/HyTale-Api-Docs](https://github.com/encomjp/HyTale-Api-Docs)
+
+## Quick Start
 
 ```bash
 # Install dependencies
@@ -15,24 +17,48 @@ npm run dev
 npm run build
 ```
 
-## 📚 Documentation Structure
+## Documentation Structure
 
-- `/docs/getting-started/` - Setup guides and tutorials
-- `/docs/guide/` - Plugin development guides
-- `/docs/api/` - API reference documentation
-- `/docs/reference/` - ID lists (entities, events, sounds, etc.)
-- `/docs/art-packs/` - Art pack creation guides
-- `/docs/resource-packs/` - Resource pack guides
+```
+docs/
+├── getting-started/    Setup guides and tutorials
+├── guide/              Plugin development guides
+├── api/                API reference documentation
+├── reference/          ID lists (entities, events, sounds)
+├── art-packs/          Art pack creation guides
+└── resource-packs/     Resource pack guides
+```
 
-## 🛠️ Built With
+## Topics Covered
+
+**Getting Started**
+- Server installation (Windows, Linux, Docker)
+- IDE setup (VS Code, IntelliJ IDEA)
+- Project configuration (Gradle, Maven)
+- Hello World plugin tutorial
+
+**Plugin Development**
+- Events and listeners
+- Custom commands
+- Permissions system
+- Configuration files
+- Prefabs
+
+**Reference Data**
+- 500+ Entity IDs
+- Event types
+- Sound IDs
+- Block and Item IDs
+
+## Built With
 
 - [VitePress](https://vitepress.dev/) - Static site generator
 - Markdown with custom containers
 
-## 🤝 Contributing
+## Contributing
 
-Contributions welcome! Please read the documentation style guide before submitting PRs.
+Contributions welcome! Please ensure your documentation follows the existing style before submitting pull requests.
 
-## 📝 License
+## License
 
-This documentation is community-maintained and unofficial.
+This documentation is community-maintained and unofficial. Not affiliated with Hypixel Studios.

@@ -270,8 +270,8 @@ If you're new to programming, these free resources are excellent:
 - **[Hyperskill (JetBrains Academy)](https://hyperskill.org/)** - Project-based learning (great for detailed learning).
 
 ### Hytale Specific
-- **[Hytale Modding Wiki](https://hytalemodding.dev/en/docs)** - Community maintained documentation.
-- **[Official Hytale Discord](https://discord.com/invite/hytale)** - Ask questions in the modding channels.
+- **[Official Server Manual](https://support.hytale.com/hc/en-us/articles/45326769420827-Hytale-Server-Manual)** - Official documentation
+- **Decompiled HytaleServer.jar** - The source of truth for API classes
 
 ::: warning Verified Code
 The code in this tutorial is based on the structure found in `HytaleServer.jar`.

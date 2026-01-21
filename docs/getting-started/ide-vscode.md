@@ -55,3 +55,13 @@ If VS Code doesn't recognize Hytale classes:
 1.  Open `build.gradle.kts`.
 2.  Ensure the path to `HytaleServer.jar` is correct.
 3.  Run the command **Java: Clean Java Language Server Workspace** from the Command Palette (`Ctrl+Shift+P`).
+
+---
+
+## Next Steps
+
+Your IDE is ready! Now create your first plugin project:
+
+→ **[Project Setup](/getting-started/project-setup)** - Create a Gradle or Maven project
+
+→ **[Hello World](/getting-started/hello-world)** - Write your first plugin code

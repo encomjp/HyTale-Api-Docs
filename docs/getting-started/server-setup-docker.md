@@ -23,7 +23,6 @@ We recommend the most popular community image (as of 21/01/2026):
 
 - **Docker Hub**: [hub.docker.com/r/deinfreu/hytale-server](https://hub.docker.com/r/deinfreu/hytale-server)
 - **GitHub**: Check the project for updates and documentation
-- **Discord**: Community support available
 
 ## Quick Start (CLI)
 

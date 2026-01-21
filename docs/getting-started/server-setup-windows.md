@@ -82,6 +82,12 @@ goto loop
 
 ## Next Steps
 
-- [IDE: Visual Studio Code](/getting-started/ide-vscode) - Set up your editor
-- [IDE: IntelliJ IDEA](/getting-started/ide-intellij) - Professional IDE setup
-- [First Plugin](/getting-started/first-plugin) - Build your first plugin
+Your server is ready! Now set up your development environment:
+
+→ **[Set up VS Code](/getting-started/ide-vscode)** - Lightweight editor, great for beginners
+
+→ **[Set up IntelliJ IDEA](/getting-started/ide-intellij)** - Professional IDE, best for Java
+
+Or if you prefer a different OS:
+- [Linux Setup](/getting-started/server-setup-linux)
+- [Docker Setup](/getting-started/server-setup-docker)

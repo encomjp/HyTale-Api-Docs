@@ -150,7 +150,4 @@ java -jar HytaleServer.jar --assets Assets.zip
 ## Still Stuck?
 
 - Check server logs in the console for specific error messages
-- Search the [Hytale Modding Wiki](https://hytalemodding.dev/en/docs)
-- Join the community Discord servers:
-  - **[Official Hytale Discord](https://discord.gg/hytale)** - Official server with modding channels
-  - **[Hytale Creation](https://discord.gg/QqVNUANZCV)** - Unofficial modding community
+- Open an issue on [GitHub](https://github.com/encomjp/HyTale-Api-Docs/issues)
