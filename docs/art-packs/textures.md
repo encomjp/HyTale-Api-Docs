@@ -70,12 +70,12 @@ If you have `my_sword.png`, you reference it in your item definition:
 
 ## Tools We Recommend
 
-| Tool | Purpose | License | Cost |
-|------|---------|---------|------|
-| **Blockbench** | 3D Models & Texturing | Open Source | Free |
-| **Aseprite** | Pixel Art (Best choice) | Source Available | Paid |
-| **GIMP** | General Image Editing | Open Source | Free |
-| **Paint.NET** | Simple Image Editing | Closed Source | Free |
+| Tool | Purpose | License | Cost | Links |
+|------|---------|---------|------|-------|
+| **Blockbench** | 3D Models & Texturing | Open Source | Free | [Download](https://www.blockbench.net) \| [Source](https://github.com/JannisX11/blockbench) |
+| **Aseprite** | Pixel Art (Best choice) | Source Available | Paid | [Download](https://www.aseprite.org) \| [Source](https://github.com/aseprite/aseprite) |
+| **GIMP** | General Image Editing | Open Source | Free | [Download](https://www.gimp.org) \| [Source](https://gitlab.gnome.org/GNOME/gimp) |
+| **Paint.NET** | Simple Image Editing | Closed Source | Free | [Download](https://www.getpaint.net) |
 
 ::: tip Why GIMP?
 GIMP is fully **Open Source** and free forever. It has powerful features comparable to Photoshop, making it a great choice if you're on a budget!
