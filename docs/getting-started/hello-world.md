@@ -124,7 +124,7 @@ cp build/libs/my-plugin.jar "D:/HyTale Server/Server/mods/"
 | Plugin not loading | Check `manifest.json` is in the JAR root |
 | ClassNotFoundException | Verify `entrypoint` matches your class path |
 | No welcome message | Ensure `context.getEventManager().register(this)` is called |
-| Build fails | Check Java version is 21+ |
+| Build fails | Check Java version is 25+ |
 
 ## Adding More Features
 

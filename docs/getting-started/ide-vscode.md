@@ -4,7 +4,7 @@ Visual Studio Code (VS Code) is a lightweight but powerful editor that works gre
 
 ## Prerequisites
 
-1.  **Install Java Development Kit (JDK) 21 or higher**.
+1.  **Install Java Development Kit (JDK) 25 or higher**.
     *   We recommend [Eclipse Temurin](https://adoptium.net/).
 2.  **Install VS Code**.
 

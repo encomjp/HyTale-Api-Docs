@@ -28,7 +28,7 @@ Choose your operating system:
 - 🐳 **[Docker Setup](./server-setup-docker)** - For homelab enthusiasts (community image)
 
 ::: info What You'll Install
-- **Java 21+** - The runtime Hytale needs
+- **Java 25+** - The runtime Hytale needs
 - **Hytale Server** - Downloaded via the official Hytale Downloader
 - **Assets** - Game files the server requires
 :::

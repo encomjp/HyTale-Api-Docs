@@ -4,7 +4,7 @@ Before writing your first plugin, you need to set up a proper Java project with 
 
 ## Prerequisites
 
-- [Java 21+ installed](/getting-started/server-setup-windows)
+- [Java 25+ installed](/getting-started/server-setup-windows)
 - An IDE ([VS Code](/getting-started/ide-vscode) or [IntelliJ](/getting-started/ide-intellij))
 - Access to `HytaleServer.jar` (from your server installation)
 
@@ -49,7 +49,7 @@ version = "1.0.0"
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
 
@@ -143,8 +143,8 @@ my-plugin/
     <packaging>jar</packaging>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

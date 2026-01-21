@@ -75,6 +75,7 @@ export default defineConfig({
                         { text: 'Permissions', link: '/guide/permissions' },
                         { text: 'Configuration', link: '/guide/configuration' },
                         { text: 'Scheduling Tasks', link: '/guide/scheduling' },
+                        { text: 'Custom UIs', link: '/guide/custom-ui' },
                         { text: 'Prefabs', link: '/guide/prefabs' },
                         { text: 'Best Practices', link: '/guide/best-practices' }
                     ]

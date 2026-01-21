@@ -4,6 +4,10 @@ Community-maintained documentation for Hytale server plugins, art packs, and res
 
 **Repository**: [github.com/encomjp/HyTale-Api-Docs](https://github.com/encomjp/HyTale-Api-Docs)
 
+## Prerequisites
+
+- [Node.js 18+](https://nodejs.org/) (LTS recommended)
+
 ## Quick Start
 
 ```bash

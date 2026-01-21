@@ -58,7 +58,7 @@ hello-world/
 
 ## Step 2: Configure Gradle
 
-If you haven't initialized Gradle yet, run `gradle init` (select "Java Application", "Kotlin DSL", "JUnit Jupiter") or manually create these files. You'll need JDK 21 or newer installed.
+If you haven't initialized Gradle yet, run `gradle init` (select "Java Application", "Kotlin DSL", "JUnit Jupiter") or manually create these files. You'll need JDK 25 or newer installed.
 
 ### settings.gradle.kts
 
@@ -80,8 +80,8 @@ version = "1.0.0"
 
 java {
     toolchain {
-        // Hytale requires Java 21 or higher
-        languageVersion.set(JavaLanguageVersion.of(21))
+        // Hytale requires Java 25 or higher
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
 

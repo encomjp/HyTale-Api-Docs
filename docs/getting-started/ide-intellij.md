@@ -4,7 +4,7 @@ IntelliJ IDEA is the most popular IDE for Java development and highly recommende
 
 ## Prerequisites
 
-1.  **Install Java Development Kit (JDK) 21 or higher**.
+1.  **Install Java Development Kit (JDK) 25 or higher**.
     *   We recommend [Eclipse Temurin](https://adoptium.net/).
 2.  **Install IntelliJ IDEA** (Community Edition is free and sufficient).
 
