@@ -75,7 +75,7 @@ If you have `my_sword.png`, you reference it in your item definition:
 | **Blockbench** | 3D Models & Texturing | <Badge type="tip" text="Open Source (GPL)" /> | Free | [Website](https://www.blockbench.net) | [GitHub](https://github.com/JannisX11/blockbench) |
 | **Aseprite** | Pixel Art (Best choice) | <Badge type="warning" text="Source Available" /> | Paid | [Website](https://www.aseprite.org) | [GitHub](https://github.com/aseprite/aseprite) |
 | **GIMP** | General Image Editing | <Badge type="tip" text="Open Source (GPL)" /> | Free | [Website](https://www.gimp.org) | [GitLab](https://gitlab.gnome.org/GNOME/gimp) |
-| **Paint.NET** | Simple Image Editing | <Badge type="danger" text="Closed Source" /> | Free | [Website](https://www.getpaint.net) | - |
+| **Paint.NET** | Simple Image Editing | <Badge text="Closed Source" /> | Free | [Website](https://www.getpaint.net) | - |
 
 ::: tip Why Blockbench?
 Blockbench is the industry standard for Hytale modeling. It is fully **Open Source** (GPL) and allows you to paint textures directly onto your 3D models!
