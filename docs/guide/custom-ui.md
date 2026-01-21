@@ -41,7 +41,7 @@ UI files use a custom DSL (Domain-Specific Language) to define layout, styling, 
 
 ### Basic Structure
 
-```ui
+```	ext
 // my_plugin_menu.ui
 // Comments start with //
 
@@ -87,7 +87,7 @@ $C.@PageOverlay {
 
 Use `#` to assign IDs to elements for later reference in Java:
 
-```ui
+```	ext
 Label #PlayerName {
   Text: "Unknown";
 }
@@ -97,7 +97,7 @@ In Java, reference as `"#PlayerName.Text"`.
 
 #### Layout Modes
 
-```ui
+```	ext
 Group {
   LayoutMode: Top;    // Stack children vertically
   // or
@@ -107,7 +107,7 @@ Group {
 
 #### Anchoring & Sizing
 
-```ui
+```	ext
 Group {
   Anchor: (
     Width: 200,
@@ -122,7 +122,7 @@ Group {
 
 #### Text Styling
 
-```ui
+```	ext
 Label {
   Text: "Hello World";
   Style: (
@@ -140,7 +140,7 @@ Label {
 
 Colors use hex format: `#RRGGBB` or `#RRGGBBAA`
 
-```ui
+```	ext
 Background: #1a2533;
 OutlineColor: #93844c;
 TextColor: #E0E0E0;
@@ -150,7 +150,7 @@ TextColor: #E0E0E0;
 
 #### Checkbox
 
-```ui
+```	ext
 $C = "../Common.ui";
 
 $C.@CheckBox #MyCheckbox {
@@ -160,7 +160,7 @@ $C.@CheckBox #MyCheckbox {
 
 #### Text Button
 
-```ui
+```	ext
 @MyButtonStyle = TextButtonStyle(
   Default: (Background: #3a5068, LabelStyle: (FontSize: 14, TextColor: #ffffff)),
   Hovered: (Background: #4a6078, LabelStyle: (FontSize: 14, TextColor: #ffffff)),
@@ -178,7 +178,7 @@ TextButton #MyButton {
 
 Use `FlexWeight` to distribute space:
 
-```ui
+```	ext
 Group {
   LayoutMode: Left;
   
@@ -369,7 +369,7 @@ Here's a full working example of a settings menu with checkboxes:
 
 ### UI File: `settings_menu.ui`
 
-```ui
+```	ext
 $C = "../Common.ui";
 
 @SettingsRow = Group {
