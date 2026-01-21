@@ -77,8 +77,8 @@ If you have `my_sword.png`, you reference it in your item definition:
 | **GIMP** | General Image Editing | <Badge type="tip" text="Open Source (GPL)" /> | Free | [Website](https://www.gimp.org) | [GitLab](https://gitlab.gnome.org/GNOME/gimp) |
 | **Paint.NET** | Simple Image Editing | <Badge type="danger" text="Closed Source" /> | Free | [Website](https://www.getpaint.net) | - |
 
-::: tip Why GIMP?
-GIMP is fully **Open Source** and free forever. It has powerful features comparable to Photoshop, making it a great choice if you're on a budget!
+::: tip Why Blockbench?
+Blockbench is the industry standard for Hytale modeling. It is fully **Open Source** (GPL) and allows you to paint textures directly onto your 3D models!
 :::
 
 ---
