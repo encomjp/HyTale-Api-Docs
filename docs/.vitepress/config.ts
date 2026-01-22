@@ -51,7 +51,7 @@ export default withMermaid(defineConfig({
                     collapsed: false,
                     items: [
                         { text: 'Project Setup', link: '/getting-started/project-setup' },
-                        { text: 'Hello World', link: '/getting-started/hello-world' },
+                        { text: 'Your First Plugin', link: '/getting-started/first-plugin' },
                         { text: 'Debugging', link: '/getting-started/debugging' }
                     ]
                 },

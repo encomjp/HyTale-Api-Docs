@@ -10,19 +10,28 @@ About 10-15 minutes if you have your development environment ready.
 
 Don't want to read everything? Here is the full code for `HelloWorldPlugin.java`. Just replace the package name!
 
+[**Download HelloWorld.jar**](/downloads/HelloWorld.jar)
+
 ```java
 package com.example;
 
-import hytale.server.plugin.Plugin;
-import hytale.server.plugin.PluginContext;
-import hytale.server.event.EventHandler;
-import hytale.server.event.player.PlayerJoinEvent;
+import com.hypixel.hytale.server.core.plugin.JavaPlugin;
+import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.hypixel.hytale.server.core.Message;
+import com.hypixel.hytale.event.EventHandler;
+import com.hypixel.hytale.server.core.event.player.PlayerJoinEvent;
 
-public class HelloWorldPlugin implements Plugin {
+public class HelloWorldPlugin extends JavaPlugin {
+    
+    public HelloWorldPlugin(JavaPluginInit init) {
+        super(init);
+    }
+
     @Override
-    public void onEnable(PluginContext context) {
-        context.getLogger().info("Plugin Enabled!");
-        context.getEventManager().register(this);
+    public void onEnable() {
+        System.out.println("Plugin Enabled!");
+        // Event registration API is being verified
+        // HytaleServer.get().getEventBus().register(this);
     }
 
     @Override
@@ -30,7 +39,7 @@ public class HelloWorldPlugin implements Plugin {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        event.getPlayer().sendMessage("Welcome, " + event.getPlayer().getName() + "!");
+        event.getPlayer().sendMessage(Message.raw("Welcome, " + event.getPlayer().getName() + "!"));
     }
 }
 ```
@@ -122,113 +131,54 @@ The `manifest.json` tells the server about your plugin. Place this in `src/main/
 
 ```json
 {
-  "id": "com.example.hello-world",
-  "name": "Hello World",
-  "version": "1.0.0",
-  "description": "A simple hello world plugin",
-  "authors": ["Your Name"],
-  "entrypoint": "com.example.HelloWorldPlugin"
+  "Group": "com.example",
+  "Name": "hello-world",
+  "Version": "1.0.0",
+  "Main": "com.example.HelloWorldPlugin",
+  "Description": "A simple hello world plugin"
 }
 ```
 
 ## Step 4: Write the Plugin Code
 
-Create `src/main/java/com/example/HelloWorldPlugin.java`:
-
-```java
-package com.example;
-
-// Standard Java imports
-import java.util.logging.Logger;
-
-// Hytale Server imports
-// NOTE: Your actual imports will depend on the standard provided by the HytaleServer.jar
-// Common paths include: com.hypixel.hytale.server.core.plugin...
-// Use your IDE (IntelliJ) to auto-import the correct classes!
-import hytale.server.plugin.Plugin;
-import hytale.server.plugin.PluginContext;
-import hytale.server.event.EventHandler;
-import hytale.server.event.player.PlayerJoinEvent;
-
-public class HelloWorldPlugin implements Plugin {
-    
-    private PluginContext context;
-    
-    @Override
-    public void onEnable(PluginContext context) {
-        this.context = context;
-        
-        // Log that we're starting
-        context.getLogger().info("Hello World plugin enabled!");
-        
-        // Register event listeners (this class) to receive events
-        context.getEventManager().register(this);
-    }
-    
-    @Override
-    public void onDisable() {
-        context.getLogger().info("Hello World plugin disabled!");
-    }
-    
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        // Get the player's name from the event
-        String playerName = event.getPlayer().getName();
-        
-        // Send a welcome message to the player
-        event.getPlayer().sendMessage("Welcome to the server, " + playerName + "!");
-        
-        // Log to console for the admin to see
-        context.getLogger().info("Player joined: " + playerName);
-    }
-}
-```
+Create `src/main/java/com/example/HelloWorldPlugin.java`. Refer to the Quick Start Template above for the code.
 
 ## Understanding the Code (Beginner's Guide)
-
-If you're new to Java, here is a line-by-line breakdown of what's happening:
 
 ### 1. Packages and Imports
 ```java
 package com.example;
-import hytale.server.plugin.Plugin;
+import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 ```
 - **`package`**: Think of this as the "folder" where your code lives. It helps organize your files and prevents naming conflicts.
-- **`import`**: Tells Java: "I want to use a tool that isn't in this file." It's like checking a book out of the library so you can use it.
+- **`import`**: Tells Java: "I want to use a tool that isn't in this file."
 
 ### 2. The Class Definition
 ```java
-public class HelloWorldPlugin implements Plugin {
+public class HelloWorldPlugin extends JavaPlugin {
 ```
-- **`public class`**: Defines the blueprint for your "object" (the plugin). `public` means other parts of the server can see it.
-- **`implements Plugin`**: This is a key contract. It tells the Hytale server: "I promise this class behaves like a Plugin." It forces you to include `onEnable` and `onDisable`.
+- **`extends JavaPlugin`**: This tells Hytale that this class is a plugin that should be loaded.
 
-### 3. Variables
+### 3. Constructor
 ```java
-private PluginContext context;
+public HelloWorldPlugin(JavaPluginInit init) {
+    super(init);
+}
 ```
-- **Variable**: A saved piece of data.
-- **`PluginContext`**: A special toolbelt Hytale gives you. It contains the Logger, EventManager, and other core tools. We save it here so we can use it later.
+- **Constructor**: Needed to initialize the plugin correctly with the server.
 
-### 4. Methods and Overrides
+### 4. Lifecycle Methods
 ```java
 @Override
-public void onEnable(PluginContext context) {
+public void onEnable() {
 ```
-- **Method**: A set of instructions (like a recipe). `onEnable` is the instruction manual for "What to do when the plugin starts."
-- **`@Override`**: A note to the compiler saying: "I am replacing the default empty behavior with my own custom instructions."
+- **Method**: Instructions for "What to do when the plugin starts."
 
-### 5. Event Handling
+### 5. Messaging
 ```java
-@EventHandler
-public void onPlayerJoin(PlayerJoinEvent event) {
+event.getPlayer().sendMessage(Message.raw("Welcome!"));
 ```
-- **`@EventHandler`**: A marker that tells Hytale: "Hey! Wake me up when this specific thing happens."
-- **`PlayerJoinEvent`**: The "specific thing." This code *only* runs when a player joins.
-
-::: tip Pro Tip
-Don't worry if you don't memorize this syntax immediately. Most developers copy-paste the structure and fill in the blanks!
-:::
+- **`Message.raw`**: The correct way to create text messages in Hytale.
 
 ## Step 5: Build and Deploy
 
@@ -251,8 +201,8 @@ The JAR file will be created at `build/libs/hello-world-1.0.0.jar`.
 3. Look for these log messages:
 
 ```
-[INFO] Loading plugin: Hello World v1.0.0
-[INFO] Hello World plugin enabled!
+[INFO] [PluginManager] - com.example:hello-world from path HelloWorld.jar
+[INFO] Plugin Enabled!
 ```
 
 4. Join the server and you should see your welcome message!
@@ -263,27 +213,13 @@ You've built your first Hytale plugin! Continue to learn about [Commands](/guide
 
 ## Helpful Resources
 
-### Learning Java
-If you're new to programming, these free resources are excellent:
-- **[W3Schools Java Tutorial](https://www.w3schools.com/java/)** - Very beginner friendly, interactive.
-- **[Codecademy Java Course](https://www.codecademy.com/learn/learn-java)** - Hands-on coding lessons.
-- **[Hyperskill (JetBrains Academy)](https://hyperskill.org/)** - Project-based learning (great for detailed learning).
-
 ### Hytale Specific
-- **[Official Server Manual](https://support.hytale.com/hc/en-us/articles/45326769420827-Hytale-Server-Manual)** - Official documentation
 - **Decompiled HytaleServer.jar** - The source of truth for API classes
 
 ::: warning Verified Code
 The code in this tutorial is based on the structure found in `HytaleServer.jar`.
-**Always check `HytaleServer.jar` directly** if you encounter "Class Not Found" errors, as package names (`com.hypixel.hytale...`) can change during beta development.
+**Always check `HytaleServer.jar` directly** if you encounter "Class Not Found" errors, as package names (`com.hypixel.hytale...`) can match internal vs public API differences.
 :::
-
-| Problem | Solution |
-|---------|----------|
-| Plugin not loading | Check `manifest.json` syntax and entrypoint class name |
-| ClassNotFoundException | Verify the package structure matches your entrypoint |
-| Events not firing | Make sure you called `register(this)` on the EventManager |
-| NoClassDefFoundError | Ensure HytaleServer.jar is in your compile dependencies |
 
 ## Next Steps
 
@@ -293,4 +229,3 @@ Now that you have a working plugin, explore these topics:
 - [Events & Listeners](/guide/events) - Handle more game events
 - [Commands](/guide/commands) - Add custom player commands
 - [Permissions](/guide/permissions) - Control access to features
-

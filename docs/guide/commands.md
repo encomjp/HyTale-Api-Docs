@@ -9,25 +9,29 @@ Commands allow players to interact with your plugin using chat. This guide cover
 ```java
 public class HelloCommand implements Command {
     
+    // This method defines the command name that players will type
+    // For this example, players will use /hello
     @Override
     public String getName() {
         return "hello";
     }
     
+    // Description shown in help menus and command lists
     @Override
     public String getDescription() {
         return "Says hello to the player";
     }
     
+    // This method runs when a player executes the command
+    // context contains information about who ran the command and with what arguments
     @Override
     public void execute(CommandContext context) {
+        // Get the player who executed the command
         Player player = context.getPlayer();
+        
+        // Send a personalized message back to the player
         player.sendMessage("Hello, " + player.getName() + "!");
     }
-}
-```java
-public class HelloCommand implements Command {
-    // ...
 }
 ```
 
@@ -47,8 +51,13 @@ Register commands in your plugin's `onEnable()`:
 ```java
 @Override
 public void onEnable(PluginContext context) {
-    context.getCommandManager().register(new HelloCommand());
-    context.getCommandManager().register(new TeleportCommand());
+    // Get the command manager from the plugin context
+    CommandManager cmdManager = context.getCommandManager();
+    
+    // Register your command instances
+    // Once registered, players can use /hello and /teleport
+    cmdManager.register(new HelloCommand());
+    cmdManager.register(new TeleportCommand());
 }
 ```
 
@@ -66,18 +75,28 @@ public class GiveCommand implements Command {
     
     @Override
     public void execute(CommandContext context) {
+        // Get the command arguments (everything after /give)
+        // For "/give Steve diamond 5", args would be ["Steve", "diamond", "5"]
         String[] args = context.getArgs();
         
+        // Validate that we have at least 2 arguments (player and item)
         if (args.length < 2) {
-            context.getPlayer().sendMessage("Usage: /give <player> <item>");
-            return;
+            context.getPlayer().sendMessage("Usage: /give <player> <item> [amount]");
+            return; // Stop execution if arguments are missing
         }
         
-        String targetName = args[0];
-        String itemName = args[1];
+        // Parse the arguments
+        String targetName = args[0];  // First argument is the player name
+        String itemName = args[1];    // Second argument is the item type
+        
+        // Third argument (amount) is optional, default to 1 if not provided
         int amount = args.length > 2 ? Integer.parseInt(args[2]) : 1;
         
-        // Give item logic here
+        // TODO: Add actual item-giving logic here
+        // This would typically involve:
+        // 1. Finding the target player
+        // 2. Creating an ItemStack
+        // 3. Adding it to their inventory
         context.getPlayer().sendMessage("Gave " + amount + " " + itemName + " to " + targetName);
     }
 }
@@ -176,11 +195,15 @@ Check permissions before executing:
 public void execute(CommandContext context) {
     Player player = context.getPlayer();
     
+    // Check if the player has the required permission node
+    // Permission nodes follow the format: plugin.category.action
     if (!player.hasPermission("myplugin.admin")) {
+        // Deny access and inform the player
         player.sendMessage("You don't have permission to use this command!");
-        return;
+        return; // Stop execution immediately
     }
     
+    // This code only runs if the player has the permission
     // Admin-only code here
 }
 ```
@@ -188,9 +211,11 @@ public void execute(CommandContext context) {
 Define required permissions in the command:
 
 ```java
+// Define the permission node required to use this command
+// The server will automatically check this before executing
 @Override
 public String getPermission() {
-    return "myplugin.hello";
+    return "myplugin.hello"; // Players need this permission to use /hello
 }
 ```
 
@@ -199,20 +224,24 @@ public String getPermission() {
 Provide suggestions for tab completion:
 
 ```java
+// This method provides auto-complete suggestions when players press TAB
 @Override
 public List<String> tabComplete(CommandContext context) {
+    // Get what the player has typed so far
     String[] args = context.getArgs();
     
+    // First argument: suggest available subcommands
     if (args.length == 1) {
-        // First argument: suggest subcommands
         return Arrays.asList("set", "delete", "list");
     }
     
+    // Second argument for "delete": suggest existing warp names
+    // This helps players see what warps they can delete
     if (args.length == 2 && args[0].equals("delete")) {
-        // Second argument for delete: suggest warp names
         return new ArrayList<>(warps.keySet());
     }
     
+    // No suggestions for other cases
     return Collections.emptyList();
 }
 ```
@@ -289,25 +318,35 @@ Prevent command spam:
 
 ```java
 public class CooldownCommand implements Command {
+    // Store the last usage time for each player by their UUID
+    // UUID is used because it's unique and persistent across name changes
     private final Map<UUID, Long> cooldowns = new HashMap<>();
-    private static final long COOLDOWN_MS = 5000; // 5 seconds
+    private static final long COOLDOWN_MS = 5000; // 5 seconds in milliseconds
     
     @Override
     public void execute(CommandContext context) {
         Player player = context.getPlayer();
         UUID uuid = player.getUUID();
         
+        // Get the current time in milliseconds
         long now = System.currentTimeMillis();
+        
+        // Check when this player last used the command
         Long lastUse = cooldowns.get(uuid);
         
+        // If they used it recently, check if enough time has passed
         if (lastUse != null && (now - lastUse) < COOLDOWN_MS) {
+            // Calculate remaining cooldown time in seconds
             long remaining = (COOLDOWN_MS - (now - lastUse)) / 1000;
             player.sendMessage("Please wait " + remaining + " seconds!");
-            return;
+            return; // Deny command execution
         }
         
-        // Execute command
+        // Cooldown has expired or this is their first use
+        // Update the last use time for this player
         cooldowns.put(uuid, now);
+        
+        // Execute the actual command logic
         doCommand(player);
     }
 }
