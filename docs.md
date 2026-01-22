@@ -48,3 +48,16 @@
     - Performance tips and anti-patterns documented
     - Real data from assets (block categories, entity types, etc.)
 - **Impact**: Documentation is now comprehensive enough for production plugin development without external references.
+
+## 2026-01-22 - Plugin System & Event API Verification
+- **Action**: Verified plugin lifecycle and EventBus registration mechanism.
+- **Key Findings (Technical)**:
+    - **Plugin Lifecycle**: `JavaPlugin` (which extends `PluginBase`) uses `start()` for initialization, NOT `onEnable()`.
+    - **Event Registration**: The `EventBus.register()` method uses a `Consumer` callback, not a `Function<CompletableFuture...>` as initially inferred from `javap` of `IEventRegistry`.
+        - Verified Pattern: `EventBus.register(EventPriority, Class<E>, Consumer<E>)`
+        - Async nature is handled internally or via `AsyncEventBusRegistry`.
+    - **Deprecations**: `PlayerConnectEvent.getPlayer()` is deprecated. Recommended to use `PlayerRef` in future, but `getPlayer()` still functions for prototyping.
+- **Artifacts**:
+    - **Compiled**: `HelloWorld.jar` with verified API usage.
+    - **Updated**: `first-plugin.md` and `guide/events.md` to reflect the Consumer-based registration pattern.
+    - **Cleaned**: Removed emojis from all documentation updates to adhere to style guide.

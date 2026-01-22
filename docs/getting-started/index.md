@@ -58,9 +58,9 @@ Now the fun part! You'll create a project and write your first plugin.
 2. **[Hello World](./hello-world)** - Write code that welcomes players
 
 After completing these, your plugin will:
-- ✅ Load when the server starts
-- ✅ Welcome players when they join
-- ✅ Log messages to the console
+- [DONE] Load when the server starts
+- [DONE] Welcome players when they join
+- [DONE] Log messages to the console
 
 ---
 

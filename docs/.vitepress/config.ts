@@ -193,6 +193,7 @@ export default withMermaid(defineConfig({
                     text: 'Systems API',
                     collapsed: false,
                     items: [
+                        { text: 'Plugins', link: '/api/systems/plugins' },
                         { text: 'Events', link: '/api/systems/events' },
                         { text: 'Commands', link: '/api/systems/commands' },
                         { text: 'Permissions', link: '/api/systems/permissions-ref' },

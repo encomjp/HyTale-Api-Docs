@@ -8,7 +8,7 @@ Here are some industry standards to make your code better.
 
 Your main class (`MyPlugin.java`) should **only** handle setup and cleanup. Don't put your command logic there!
 
-### ❌ Bad: Everything in one file
+### [BAD] Bad: Everything in one file
 ```java
 public class MyPlugin extends Plugin {
     public void onEnable(Context ctx) {
@@ -17,7 +17,7 @@ public class MyPlugin extends Plugin {
 }
 ```
 
-### ✅ Good: Organized structure
+### [GOOD] Good: Organized structure
 ```java
 public class MyPlugin extends Plugin {
     public void onEnable(Context ctx) {
@@ -108,7 +108,7 @@ public void onDisable() {
 
 Don't let your plugin crash the server just because one thing failed.
 
-### ❌ Bad
+### [BAD] Bad
 ```java
 public void onCommand() {
     // If config is null, this crashes the entire command!
@@ -116,7 +116,7 @@ public void onCommand() {
 }
 ```
 
-### ✅ Good
+### [GOOD] Good
 ```java
 public void onCommand() {
     if (config == null) {

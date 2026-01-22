@@ -15,11 +15,9 @@ Don't want to read everything? Here is the full code for `HelloWorldPlugin.java`
 ```java
 package com.example;
 
-import com.hypixel.hytale.server.core.plugin.JavaPlugin;
-import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
-import com.hypixel.hytale.server.core.Message;
-import com.hypixel.hytale.event.EventHandler;
-import com.hypixel.hytale.server.core.event.player.PlayerJoinEvent;
+import com.hypixel.hytale.server.core.HytaleServer;
+import com.hypixel.hytale.event.EventPriority;
+import com.hypixel.hytale.server.core.event.events.player.PlayerConnectEvent;
 
 public class HelloWorldPlugin extends JavaPlugin {
     
@@ -28,10 +26,17 @@ public class HelloWorldPlugin extends JavaPlugin {
     }
 
     @Override
-    public void onEnable() {
+    public void start() {
         System.out.println("Plugin Enabled!");
-        // Event registration API is being verified
-        // HytaleServer.get().getEventBus().register(this);
+        
+        HytaleServer.get().getEventBus().register(
+            EventPriority.NORMAL,
+            PlayerConnectEvent.class,
+            event -> {
+                String playerName = event.getPlayer().getDisplayName();
+                event.getPlayer().sendMessage(Message.raw("Welcome, " + playerName + "!"));
+            }
+        );
     }
 
     @Override

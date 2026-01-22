@@ -41,8 +41,9 @@ public class HeilCommand implements Command {
 
     // Actual logic
     @Override
-    public void execute(CommandContext ctx) {
+    public CompletableFuture<Void> execute(CommandContext ctx) {
         // implementation...
+        return CompletableFuture.completedFuture(null);
     }
 }
 ```
@@ -53,11 +54,11 @@ The `CommandContext` provides everything you need: sender, arguments, and helper
 
 ```java
 @Override
-public void execute(CommandContext ctx) {
+public CompletableFuture<Void> execute(CommandContext ctx) {
     // 1. Check if sender is a player (could be Console!)
     if (!ctx.isPlayer()) {
-        ctx.sendMessage("§cThis command is for players only.");
-        return;
+        ctx.sendMessage(Message.raw("§cThis command is for players only."));
+        return CompletableFuture.completedFuture(null);
     }
     
     Player sender = ctx.getPlayer();
@@ -70,15 +71,15 @@ public void execute(CommandContext ctx) {
         // Case: /heal <other>
         // Check permission for healing others
         if (!sender.hasPermission("server.heal.others")) {
-            sender.sendMessage("§cYou cannot heal others.");
-            return;
+            sender.sendMessage(Message.raw("§cYou cannot heal others."));
+            return CompletableFuture.completedFuture(null);
         }
         
         // Find target
         target = ctx.getServer().getPlayer(args[0]);
         if (target == null) {
-            sender.sendMessage("§cPlayer not found.");
-            return;
+            sender.sendMessage(Message.raw("§cPlayer not found."));
+            return CompletableFuture.completedFuture(null);
         }
     } else {
         // Case: /heal (self)
@@ -87,11 +88,12 @@ public void execute(CommandContext ctx) {
     
     // 3. Perform action
     target.setHealth(target.getMaxHealth());
-    target.sendMessage("§aYou have been healed.");
+    target.sendMessage(Message.raw("§aYou have been healed."));
     
     if (target != sender) {
-        sender.sendMessage("§aHealed " + target.getName());
+        sender.sendMessage(Message.raw("§aHealed " + target.getName()));
     }
+    return CompletableFuture.completedFuture(null);
 }
 ```
 

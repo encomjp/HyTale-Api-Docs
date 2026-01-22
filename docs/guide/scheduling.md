@@ -136,7 +136,7 @@ To prevent lag, run slow things **Asynchronously** (Async).
 ```java
 // Run on a separate thread (Async)
 CompletableFuture.runAsync(() -> {
-    // ⚠️ DANGER ZONE: Do NOT touch the world/players here!
+    // [DANGER] DANGER ZONE: Do NOT touch the world/players here!
     // Connect to database, calculate pi, download files...
     saveToDatabase(player);
     

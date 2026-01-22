@@ -251,12 +251,12 @@ try {
 Never modify blocks from async tasks:
 
 ```java
-// ❌ WRONG - This will cause issues!
+// [BAD] WRONG - This will cause issues!
 scheduler.runAsync(() -> {
     world.setBlockAt(loc, type); // DON'T DO THIS!
 });
 
-// ✅ CORRECT - Schedule sync task
+// [GOOD] CORRECT - Schedule sync task
 scheduler.runAsync(() -> {
     // Do async work (e.g., calculations, database queries)
     BlockType calculatedType = calculateBlockType();

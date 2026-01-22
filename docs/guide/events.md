@@ -1,401 +1,101 @@
 # Events & Listeners
 
-Events are how your plugin knows when something happens in the game. When a player joins, breaks a block, or sends a message - the server fires an event that your plugin can respond to.
+The Hytale server uses a **functional, asynchronous event system**. Unlike other platforms that use annotation-based listeners (`@EventHandler`), Hytale uses direct registration with `CompletableFuture`.
 
-This is the heart of plugin development!
+## The Event Bus
 
-## How Events Work
-
-Think of events like a notification system:
-
-```mermaid
-graph LR
-    Action[1. Player Joins] --> Server[2. Server Creates Event]
-    Server --> Plugin[3. Plugin Reacts]
-```
-
----
-
-## Your First Event Listener
-
-Let's create a listener that welcomes players when they join.
-
-### Step 1: Create the Listener Class
-
-Create a new file `PlayerListener.java`:
+You access the event bus via the `HytaleServer` instance.
 
 ```java
-package com.yourname.myplugin.listeners;
+import com.hypixel.hytale.server.core.HytaleServer;
+import com.hypixel.hytale.event.EventBus;
 
-import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.event.EventHandler;
-import com.hypixel.hytale.server.core.event.player.PlayerJoinEvent;
+// Get the event bus
+EventBus eventBus = HytaleServer.get().getEventBus();
+```
+
+## Registering a Listener
+
+Events are registered programmatically. You must provide:
+1. **Priority**: When your listener runs relative to others.
+2. **Event Class**: The specific event type you want to handle.
+3. **Handler Function**: A function that processes the event asynchronously.
+
+### Basic Example: Welcome Message
+
+```java
+import com.hypixel.hytale.server.core.HytaleServer;
+import com.hypixel.hytale.server.core.event.events.player.PlayerConnectEvent;
+import com.hypixel.hytale.event.EventPriority;
 import com.hypixel.hytale.server.core.Message;
-import com.hypixel.hytale.server.core.plugin.PluginContext;
 
-public class PlayerListener {
-    private final PluginContext context;
-    
-    // Constructor - receives the plugin context
-    public PlayerListener(PluginContext context) {
-        this.context = context;
-    }
-    
-    // This method runs when a player joins
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
-        
-        // Send a welcome message
-        player.sendMessage(Message.raw("Welcome to the server, " + player.getName() + "!"));
-        
-        // Log to console
-        context.getLogger().info(player.getName() + " has joined the server!");
-    }
-}
-```
-
-### Step 2: Register the Listener
-
-In your main plugin class, register the listener in `onEnable()`:
-
-```java
 @Override
-public void onEnable(PluginContext context) {
-    this.context = context;
-    
-    // Register the listener
-    context.getEventManager().register(new PlayerListener(context));
-    
-    context.getLogger().info("Plugin enabled!");
-}
-```
-
-### Step 3: Test It!
-
-1. Build your plugin: `./gradlew build`
-2. Copy to mods folder
-3. Restart server
-4. Join the game
-5. You should see the welcome message!
-
-::: tip The @EventHandler Annotation
-The `@EventHandler` annotation tells the server "this method handles events". Without it, your method won't be called!
-:::
-
----
-
-## Understanding Event Handler Methods
-
-Event handler methods follow a specific pattern:
-
-```java
-@EventHandler
-public void anyMethodName(EventType event) {
-    // Your code here
-}
-```
-
-**Rules:**
-- Must have `@EventHandler` annotation
-- Must be `public void`
-- Must have exactly **one parameter** - the event type
-- Method name can be anything (use descriptive names!)
-
-### Examples
-
-```java
-// ✅ Good - clear and follows the pattern
-@EventHandler
-public void onPlayerJoin(PlayerJoinEvent event) { }
-
-// ✅ Good - different naming style, still works
-@EventHandler
-public void handleBlockBreak(BlockBreakEvent event) { }
-
-// ❌ Wrong - no annotation
-public void onPlayerJoin(PlayerJoinEvent event) { }
-
-// ❌ Wrong - wrong return type
-@EventHandler
-public String onPlayerJoin(PlayerJoinEvent event) { }
-
-// ❌ Wrong - too many parameters
-@EventHandler
-public void onPlayerJoin(PlayerJoinEvent event, Player player) { }
-```
-
----
-
-## Common Events
-
-Here are the events you'll use most often:
-
-### Player Events
-
-| Event | When It Fires | Common Uses |
-|-------|--------------|-------------|
-| `PlayerJoinEvent` | Player connects to server | Welcome messages, loading data |
-| `PlayerQuitEvent` | Player disconnects | Saving data, goodbye messages |
-| `PlayerChatEvent` | Player sends a message | Chat filters, formatting |
-| `PlayerMoveEvent` | Player moves | Zone detection, anti-cheat |
-| `PlayerDeathEvent` | Player dies | Death messages, respawn handling |
-
-### World Events
-
-| Event | When It Fires | Common Uses |
-|-------|--------------|-------------|
-| `BlockBreakEvent` | Player breaks a block | Protection, logging, drops |
-| `BlockPlaceEvent` | Player places a block | Protection, building limits |
-
----
-
-## Working with Event Data
-
-Each event gives you information about what happened.
-
-### PlayerJoinEvent
-
-```java
-@EventHandler
-public void onJoin(PlayerJoinEvent event) {
-    // Get the player who joined
-    Player player = event.getPlayer();
-    
-    // Get player info
-    String name = player.getName();      // "Steve"
-    UUID uuid = player.getUuid();        // Player's unique ID
-    
-    // Send them a message
-    player.sendMessage(Message.raw("Hello " + name + "!"));
-}
-```
-
-### BlockBreakEvent
-
-```java
-@EventHandler
-public void onBreak(BlockBreakEvent event) {
-    // Who broke the block?
-    Player player = event.getPlayer();
-    
-    // What block was broken?
-    Block block = event.getBlock();
-    BlockType type = block.getType();
-    
-    // Where was it?
-    BlockPosition position = block.getPosition();
-    int x = position.getX();
-    int y = position.getY();
-    int z = position.getZ();
-    
-    context.getLogger().info(
-        player.getName() + " broke " + type + " at " + x + ", " + y + ", " + z
+public void start() {
+    HytaleServer.get().getEventBus().register(
+        EventPriority.NORMAL,
+        PlayerConnectEvent.class,
+        event -> {
+            String playerName = event.getPlayer().getDisplayName();
+            // Send welcome message
+            event.getPlayer().sendMessage(Message.raw("Welcome, " + playerName + "!"));
+        }
     );
 }
 ```
 
----
+## Event Priorities
 
-## Cancelling Events
+Priorities determine the order in which listeners are executed. They are defined in `com.hypixel.hytale.event.EventPriority`.
 
-Some events can be **cancelled** to prevent the action from happening.
-
-### Example: Block Protection
-
-```java
-@EventHandler
-public void onBlockBreak(BlockBreakEvent event) {
-    Player player = event.getPlayer();
-    BlockPosition pos = event.getBlock().getPosition();
-    
-    // Check if this area is protected
-    if (isProtectedArea(pos)) {
-        // Stop the block from being broken!
-        event.setCancelled(true);
-        
-        // Tell the player why
-        player.sendMessage(Message.raw("You cannot break blocks in this protected area!"));
-    }
-}
-```
-
-When you call `event.setCancelled(true)`:
-- The block won't break
-- The player sees nothing happen
-- Other plugins still get notified (so they can react)
-
-### Example: Chat Filter
+| Priority | Usage |
+|----------|-------|
+| `FIRST` | Run first. Use for blocking/protection plugins. |
+| `EARLY` | Run before standard plugins. |
+| `NORMAL` | **Default**. Standard gameplay logic. |
+| `LATE` | Run after standard logic. |
+| `LAST` | Run last. Use for monitoring or final logging. |
 
 ```java
-@EventHandler
-public void onChat(PlayerChatEvent event) {
-    String message = event.getMessage();
-    
-    if (containsBadWord(message)) {
-        event.setCancelled(true);
-        event.getPlayer().sendMessage(Message.raw("Please watch your language!"));
-    }
-}
+EventPriority.FIRST.getValue() // Pass this .getValue() short to the register method
 ```
 
----
+## Asynchronous Handling
 
-## Event Priority
-
-When multiple plugins listen to the same event, who goes first?
-
-### The Priority Order
-
-```mermaid
-graph LR
-    L[LOWEST] --> N[NORMAL] --> H[HIGHEST]
-```
-
-By default, all handlers use `NORMAL` priority.
-
-### Setting Priority
+The event system is built on `CompletableFuture`. This means your handlers are naturally chainable and async-friendly.
 
 ```java
-@EventHandler(priority = EventPriority.HIGH)
-public void onChatHigh(PlayerChatEvent event) {
-    // This runs BEFORE normal priority handlers
-}
-
-@EventHandler  // Default is NORMAL
-public void onChatNormal(PlayerChatEvent event) {
-    // This runs in the middle
-}
-
-@EventHandler(priority = EventPriority.LOW)
-public void onChatLow(PlayerChatEvent event) {
-    // This runs AFTER normal priority handlers
-}
+future -> future.thenApplyAsync(event -> {
+    // This runs on a separate thread pool!
+    loadPlayerDataFromDatabase(event.getPlayer());
+    return event;
+})
 ```
 
-### When to Use Each Priority
+### [BAD] Blocking the Chain
+Do not block the future chain with `Thread.sleep` or heavy synchronous IO directly in `thenApply` if you can avoid it, although `thenApply` usually runs on the event thread. For heavy work, use `thenApplyAsync`.
 
-| Priority | Use For |
-|----------|---------|
-| `LOWEST` | Features that must override everything |
-| `LOW` | Pre-processing, validation |
-| `NORMAL` | Most features (default) |
-| `HIGH` | Post-processing, formatting |
-| `HIGHEST` | Final modifications |
-| `MONITOR` | Logging only (never modify or cancel!) |
+## Common Events
 
-::: warning About MONITOR
-`MONITOR` priority is for **observation only**. Don't cancel events or modify data at this priority - other plugins expect you won't.
-:::
+### Player Events
+Package: `com.hypixel.hytale.server.core.event.events.player`
 
----
+- **`PlayerConnectEvent`**: Fired when a player joins (replaces "JoinEvent").
+- **`PlayerDisconnectEvent`**: Fired when a player leaves.
+- **`PlayerChatEvent`**: Fired when a player sends a message.
 
-## Organizing Your Listeners
+### World/Block Events
+Package: `com.hypixel.hytale.server.core.event.events.ecs`
 
-As your plugin grows, keep listeners organized:
+- **`PlaceBlockEvent`**: Fired when a block is placed.
+- **`BreakBlockEvent`**: Fired when a block is broken.
 
-### One Class Per Feature
+## Unregistering Listeners
+
+The `register` method returns an `EventRegistration` object. Keep a reference to it if you need to unregister later.
 
 ```java
-// Good: separate concerns
-context.getEventManager().register(new PlayerListener(context));  // Join/quit handling
-context.getEventManager().register(new ChatListener(context));    // Chat features
-context.getEventManager().register(new ProtectionListener(context)); // Block protection
+var registration = HytaleServer.get().getEventBus().register(...);
+
+// Later...
+registration.unregister();
 ```
-
-### Multiple Handlers in One Class
-
-You can have multiple handlers in one listener class:
-
-```java
-public class PlayerListener {
-    
-    @EventHandler
-    public void onJoin(PlayerJoinEvent event) {
-        // Handle join
-    }
-    
-    @EventHandler
-    public void onQuit(PlayerQuitEvent event) {
-        // Handle quit
-    }
-    
-    @EventHandler
-    public void onChat(PlayerChatEvent event) {
-        // Handle chat
-    }
-}
-```
-
----
-
-## Best Practices
-
-### 1. Keep Handlers Fast
-
-Events run on the main server thread. Slow handlers = server lag!
-
-```java
-// ❌ Bad - blocks the server
-@EventHandler
-public void onJoin(PlayerJoinEvent event) {
-    loadDataFromDatabase(event.getPlayer());  // Slow!
-}
-
-// ✅ Good - runs database work in background
-@EventHandler
-public void onJoin(PlayerJoinEvent event) {
-    CompletableFuture.runAsync(() -> {
-        loadDataFromDatabase(event.getPlayer());
-    });
-}
-```
-
-### 2. Handle Exceptions
-
-Don't let errors crash your handler:
-
-```java
-@EventHandler
-public void onJoin(PlayerJoinEvent event) {
-    try {
-        processJoin(event.getPlayer());
-    } catch (Exception e) {
-        context.getLogger().error("Failed to process player join", e);
-    }
-}
-```
-
-### 3. Check for Cancelled Events
-
-If you're at `MONITOR` priority, check if the event was cancelled:
-
-```java
-@EventHandler(priority = EventPriority.MONITOR)
-public void logBlockBreak(BlockBreakEvent event) {
-    if (event.isCancelled()) {
-        return;  // Don't log cancelled actions
-    }
-    
-    logToFile(event);
-}
-```
-
----
-
-## Troubleshooting
-
-| Problem | Solution |
-|---------|----------|
-| Handler not called | Check `@EventHandler` annotation is present |
-| Handler not called | Make sure you registered the listener in `onEnable()` |
-| Wrong event data | Check you're using the right event type |
-| Server lag | Move slow operations to async (CompletableFuture) |
-
----
-
-## Next Steps
-
-Now that you can react to events, let's create commands that players can run:
-
-→ **Next: [Commands](./commands)**

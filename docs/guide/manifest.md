@@ -71,7 +71,7 @@ Your ID:     com.yourname.plugin-name
 
 ### What to Avoid
 
-❌ **Don't use generic names:**
+[BAD] **Don't use generic names:**
 ```json
 // Bad - will conflict with others
 "id": "utils"
@@ -79,7 +79,7 @@ Your ID:     com.yourname.plugin-name
 "id": "plugin"
 ```
 
-✅ **Do be specific:**
+[GOOD] **Do be specific:**
 ```json
 // Good - unique to you
 "id": "com.example.essentials-lite"
@@ -262,13 +262,13 @@ Here's a full manifest with all common fields:
 JSON is strict about syntax. Common mistakes:
 
 ```json
-// ❌ Wrong: trailing comma
+// [BAD] Wrong: trailing comma
 {
   "id": "my-plugin",
   "name": "My Plugin",  // ← This comma is wrong because it's the last item
 }
 
-// ✅ Correct: no trailing comma
+// [GOOD] Correct: no trailing comma
 {
   "id": "my-plugin",
   "name": "My Plugin"
@@ -276,12 +276,12 @@ JSON is strict about syntax. Common mistakes:
 ```
 
 ```json
-// ❌ Wrong: single quotes
+// [BAD] Wrong: single quotes
 {
   'id': 'my-plugin'
 }
 
-// ✅ Correct: double quotes only
+// [GOOD] Correct: double quotes only
 {
   "id": "my-plugin"
 }

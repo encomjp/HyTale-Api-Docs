@@ -48,7 +48,7 @@ This document tracks which API methods have been verified against the actual `Hy
 
 | Class | Status | Notes |
 |-------|--------|-------|
-| `JavaPlugin` | [VERIFIED] | Base class for plugins. |
+| `JavaPlugin` | [VERIFIED] | Base class. Use `start()` for lifecycle (not `onEnable`) |
 | `JavaPluginInit` | [VERIFIED] | Required constructor argument `JavaPlugin(JavaPluginInit)` |
 
 ### Event System (VERIFIED)
@@ -57,11 +57,9 @@ This document tracks which API methods have been verified against the actual `Hy
 
 | Class | Status | Notes |
 |-------|--------|-------|
-| `EventBus` | [VERIFIED] | Core event bus implementation |
-| `EventBusRegistry` | [VERIFIED] | Event registration system |
-| `AsyncEventBusRegistry` | [VERIFIED] | Async event handling |
-| `IEvent` | [VERIFIED] | Base event interface |
-| `ICancellable` | [VERIFIED] | Cancellable event interface |
+| `EventBus` | [VERIFIED] | Core event bus. Use `register(Priority, Class<T>, Consumer<T>)` |
+| `EventPriority` | [VERIFIED] | Enum for listener priority (`LOWEST` - `MONITOR`) |
+| `PlayerConnectEvent` | [VERIFIED] | Use `PlayerConnectEvent.class` (not JoinEvent). `getPlayer()` is [DEPRECATED] but works. |
 
 ## Api Discrepancies Checklist
 
@@ -69,3 +67,5 @@ This document tracks which API methods have been verified against the actual `Hy
 - [x] **Message API**: `Message.text()` does not exist. Use `Message.raw(String)` or `new Message(String)`.
 - [x] **Command Execution**: `execute` method must return `CompletableFuture<Void>`, not `void`.
 - [x] **Singleton Access**: `HytaleServer.get()` is the correct accessor, not `getInstance()`.
+- [x] **Plugin Lifecycle**: `start()` is the verified initialization method, not `onEnable()`.
+- [x] **Event Handling**: Registration uses `Consumer<T>`, not annotations or `Function<Future, Future>`.

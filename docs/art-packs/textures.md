@@ -23,8 +23,8 @@ graph LR
 
 ::: tip Naming Convention
 Use `snake_case` for filenames. No spaces or capitals! 
-- ✅ `my_sword.png`
-- ❌ `My Sword.png`
+- [GOOD] `my_sword.png`
+- [BAD] `My Sword.png`
 :::
 
 ---

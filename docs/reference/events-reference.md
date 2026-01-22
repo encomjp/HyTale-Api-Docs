@@ -426,14 +426,14 @@ public void onDisable(PluginContext context) {
 
 ## Best Practices
 
-### Do's ✅
+### Do's [GOOD]
 - **Use appropriate priority levels** based on your needs
 - **Check for null values** (e.g., `event.getKiller()` can be null)
 - **Always check cancelled events** before processing
 - **Use MONITOR priority** for read-only logging
 - **Handle exceptions** to prevent breaking other plugins
 
-### Don'ts ❌
+### Don'ts [BAD]
 - **Never modify events in MONITOR priority**
 - **Don't perform heavy operations** in high-frequency events (PlayerMoveEvent)
 - **Don't modify game state** from async event handlers
@@ -443,13 +443,13 @@ public void onDisable(PluginContext context) {
 ## Performance Tips
 
 ```java
-// ❌ BAD - Checking every movement
+// [BAD] - Checking every movement
 @EventHandler
 public void onPlayerMove(PlayerMoveEvent event) {
     checkForTriggers(event.getTo()); // Called hundreds of times per second!
 }
 
-// ✅ GOOD - Only check when player moves to new block
+// [GOOD] - Only check when player moves to new block
 private final Map<UUID, Location> lastBlockLocation = new HashMap<>();
 
 @EventHandler
