@@ -26,490 +26,2266 @@ export default withMermaid(defineConfig({
             '/javadocs/': [
                 {
                     text: 'Javadoc Index',
-                    link: '/javadocs/'
+                    link: '/javadocs/',
                 },
                 {
                     text: 'Plugin & Core API',
                     collapsed: true,
                     items: [
-                        { text: 'com.hypixel.hytale.server.core', link: '/javadocs/com.hypixel.hytale.server.core' },
-                        { text: 'com.hypixel.hytale.server.core.event.events', link: '/javadocs/com.hypixel.hytale.server.core.event.events' },
-                        { text: 'com.hypixel.hytale.server.core.event.events.ecs', link: '/javadocs/com.hypixel.hytale.server.core.event.events.ecs' },
-                        { text: 'com.hypixel.hytale.server.core.event.events.entity', link: '/javadocs/com.hypixel.hytale.server.core.event.events.entity' },
-                        { text: 'com.hypixel.hytale.server.core.event.events.permissions', link: '/javadocs/com.hypixel.hytale.server.core.event.events.permissions' },
-                        { text: 'com.hypixel.hytale.server.core.event.events.player', link: '/javadocs/com.hypixel.hytale.server.core.event.events.player' },
-                        { text: 'com.hypixel.hytale.server.core.plugin', link: '/javadocs/com.hypixel.hytale.server.core.plugin' },
-                        { text: 'com.hypixel.hytale.server.core.plugin.commands', link: '/javadocs/com.hypixel.hytale.server.core.plugin.commands' },
-                        { text: 'com.hypixel.hytale.server.core.plugin.event', link: '/javadocs/com.hypixel.hytale.server.core.plugin.event' },
-                        { text: 'com.hypixel.hytale.server.core.plugin.pages', link: '/javadocs/com.hypixel.hytale.server.core.plugin.pages' },
-                        { text: 'com.hypixel.hytale.server.core.plugin.pending', link: '/javadocs/com.hypixel.hytale.server.core.plugin.pending' },
-                        { text: 'com.hypixel.hytale.server.core.plugin.registry', link: '/javadocs/com.hypixel.hytale.server.core.plugin.registry' },
+                    {
+                        text: 'com.hypixel.hytale.server.core',
+                        link: '/javadocs/com.hypixel.hytale.server.core',
+                        collapsed: true,
+                        items: [
+                        {
+                            text: 'event.events',
+                            link: '/javadocs/com.hypixel.hytale.server.core.event.events',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'ecs',
+                                link: '/javadocs/com.hypixel.hytale.server.core.event.events.ecs',
+                            },
+                            {
+                                text: 'entity',
+                                link: '/javadocs/com.hypixel.hytale.server.core.event.events.entity',
+                            },
+                            {
+                                text: 'permissions',
+                                link: '/javadocs/com.hypixel.hytale.server.core.event.events.permissions',
+                            },
+                            {
+                                text: 'player',
+                                link: '/javadocs/com.hypixel.hytale.server.core.event.events.player',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'plugin',
+                            link: '/javadocs/com.hypixel.hytale.server.core.plugin',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'commands',
+                                link: '/javadocs/com.hypixel.hytale.server.core.plugin.commands',
+                            },
+                            {
+                                text: 'event',
+                                link: '/javadocs/com.hypixel.hytale.server.core.plugin.event',
+                            },
+                            {
+                                text: 'pages',
+                                link: '/javadocs/com.hypixel.hytale.server.core.plugin.pages',
+                            },
+                            {
+                                text: 'pending',
+                                link: '/javadocs/com.hypixel.hytale.server.core.plugin.pending',
+                            },
+                            {
+                                text: 'registry',
+                                link: '/javadocs/com.hypixel.hytale.server.core.plugin.registry',
+                            },
+                            ]
+                        },
+                        ]
+                    },
                     ]
                 },
                 {
                     text: 'Entities & Players',
                     collapsed: true,
                     items: [
-                        { text: 'com.hypixel.hytale.server.core.entity', link: '/javadocs/com.hypixel.hytale.server.core.entity' },
-                        { text: 'com.hypixel.hytale.server.core.entity.damage', link: '/javadocs/com.hypixel.hytale.server.core.entity.damage' },
-                        { text: 'com.hypixel.hytale.server.core.entity.effect', link: '/javadocs/com.hypixel.hytale.server.core.entity.effect' },
-                        { text: 'com.hypixel.hytale.server.core.entity.entities', link: '/javadocs/com.hypixel.hytale.server.core.entity.entities' },
-                        { text: 'com.hypixel.hytale.server.core.entity.entities.player', link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player' },
-                        { text: 'com.hypixel.hytale.server.core.entity.entities.player.data', link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.data' },
-                        { text: 'com.hypixel.hytale.server.core.entity.entities.player.hud', link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.hud' },
-                        { text: 'com.hypixel.hytale.server.core.entity.entities.player.movement', link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.movement' },
-                        { text: 'com.hypixel.hytale.server.core.entity.entities.player.pages', link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.pages' },
-                        { text: 'com.hypixel.hytale.server.core.entity.entities.player.pages.audio', link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.pages.audio' },
-                        { text: 'com.hypixel.hytale.server.core.entity.entities.player.pages.choices', link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.pages.choices' },
-                        { text: 'com.hypixel.hytale.server.core.entity.entities.player.pages.itemrepair', link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.pages.itemrepair' },
-                        { text: 'com.hypixel.hytale.server.core.entity.entities.player.windows', link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.windows' },
-                        { text: 'com.hypixel.hytale.server.core.entity.group', link: '/javadocs/com.hypixel.hytale.server.core.entity.group' },
-                        { text: 'com.hypixel.hytale.server.core.entity.knockback', link: '/javadocs/com.hypixel.hytale.server.core.entity.knockback' },
-                        { text: 'com.hypixel.hytale.server.core.entity.movement', link: '/javadocs/com.hypixel.hytale.server.core.entity.movement' },
-                        { text: 'com.hypixel.hytale.server.core.entity.nameplate', link: '/javadocs/com.hypixel.hytale.server.core.entity.nameplate' },
-                        { text: 'com.hypixel.hytale.server.core.entity.reference', link: '/javadocs/com.hypixel.hytale.server.core.entity.reference' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.component', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.component' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.damage', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.damage' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.damage.commands', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.damage.commands' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.damage.event', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.damage.event' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.dynamiclight', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.dynamiclight' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.hitboxcollision', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.hitboxcollision' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.item', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.item' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.livingentity', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.livingentity' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.player', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.player' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.repulsion', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.repulsion' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.stamina', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.stamina' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.system', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.system' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.teleport', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.teleport' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entity.tracker', link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.tracker' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entitystats', link: '/javadocs/com.hypixel.hytale.server.core.modules.entitystats' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entitystats.asset', link: '/javadocs/com.hypixel.hytale.server.core.modules.entitystats.asset' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entitystats.asset.condition', link: '/javadocs/com.hypixel.hytale.server.core.modules.entitystats.asset.condition' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entitystats.asset.modifier', link: '/javadocs/com.hypixel.hytale.server.core.modules.entitystats.asset.modifier' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entitystats.modifier', link: '/javadocs/com.hypixel.hytale.server.core.modules.entitystats.modifier' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entityui', link: '/javadocs/com.hypixel.hytale.server.core.modules.entityui' },
-                        { text: 'com.hypixel.hytale.server.core.modules.entityui.asset', link: '/javadocs/com.hypixel.hytale.server.core.modules.entityui.asset' },
+                    {
+                        text: 'com.hypixel.hytale.server.core',
+                        collapsed: true,
+                        items: [
+                        {
+                            text: 'entity',
+                            link: '/javadocs/com.hypixel.hytale.server.core.entity',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'damage',
+                                link: '/javadocs/com.hypixel.hytale.server.core.entity.damage',
+                            },
+                            {
+                                text: 'effect',
+                                link: '/javadocs/com.hypixel.hytale.server.core.entity.effect',
+                            },
+                            {
+                                text: 'entities',
+                                link: '/javadocs/com.hypixel.hytale.server.core.entity.entities',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'player',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'data',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.data',
+                                    },
+                                    {
+                                        text: 'hud',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.hud',
+                                    },
+                                    {
+                                        text: 'movement',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.movement',
+                                    },
+                                    {
+                                        text: 'pages',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.pages',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'audio',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.pages.audio',
+                                        },
+                                        {
+                                            text: 'choices',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.pages.choices',
+                                        },
+                                        {
+                                            text: 'itemrepair',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.pages.itemrepair',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'windows',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.entity.entities.player.windows',
+                                    },
+                                    ]
+                                },
+                                ]
+                            },
+                            {
+                                text: 'group',
+                                link: '/javadocs/com.hypixel.hytale.server.core.entity.group',
+                            },
+                            {
+                                text: 'knockback',
+                                link: '/javadocs/com.hypixel.hytale.server.core.entity.knockback',
+                            },
+                            {
+                                text: 'movement',
+                                link: '/javadocs/com.hypixel.hytale.server.core.entity.movement',
+                            },
+                            {
+                                text: 'nameplate',
+                                link: '/javadocs/com.hypixel.hytale.server.core.entity.nameplate',
+                            },
+                            {
+                                text: 'reference',
+                                link: '/javadocs/com.hypixel.hytale.server.core.entity.reference',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'modules',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'entity',
+                                link: '/javadocs/com.hypixel.hytale.server.core.modules.entity',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'component',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.component',
+                                },
+                                {
+                                    text: 'damage',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.damage',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'commands',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.damage.commands',
+                                    },
+                                    {
+                                        text: 'event',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.damage.event',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'dynamiclight',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.dynamiclight',
+                                },
+                                {
+                                    text: 'hitboxcollision',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.hitboxcollision',
+                                },
+                                {
+                                    text: 'item',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.item',
+                                },
+                                {
+                                    text: 'livingentity',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.livingentity',
+                                },
+                                {
+                                    text: 'player',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.player',
+                                },
+                                {
+                                    text: 'repulsion',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.repulsion',
+                                },
+                                {
+                                    text: 'stamina',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.stamina',
+                                },
+                                {
+                                    text: 'system',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.system',
+                                },
+                                {
+                                    text: 'teleport',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.teleport',
+                                },
+                                {
+                                    text: 'tracker',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entity.tracker',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'entitystats',
+                                link: '/javadocs/com.hypixel.hytale.server.core.modules.entitystats',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'asset',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entitystats.asset',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'condition',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.entitystats.asset.condition',
+                                    },
+                                    {
+                                        text: 'modifier',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.entitystats.asset.modifier',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'modifier',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entitystats.modifier',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'entityui',
+                                link: '/javadocs/com.hypixel.hytale.server.core.modules.entityui',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'asset',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.entityui.asset',
+                                },
+                                ]
+                            },
+                            ]
+                        },
+                        ]
+                    },
                     ]
                 },
                 {
                     text: 'World & Universe',
                     collapsed: true,
                     items: [
-                        { text: 'com.hypixel.hytale.server.core.blocktype', link: '/javadocs/com.hypixel.hytale.server.core.blocktype' },
-                        { text: 'com.hypixel.hytale.server.core.blocktype.component', link: '/javadocs/com.hypixel.hytale.server.core.blocktype.component' },
-                        { text: 'com.hypixel.hytale.server.core.modules.block', link: '/javadocs/com.hypixel.hytale.server.core.modules.block' },
-                        { text: 'com.hypixel.hytale.server.core.modules.block.system', link: '/javadocs/com.hypixel.hytale.server.core.modules.block.system' },
-                        { text: 'com.hypixel.hytale.server.core.modules.blockhealth', link: '/javadocs/com.hypixel.hytale.server.core.modules.blockhealth' },
-                        { text: 'com.hypixel.hytale.server.core.modules.blockset', link: '/javadocs/com.hypixel.hytale.server.core.modules.blockset' },
-                        { text: 'com.hypixel.hytale.server.core.modules.blockset.commands', link: '/javadocs/com.hypixel.hytale.server.core.modules.blockset.commands' },
-                        { text: 'com.hypixel.hytale.server.core.prefab', link: '/javadocs/com.hypixel.hytale.server.core.prefab' },
-                        { text: 'com.hypixel.hytale.server.core.prefab.config', link: '/javadocs/com.hypixel.hytale.server.core.prefab.config' },
-                        { text: 'com.hypixel.hytale.server.core.prefab.event', link: '/javadocs/com.hypixel.hytale.server.core.prefab.event' },
-                        { text: 'com.hypixel.hytale.server.core.prefab.selection', link: '/javadocs/com.hypixel.hytale.server.core.prefab.selection' },
-                        { text: 'com.hypixel.hytale.server.core.prefab.selection.buffer', link: '/javadocs/com.hypixel.hytale.server.core.prefab.selection.buffer' },
-                        { text: 'com.hypixel.hytale.server.core.prefab.selection.buffer.impl', link: '/javadocs/com.hypixel.hytale.server.core.prefab.selection.buffer.impl' },
-                        { text: 'com.hypixel.hytale.server.core.prefab.selection.mask', link: '/javadocs/com.hypixel.hytale.server.core.prefab.selection.mask' },
-                        { text: 'com.hypixel.hytale.server.core.prefab.selection.standard', link: '/javadocs/com.hypixel.hytale.server.core.prefab.selection.standard' },
-                        { text: 'com.hypixel.hytale.server.core.universe', link: '/javadocs/com.hypixel.hytale.server.core.universe' },
-                        { text: 'com.hypixel.hytale.server.core.universe.datastore', link: '/javadocs/com.hypixel.hytale.server.core.universe.datastore' },
-                        { text: 'com.hypixel.hytale.server.core.universe.playerdata', link: '/javadocs/com.hypixel.hytale.server.core.universe.playerdata' },
-                        { text: 'com.hypixel.hytale.server.core.universe.system', link: '/javadocs/com.hypixel.hytale.server.core.universe.system' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world', link: '/javadocs/com.hypixel.hytale.server.core.universe.world' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.accessor', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.accessor' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.chunk', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.chunk.environment', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.environment' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.chunk.palette', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.palette' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.chunk.section', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.section' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.chunk.section.blockpositions', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.section.blockpositions' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.chunk.section.palette', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.section.palette' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.chunk.state', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.state' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.chunk.systems', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.systems' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.commands', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.commands.block', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands.block' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.commands.block.bulk', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands.block.bulk' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.commands.world', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands.world' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.commands.world.perf', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands.world.perf' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.commands.world.tps', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands.world.tps' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.commands.worldconfig', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands.worldconfig' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.connectedblocks', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.connectedblocks' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.connectedblocks.builtin', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.connectedblocks.builtin' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.events', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.events' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.events.ecs', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.events.ecs' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.lighting', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.lighting' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.map', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.map' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.meta', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.meta' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.meta.state', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.meta.state' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.meta.state.exceptions', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.meta.state.exceptions' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.npc', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.npc' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.path', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.path' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.spawn', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.spawn' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.storage', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.storage' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.storage.component', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.storage.component' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.storage.provider', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.storage.provider' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.storage.resources', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.storage.resources' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.system', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.system' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.worldgen', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldgen' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.worldgen.provider', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldgen.provider' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.worldlocationcondition', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldlocationcondition' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.worldmap', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldmap' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.worldmap.markers', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldmap.markers' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.worldmap.provider', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldmap.provider' },
-                        { text: 'com.hypixel.hytale.server.core.universe.world.worldmap.provider.chunk', link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldmap.provider.chunk' },
+                    {
+                        text: 'com.hypixel.hytale.server.core',
+                        collapsed: true,
+                        items: [
+                        {
+                            text: 'blocktype',
+                            link: '/javadocs/com.hypixel.hytale.server.core.blocktype',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'component',
+                                link: '/javadocs/com.hypixel.hytale.server.core.blocktype.component',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'modules',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'block',
+                                link: '/javadocs/com.hypixel.hytale.server.core.modules.block',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'system',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.block.system',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'blockhealth',
+                                link: '/javadocs/com.hypixel.hytale.server.core.modules.blockhealth',
+                            },
+                            {
+                                text: 'blockset',
+                                link: '/javadocs/com.hypixel.hytale.server.core.modules.blockset',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'commands',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.blockset.commands',
+                                },
+                                ]
+                            },
+                            ]
+                        },
+                        {
+                            text: 'prefab',
+                            link: '/javadocs/com.hypixel.hytale.server.core.prefab',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'config',
+                                link: '/javadocs/com.hypixel.hytale.server.core.prefab.config',
+                            },
+                            {
+                                text: 'event',
+                                link: '/javadocs/com.hypixel.hytale.server.core.prefab.event',
+                            },
+                            {
+                                text: 'selection',
+                                link: '/javadocs/com.hypixel.hytale.server.core.prefab.selection',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'buffer',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.prefab.selection.buffer',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'impl',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.prefab.selection.buffer.impl',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'mask',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.prefab.selection.mask',
+                                },
+                                {
+                                    text: 'standard',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.prefab.selection.standard',
+                                },
+                                ]
+                            },
+                            ]
+                        },
+                        {
+                            text: 'universe',
+                            link: '/javadocs/com.hypixel.hytale.server.core.universe',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'datastore',
+                                link: '/javadocs/com.hypixel.hytale.server.core.universe.datastore',
+                            },
+                            {
+                                text: 'playerdata',
+                                link: '/javadocs/com.hypixel.hytale.server.core.universe.playerdata',
+                            },
+                            {
+                                text: 'system',
+                                link: '/javadocs/com.hypixel.hytale.server.core.universe.system',
+                            },
+                            {
+                                text: 'world',
+                                link: '/javadocs/com.hypixel.hytale.server.core.universe.world',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'accessor',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.accessor',
+                                },
+                                {
+                                    text: 'chunk',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'environment',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.environment',
+                                    },
+                                    {
+                                        text: 'palette',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.palette',
+                                    },
+                                    {
+                                        text: 'section',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.section',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'blockpositions',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.section.blockpositions',
+                                        },
+                                        {
+                                            text: 'palette',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.section.palette',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'state',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.state',
+                                    },
+                                    {
+                                        text: 'systems',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.chunk.systems',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'commands',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'block',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands.block',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'bulk',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands.block.bulk',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'world',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands.world',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'perf',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands.world.perf',
+                                        },
+                                        {
+                                            text: 'tps',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands.world.tps',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'worldconfig',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.commands.worldconfig',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'connectedblocks',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.connectedblocks',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'builtin',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.connectedblocks.builtin',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'events',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.events',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'ecs',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.events.ecs',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'lighting',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.lighting',
+                                },
+                                {
+                                    text: 'map',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.map',
+                                },
+                                {
+                                    text: 'meta',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.meta',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'state',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.meta.state',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'exceptions',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.universe.world.meta.state.exceptions',
+                                        },
+                                        ]
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'npc',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.npc',
+                                },
+                                {
+                                    text: 'path',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.path',
+                                },
+                                {
+                                    text: 'spawn',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.spawn',
+                                },
+                                {
+                                    text: 'storage',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.storage',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'component',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.storage.component',
+                                    },
+                                    {
+                                        text: 'provider',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.storage.provider',
+                                    },
+                                    {
+                                        text: 'resources',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.storage.resources',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'system',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.system',
+                                },
+                                {
+                                    text: 'worldgen',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldgen',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'provider',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldgen.provider',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'worldlocationcondition',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldlocationcondition',
+                                },
+                                {
+                                    text: 'worldmap',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldmap',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'markers',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldmap.markers',
+                                    },
+                                    {
+                                        text: 'provider',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldmap.provider',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'chunk',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.universe.world.worldmap.provider.chunk',
+                                        },
+                                        ]
+                                    },
+                                    ]
+                                },
+                                ]
+                            },
+                            ]
+                        },
+                        ]
+                    },
                     ]
                 },
                 {
                     text: 'Items & Inventory',
                     collapsed: true,
                     items: [
-                        { text: 'com.hypixel.hytale.server.core.asset.type.item', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.item' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.item.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.item.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.item.config.container', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.item.config.container' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.item.config.metadata', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.item.config.metadata' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.itemanimation', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.itemanimation' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.itemanimation.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.itemanimation.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.itemsound', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.itemsound' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.itemsound.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.itemsound.config' },
-                        { text: 'com.hypixel.hytale.server.core.inventory', link: '/javadocs/com.hypixel.hytale.server.core.inventory' },
-                        { text: 'com.hypixel.hytale.server.core.inventory.container', link: '/javadocs/com.hypixel.hytale.server.core.inventory.container' },
-                        { text: 'com.hypixel.hytale.server.core.inventory.container.filter', link: '/javadocs/com.hypixel.hytale.server.core.inventory.container.filter' },
-                        { text: 'com.hypixel.hytale.server.core.inventory.transaction', link: '/javadocs/com.hypixel.hytale.server.core.inventory.transaction' },
-                        { text: 'com.hypixel.hytale.server.core.modules.item', link: '/javadocs/com.hypixel.hytale.server.core.modules.item' },
-                        { text: 'com.hypixel.hytale.server.core.modules.item.commands', link: '/javadocs/com.hypixel.hytale.server.core.modules.item.commands' },
+                    {
+                        text: 'com.hypixel.hytale.server.core',
+                        collapsed: true,
+                        items: [
+                        {
+                            text: 'asset.type',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'item',
+                                link: '/javadocs/com.hypixel.hytale.server.core.asset.type.item',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'config',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.asset.type.item.config',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'container',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.item.config.container',
+                                    },
+                                    {
+                                        text: 'metadata',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.item.config.metadata',
+                                    },
+                                    ]
+                                },
+                                ]
+                            },
+                            {
+                                text: 'itemanimation',
+                                link: '/javadocs/com.hypixel.hytale.server.core.asset.type.itemanimation',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'config',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.asset.type.itemanimation.config',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'itemsound',
+                                link: '/javadocs/com.hypixel.hytale.server.core.asset.type.itemsound',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'config',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.asset.type.itemsound.config',
+                                },
+                                ]
+                            },
+                            ]
+                        },
+                        {
+                            text: 'inventory',
+                            link: '/javadocs/com.hypixel.hytale.server.core.inventory',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'container',
+                                link: '/javadocs/com.hypixel.hytale.server.core.inventory.container',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'filter',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.inventory.container.filter',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'transaction',
+                                link: '/javadocs/com.hypixel.hytale.server.core.inventory.transaction',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'modules.item',
+                            link: '/javadocs/com.hypixel.hytale.server.core.modules.item',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'commands',
+                                link: '/javadocs/com.hypixel.hytale.server.core.modules.item.commands',
+                            },
+                            ]
+                        },
+                        ]
+                    },
                     ]
                 },
                 {
                     text: 'Commands & Permissions',
                     collapsed: true,
                     items: [
-                        { text: 'com.hypixel.hytale.server.core.command.commands.debug', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.debug' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.debug.component.hitboxcollision', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.debug.component.hitboxcollision' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.debug.component.repulsion', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.debug.component.repulsion' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.debug.packs', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.debug.packs' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.debug.server', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.debug.server' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.debug.stresstest', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.debug.stresstest' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.player', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.player' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.player.camera', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.player.camera' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.player.effect', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.player.effect' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.player.inventory', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.player.inventory' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.player.stats', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.player.stats' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.player.viewradius', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.player.viewradius' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.server', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.server' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.server.auth', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.server.auth' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.utility', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.utility.git', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.git' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.utility.help', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.help' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.utility.lighting', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.lighting' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.utility.metacommands', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.metacommands' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.utility.net', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.net' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.utility.sleep', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.sleep' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.utility.sound', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.sound' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.utility.worldmap', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.worldmap' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.world', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.world' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.world.chunk', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.world.chunk' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.world.entity', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.world.entity' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.world.entity.snapshot', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.world.entity.snapshot' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.world.entity.stats', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.world.entity.stats' },
-                        { text: 'com.hypixel.hytale.server.core.command.commands.world.worldgen', link: '/javadocs/com.hypixel.hytale.server.core.command.commands.world.worldgen' },
-                        { text: 'com.hypixel.hytale.server.core.command.system', link: '/javadocs/com.hypixel.hytale.server.core.command.system' },
-                        { text: 'com.hypixel.hytale.server.core.command.system.arguments.system', link: '/javadocs/com.hypixel.hytale.server.core.command.system.arguments.system' },
-                        { text: 'com.hypixel.hytale.server.core.command.system.arguments.types', link: '/javadocs/com.hypixel.hytale.server.core.command.system.arguments.types' },
-                        { text: 'com.hypixel.hytale.server.core.command.system.basecommands', link: '/javadocs/com.hypixel.hytale.server.core.command.system.basecommands' },
-                        { text: 'com.hypixel.hytale.server.core.command.system.exceptions', link: '/javadocs/com.hypixel.hytale.server.core.command.system.exceptions' },
-                        { text: 'com.hypixel.hytale.server.core.command.system.pages', link: '/javadocs/com.hypixel.hytale.server.core.command.system.pages' },
-                        { text: 'com.hypixel.hytale.server.core.command.system.suggestion', link: '/javadocs/com.hypixel.hytale.server.core.command.system.suggestion' },
-                        { text: 'com.hypixel.hytale.server.core.console', link: '/javadocs/com.hypixel.hytale.server.core.console' },
-                        { text: 'com.hypixel.hytale.server.core.console.command', link: '/javadocs/com.hypixel.hytale.server.core.console.command' },
-                        { text: 'com.hypixel.hytale.server.core.permissions', link: '/javadocs/com.hypixel.hytale.server.core.permissions' },
-                        { text: 'com.hypixel.hytale.server.core.permissions.commands', link: '/javadocs/com.hypixel.hytale.server.core.permissions.commands' },
-                        { text: 'com.hypixel.hytale.server.core.permissions.commands.op', link: '/javadocs/com.hypixel.hytale.server.core.permissions.commands.op' },
-                        { text: 'com.hypixel.hytale.server.core.permissions.provider', link: '/javadocs/com.hypixel.hytale.server.core.permissions.provider' },
+                    {
+                        text: 'com.hypixel.hytale.server.core',
+                        collapsed: true,
+                        items: [
+                        {
+                            text: 'command',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'commands',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'debug',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.command.commands.debug',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'component',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'hitboxcollision',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.command.commands.debug.component.hitboxcollision',
+                                        },
+                                        {
+                                            text: 'repulsion',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.command.commands.debug.component.repulsion',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'packs',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.debug.packs',
+                                    },
+                                    {
+                                        text: 'server',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.debug.server',
+                                    },
+                                    {
+                                        text: 'stresstest',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.debug.stresstest',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'player',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.command.commands.player',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'camera',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.player.camera',
+                                    },
+                                    {
+                                        text: 'effect',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.player.effect',
+                                    },
+                                    {
+                                        text: 'inventory',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.player.inventory',
+                                    },
+                                    {
+                                        text: 'stats',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.player.stats',
+                                    },
+                                    {
+                                        text: 'viewradius',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.player.viewradius',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'server',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.command.commands.server',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'auth',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.server.auth',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'utility',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'git',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.git',
+                                    },
+                                    {
+                                        text: 'help',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.help',
+                                    },
+                                    {
+                                        text: 'lighting',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.lighting',
+                                    },
+                                    {
+                                        text: 'metacommands',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.metacommands',
+                                    },
+                                    {
+                                        text: 'net',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.net',
+                                    },
+                                    {
+                                        text: 'sleep',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.sleep',
+                                    },
+                                    {
+                                        text: 'sound',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.sound',
+                                    },
+                                    {
+                                        text: 'worldmap',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.utility.worldmap',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'world',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.command.commands.world',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'chunk',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.world.chunk',
+                                    },
+                                    {
+                                        text: 'entity',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.world.entity',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'snapshot',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.command.commands.world.entity.snapshot',
+                                        },
+                                        {
+                                            text: 'stats',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.command.commands.world.entity.stats',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'worldgen',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.commands.world.worldgen',
+                                    },
+                                    ]
+                                },
+                                ]
+                            },
+                            {
+                                text: 'system',
+                                link: '/javadocs/com.hypixel.hytale.server.core.command.system',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'arguments',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'system',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.system.arguments.system',
+                                    },
+                                    {
+                                        text: 'types',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.command.system.arguments.types',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'basecommands',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.command.system.basecommands',
+                                },
+                                {
+                                    text: 'exceptions',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.command.system.exceptions',
+                                },
+                                {
+                                    text: 'pages',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.command.system.pages',
+                                },
+                                {
+                                    text: 'suggestion',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.command.system.suggestion',
+                                },
+                                ]
+                            },
+                            ]
+                        },
+                        {
+                            text: 'console',
+                            link: '/javadocs/com.hypixel.hytale.server.core.console',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'command',
+                                link: '/javadocs/com.hypixel.hytale.server.core.console.command',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'permissions',
+                            link: '/javadocs/com.hypixel.hytale.server.core.permissions',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'commands',
+                                link: '/javadocs/com.hypixel.hytale.server.core.permissions.commands',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'op',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.permissions.commands.op',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'provider',
+                                link: '/javadocs/com.hypixel.hytale.server.core.permissions.provider',
+                            },
+                            ]
+                        },
+                        ]
+                    },
                     ]
                 },
                 {
                     text: 'Networking & Protocol',
                     collapsed: true,
                     items: [
-                        { text: 'com.hypixel.hytale.protocol', link: '/javadocs/com.hypixel.hytale.protocol' },
-                        { text: 'com.hypixel.hytale.protocol.io', link: '/javadocs/com.hypixel.hytale.protocol.io' },
-                        { text: 'com.hypixel.hytale.protocol.io.netty', link: '/javadocs/com.hypixel.hytale.protocol.io.netty' },
-                        { text: 'com.hypixel.hytale.protocol.packets.asseteditor', link: '/javadocs/com.hypixel.hytale.protocol.packets.asseteditor' },
-                        { text: 'com.hypixel.hytale.protocol.packets.assets', link: '/javadocs/com.hypixel.hytale.protocol.packets.assets' },
-                        { text: 'com.hypixel.hytale.protocol.packets.auth', link: '/javadocs/com.hypixel.hytale.protocol.packets.auth' },
-                        { text: 'com.hypixel.hytale.protocol.packets.buildertools', link: '/javadocs/com.hypixel.hytale.protocol.packets.buildertools' },
-                        { text: 'com.hypixel.hytale.protocol.packets.camera', link: '/javadocs/com.hypixel.hytale.protocol.packets.camera' },
-                        { text: 'com.hypixel.hytale.protocol.packets.connection', link: '/javadocs/com.hypixel.hytale.protocol.packets.connection' },
-                        { text: 'com.hypixel.hytale.protocol.packets.entities', link: '/javadocs/com.hypixel.hytale.protocol.packets.entities' },
-                        { text: 'com.hypixel.hytale.protocol.packets.interaction', link: '/javadocs/com.hypixel.hytale.protocol.packets.interaction' },
-                        { text: 'com.hypixel.hytale.protocol.packets.interface_', link: '/javadocs/com.hypixel.hytale.protocol.packets.interface_' },
-                        { text: 'com.hypixel.hytale.protocol.packets.inventory', link: '/javadocs/com.hypixel.hytale.protocol.packets.inventory' },
-                        { text: 'com.hypixel.hytale.protocol.packets.machinima', link: '/javadocs/com.hypixel.hytale.protocol.packets.machinima' },
-                        { text: 'com.hypixel.hytale.protocol.packets.player', link: '/javadocs/com.hypixel.hytale.protocol.packets.player' },
-                        { text: 'com.hypixel.hytale.protocol.packets.serveraccess', link: '/javadocs/com.hypixel.hytale.protocol.packets.serveraccess' },
-                        { text: 'com.hypixel.hytale.protocol.packets.setup', link: '/javadocs/com.hypixel.hytale.protocol.packets.setup' },
-                        { text: 'com.hypixel.hytale.protocol.packets.window', link: '/javadocs/com.hypixel.hytale.protocol.packets.window' },
-                        { text: 'com.hypixel.hytale.protocol.packets.world', link: '/javadocs/com.hypixel.hytale.protocol.packets.world' },
-                        { text: 'com.hypixel.hytale.protocol.packets.worldmap', link: '/javadocs/com.hypixel.hytale.protocol.packets.worldmap' },
-                        { text: 'com.hypixel.hytale.server.core.io', link: '/javadocs/com.hypixel.hytale.server.core.io' },
-                        { text: 'com.hypixel.hytale.server.core.io.adapter', link: '/javadocs/com.hypixel.hytale.server.core.io.adapter' },
-                        { text: 'com.hypixel.hytale.server.core.io.commands', link: '/javadocs/com.hypixel.hytale.server.core.io.commands' },
-                        { text: 'com.hypixel.hytale.server.core.io.handlers', link: '/javadocs/com.hypixel.hytale.server.core.io.handlers' },
-                        { text: 'com.hypixel.hytale.server.core.io.handlers.game', link: '/javadocs/com.hypixel.hytale.server.core.io.handlers.game' },
-                        { text: 'com.hypixel.hytale.server.core.io.handlers.login', link: '/javadocs/com.hypixel.hytale.server.core.io.handlers.login' },
-                        { text: 'com.hypixel.hytale.server.core.io.netty', link: '/javadocs/com.hypixel.hytale.server.core.io.netty' },
-                        { text: 'com.hypixel.hytale.server.core.io.transport', link: '/javadocs/com.hypixel.hytale.server.core.io.transport' },
-                        { text: 'io.netty.buffer', link: '/javadocs/io.netty.buffer' },
-                        { text: 'io.netty.buffer.search', link: '/javadocs/io.netty.buffer.search' },
-                        { text: 'io.netty.handler.codec.marshalling', link: '/javadocs/io.netty.handler.codec.marshalling' },
-                        { text: 'io.netty.handler.codec.protobuf', link: '/javadocs/io.netty.handler.codec.protobuf' },
-                        { text: 'io.netty.handler.codec.quic', link: '/javadocs/io.netty.handler.codec.quic' },
+                    {
+                        text: 'com.hypixel.hytale',
+                        collapsed: true,
+                        items: [
+                        {
+                            text: 'protocol',
+                            link: '/javadocs/com.hypixel.hytale.protocol',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'io',
+                                link: '/javadocs/com.hypixel.hytale.protocol.io',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'netty',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.io.netty',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'packets',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'asseteditor',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.asseteditor',
+                                },
+                                {
+                                    text: 'assets',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.assets',
+                                },
+                                {
+                                    text: 'auth',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.auth',
+                                },
+                                {
+                                    text: 'buildertools',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.buildertools',
+                                },
+                                {
+                                    text: 'camera',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.camera',
+                                },
+                                {
+                                    text: 'connection',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.connection',
+                                },
+                                {
+                                    text: 'entities',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.entities',
+                                },
+                                {
+                                    text: 'interaction',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.interaction',
+                                },
+                                {
+                                    text: 'interface_',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.interface_',
+                                },
+                                {
+                                    text: 'inventory',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.inventory',
+                                },
+                                {
+                                    text: 'machinima',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.machinima',
+                                },
+                                {
+                                    text: 'player',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.player',
+                                },
+                                {
+                                    text: 'serveraccess',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.serveraccess',
+                                },
+                                {
+                                    text: 'setup',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.setup',
+                                },
+                                {
+                                    text: 'window',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.window',
+                                },
+                                {
+                                    text: 'world',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.world',
+                                },
+                                {
+                                    text: 'worldmap',
+                                    link: '/javadocs/com.hypixel.hytale.protocol.packets.worldmap',
+                                },
+                                ]
+                            },
+                            ]
+                        },
+                        {
+                            text: 'server.core.io',
+                            link: '/javadocs/com.hypixel.hytale.server.core.io',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'adapter',
+                                link: '/javadocs/com.hypixel.hytale.server.core.io.adapter',
+                            },
+                            {
+                                text: 'commands',
+                                link: '/javadocs/com.hypixel.hytale.server.core.io.commands',
+                            },
+                            {
+                                text: 'handlers',
+                                link: '/javadocs/com.hypixel.hytale.server.core.io.handlers',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'game',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.io.handlers.game',
+                                },
+                                {
+                                    text: 'login',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.io.handlers.login',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'netty',
+                                link: '/javadocs/com.hypixel.hytale.server.core.io.netty',
+                            },
+                            {
+                                text: 'transport',
+                                link: '/javadocs/com.hypixel.hytale.server.core.io.transport',
+                            },
+                            ]
+                        },
+                        ]
+                    },
+                    {
+                        text: 'io.netty',
+                        collapsed: true,
+                        items: [
+                        {
+                            text: 'buffer',
+                            link: '/javadocs/io.netty.buffer',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'search',
+                                link: '/javadocs/io.netty.buffer.search',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'handler.codec',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'marshalling',
+                                link: '/javadocs/io.netty.handler.codec.marshalling',
+                            },
+                            {
+                                text: 'protobuf',
+                                link: '/javadocs/io.netty.handler.codec.protobuf',
+                            },
+                            {
+                                text: 'quic',
+                                link: '/javadocs/io.netty.handler.codec.quic',
+                            },
+                            ]
+                        },
+                        ]
+                    },
                     ]
                 },
                 {
                     text: 'Math & Utilities',
                     collapsed: true,
                     items: [
-                        { text: 'com.hypixel.hytale.common.benchmark', link: '/javadocs/com.hypixel.hytale.common.benchmark' },
-                        { text: 'com.hypixel.hytale.common.collection', link: '/javadocs/com.hypixel.hytale.common.collection' },
-                        { text: 'com.hypixel.hytale.common.fastutil', link: '/javadocs/com.hypixel.hytale.common.fastutil' },
-                        { text: 'com.hypixel.hytale.common.map', link: '/javadocs/com.hypixel.hytale.common.map' },
-                        { text: 'com.hypixel.hytale.common.plugin', link: '/javadocs/com.hypixel.hytale.common.plugin' },
-                        { text: 'com.hypixel.hytale.common.semver', link: '/javadocs/com.hypixel.hytale.common.semver' },
-                        { text: 'com.hypixel.hytale.common.thread', link: '/javadocs/com.hypixel.hytale.common.thread' },
-                        { text: 'com.hypixel.hytale.common.thread.ticking', link: '/javadocs/com.hypixel.hytale.common.thread.ticking' },
-                        { text: 'com.hypixel.hytale.common.tuple', link: '/javadocs/com.hypixel.hytale.common.tuple' },
-                        { text: 'com.hypixel.hytale.common.util', link: '/javadocs/com.hypixel.hytale.common.util' },
-                        { text: 'com.hypixel.hytale.common.util.java', link: '/javadocs/com.hypixel.hytale.common.util.java' },
-                        { text: 'com.hypixel.hytale.math', link: '/javadocs/com.hypixel.hytale.math' },
-                        { text: 'com.hypixel.hytale.math.block', link: '/javadocs/com.hypixel.hytale.math.block' },
-                        { text: 'com.hypixel.hytale.math.codec', link: '/javadocs/com.hypixel.hytale.math.codec' },
-                        { text: 'com.hypixel.hytale.math.data', link: '/javadocs/com.hypixel.hytale.math.data' },
-                        { text: 'com.hypixel.hytale.math.hitdetection', link: '/javadocs/com.hypixel.hytale.math.hitdetection' },
-                        { text: 'com.hypixel.hytale.math.hitdetection.projection', link: '/javadocs/com.hypixel.hytale.math.hitdetection.projection' },
-                        { text: 'com.hypixel.hytale.math.hitdetection.view', link: '/javadocs/com.hypixel.hytale.math.hitdetection.view' },
-                        { text: 'com.hypixel.hytale.math.iterator', link: '/javadocs/com.hypixel.hytale.math.iterator' },
-                        { text: 'com.hypixel.hytale.math.matrix', link: '/javadocs/com.hypixel.hytale.math.matrix' },
-                        { text: 'com.hypixel.hytale.math.random', link: '/javadocs/com.hypixel.hytale.math.random' },
-                        { text: 'com.hypixel.hytale.math.range', link: '/javadocs/com.hypixel.hytale.math.range' },
-                        { text: 'com.hypixel.hytale.math.raycast', link: '/javadocs/com.hypixel.hytale.math.raycast' },
-                        { text: 'com.hypixel.hytale.math.shape', link: '/javadocs/com.hypixel.hytale.math.shape' },
-                        { text: 'com.hypixel.hytale.math.util', link: '/javadocs/com.hypixel.hytale.math.util' },
-                        { text: 'com.hypixel.hytale.math.vector', link: '/javadocs/com.hypixel.hytale.math.vector' },
-                        { text: 'com.hypixel.hytale.math.vector.relative', link: '/javadocs/com.hypixel.hytale.math.vector.relative' },
-                        { text: 'com.hypixel.hytale.server.core.util', link: '/javadocs/com.hypixel.hytale.server.core.util' },
-                        { text: 'com.hypixel.hytale.server.core.util.backup', link: '/javadocs/com.hypixel.hytale.server.core.util.backup' },
-                        { text: 'com.hypixel.hytale.server.core.util.concurrent', link: '/javadocs/com.hypixel.hytale.server.core.util.concurrent' },
-                        { text: 'com.hypixel.hytale.server.core.util.io', link: '/javadocs/com.hypixel.hytale.server.core.util.io' },
-                        { text: 'com.hypixel.hytale.server.core.util.message', link: '/javadocs/com.hypixel.hytale.server.core.util.message' },
-                        { text: 'com.hypixel.hytale.server.core.util.thread', link: '/javadocs/com.hypixel.hytale.server.core.util.thread' },
+                    {
+                        text: 'com.hypixel.hytale',
+                        collapsed: true,
+                        items: [
+                        {
+                            text: 'common',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'benchmark',
+                                link: '/javadocs/com.hypixel.hytale.common.benchmark',
+                            },
+                            {
+                                text: 'collection',
+                                link: '/javadocs/com.hypixel.hytale.common.collection',
+                            },
+                            {
+                                text: 'fastutil',
+                                link: '/javadocs/com.hypixel.hytale.common.fastutil',
+                            },
+                            {
+                                text: 'map',
+                                link: '/javadocs/com.hypixel.hytale.common.map',
+                            },
+                            {
+                                text: 'plugin',
+                                link: '/javadocs/com.hypixel.hytale.common.plugin',
+                            },
+                            {
+                                text: 'semver',
+                                link: '/javadocs/com.hypixel.hytale.common.semver',
+                            },
+                            {
+                                text: 'thread',
+                                link: '/javadocs/com.hypixel.hytale.common.thread',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'ticking',
+                                    link: '/javadocs/com.hypixel.hytale.common.thread.ticking',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'tuple',
+                                link: '/javadocs/com.hypixel.hytale.common.tuple',
+                            },
+                            {
+                                text: 'util',
+                                link: '/javadocs/com.hypixel.hytale.common.util',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'java',
+                                    link: '/javadocs/com.hypixel.hytale.common.util.java',
+                                },
+                                ]
+                            },
+                            ]
+                        },
+                        {
+                            text: 'math',
+                            link: '/javadocs/com.hypixel.hytale.math',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'block',
+                                link: '/javadocs/com.hypixel.hytale.math.block',
+                            },
+                            {
+                                text: 'codec',
+                                link: '/javadocs/com.hypixel.hytale.math.codec',
+                            },
+                            {
+                                text: 'data',
+                                link: '/javadocs/com.hypixel.hytale.math.data',
+                            },
+                            {
+                                text: 'hitdetection',
+                                link: '/javadocs/com.hypixel.hytale.math.hitdetection',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'projection',
+                                    link: '/javadocs/com.hypixel.hytale.math.hitdetection.projection',
+                                },
+                                {
+                                    text: 'view',
+                                    link: '/javadocs/com.hypixel.hytale.math.hitdetection.view',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'iterator',
+                                link: '/javadocs/com.hypixel.hytale.math.iterator',
+                            },
+                            {
+                                text: 'matrix',
+                                link: '/javadocs/com.hypixel.hytale.math.matrix',
+                            },
+                            {
+                                text: 'random',
+                                link: '/javadocs/com.hypixel.hytale.math.random',
+                            },
+                            {
+                                text: 'range',
+                                link: '/javadocs/com.hypixel.hytale.math.range',
+                            },
+                            {
+                                text: 'raycast',
+                                link: '/javadocs/com.hypixel.hytale.math.raycast',
+                            },
+                            {
+                                text: 'shape',
+                                link: '/javadocs/com.hypixel.hytale.math.shape',
+                            },
+                            {
+                                text: 'util',
+                                link: '/javadocs/com.hypixel.hytale.math.util',
+                            },
+                            {
+                                text: 'vector',
+                                link: '/javadocs/com.hypixel.hytale.math.vector',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'relative',
+                                    link: '/javadocs/com.hypixel.hytale.math.vector.relative',
+                                },
+                                ]
+                            },
+                            ]
+                        },
+                        {
+                            text: 'server.core.util',
+                            link: '/javadocs/com.hypixel.hytale.server.core.util',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'backup',
+                                link: '/javadocs/com.hypixel.hytale.server.core.util.backup',
+                            },
+                            {
+                                text: 'concurrent',
+                                link: '/javadocs/com.hypixel.hytale.server.core.util.concurrent',
+                            },
+                            {
+                                text: 'io',
+                                link: '/javadocs/com.hypixel.hytale.server.core.util.io',
+                            },
+                            {
+                                text: 'message',
+                                link: '/javadocs/com.hypixel.hytale.server.core.util.message',
+                            },
+                            {
+                                text: 'thread',
+                                link: '/javadocs/com.hypixel.hytale.server.core.util.thread',
+                            },
+                            ]
+                        },
+                        ]
+                    },
                     ]
                 },
                 {
                     text: 'Other / Internal',
                     collapsed: true,
                     items: [
-                        { text: 'com.hypixel.hytale', link: '/javadocs/com.hypixel.hytale' },
-                        { text: 'com.hypixel.hytale.function', link: '/javadocs/com.hypixel.hytale.function' },
-                        { text: 'com.hypixel.hytale.function.consumer', link: '/javadocs/com.hypixel.hytale.function.consumer' },
-                        { text: 'com.hypixel.hytale.function.function', link: '/javadocs/com.hypixel.hytale.function.function' },
-                        { text: 'com.hypixel.hytale.function.predicate', link: '/javadocs/com.hypixel.hytale.function.predicate' },
-                        { text: 'com.hypixel.hytale.function.supplier', link: '/javadocs/com.hypixel.hytale.function.supplier' },
-                        { text: 'com.hypixel.hytale.logger', link: '/javadocs/com.hypixel.hytale.logger' },
-                        { text: 'com.hypixel.hytale.logger.backend', link: '/javadocs/com.hypixel.hytale.logger.backend' },
-                        { text: 'com.hypixel.hytale.logger.sentry', link: '/javadocs/com.hypixel.hytale.logger.sentry' },
-                        { text: 'com.hypixel.hytale.logger.util', link: '/javadocs/com.hypixel.hytale.logger.util' },
-                        { text: 'com.hypixel.hytale.plugin.early', link: '/javadocs/com.hypixel.hytale.plugin.early' },
-                        { text: 'com.hypixel.hytale.server.core.asset', link: '/javadocs/com.hypixel.hytale.server.core.asset' },
-                        { text: 'com.hypixel.hytale.server.core.asset.common', link: '/javadocs/com.hypixel.hytale.server.core.asset.common' },
-                        { text: 'com.hypixel.hytale.server.core.asset.common.asset', link: '/javadocs/com.hypixel.hytale.server.core.asset.common.asset' },
-                        { text: 'com.hypixel.hytale.server.core.asset.common.events', link: '/javadocs/com.hypixel.hytale.server.core.asset.common.events' },
-                        { text: 'com.hypixel.hytale.server.core.asset.modifiers', link: '/javadocs/com.hypixel.hytale.server.core.asset.modifiers' },
-                        { text: 'com.hypixel.hytale.server.core.asset.monitor', link: '/javadocs/com.hypixel.hytale.server.core.asset.monitor' },
-                        { text: 'com.hypixel.hytale.server.core.asset.packet', link: '/javadocs/com.hypixel.hytale.server.core.asset.packet' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.ambiencefx', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.ambiencefx' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.ambiencefx.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.ambiencefx.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.attitude', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.attitude' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.audiocategory', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.audiocategory' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.audiocategory.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.audiocategory.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blockbreakingdecal', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockbreakingdecal' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blockbreakingdecal.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockbreakingdecal.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blockhitbox', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockhitbox' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blockparticle', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockparticle' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blockparticle.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockparticle.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blockset', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockset' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blockset.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockset.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blocksound', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocksound' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blocksound.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocksound.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blocktick', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktick' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blocktick.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktick.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blocktype', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktype' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blocktype.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktype.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blocktype.config.bench', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktype.config.bench' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blocktype.config.farming', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktype.config.farming' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.blocktype.config.mountpoints', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktype.config.mountpoints' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.buildertool.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.buildertool.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.buildertool.config.args', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.buildertool.config.args' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.camera', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.camera' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.entityeffect', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.entityeffect' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.entityeffect.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.entityeffect.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.environment', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.environment' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.environment.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.environment.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.equalizereffect', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.equalizereffect' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.equalizereffect.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.equalizereffect.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.fluid', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.fluid' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.fluidfx', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.fluidfx' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.fluidfx.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.fluidfx.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.gamemode', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.gamemode' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.gameplay', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.gameplay' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.gameplay.respawn', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.gameplay.respawn' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.model.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.model.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.model.config.camera', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.model.config.camera' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.modelvfx', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.modelvfx' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.modelvfx.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.modelvfx.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.particle', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.particle' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.particle.commands', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.particle.commands' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.particle.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.particle.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.particle.pages', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.particle.pages' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.portalworld', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.portalworld' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.projectile.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.projectile.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.responsecurve', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.responsecurve' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.responsecurve.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.responsecurve.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.reverbeffect', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.reverbeffect' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.reverbeffect.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.reverbeffect.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.soundevent', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.soundevent' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.soundevent.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.soundevent.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.soundevent.validator', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.soundevent.validator' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.soundset', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.soundset' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.soundset.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.soundset.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.tagpattern', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.tagpattern' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.tagpattern.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.tagpattern.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.trail', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.trail' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.trail.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.trail.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.weather', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.weather' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.weather.config', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.weather.config' },
-                        { text: 'com.hypixel.hytale.server.core.asset.type.wordlist', link: '/javadocs/com.hypixel.hytale.server.core.asset.type.wordlist' },
-                        { text: 'com.hypixel.hytale.server.core.asset.util', link: '/javadocs/com.hypixel.hytale.server.core.asset.util' },
-                        { text: 'com.hypixel.hytale.server.core.auth', link: '/javadocs/com.hypixel.hytale.server.core.auth' },
-                        { text: 'com.hypixel.hytale.server.core.auth.oauth', link: '/javadocs/com.hypixel.hytale.server.core.auth.oauth' },
-                        { text: 'com.hypixel.hytale.server.core.client', link: '/javadocs/com.hypixel.hytale.server.core.client' },
-                        { text: 'com.hypixel.hytale.server.core.codec', link: '/javadocs/com.hypixel.hytale.server.core.codec' },
-                        { text: 'com.hypixel.hytale.server.core.codec.protocol', link: '/javadocs/com.hypixel.hytale.server.core.codec.protocol' },
-                        { text: 'com.hypixel.hytale.server.core.cosmetics', link: '/javadocs/com.hypixel.hytale.server.core.cosmetics' },
-                        { text: 'com.hypixel.hytale.server.core.cosmetics.commands', link: '/javadocs/com.hypixel.hytale.server.core.cosmetics.commands' },
-                        { text: 'com.hypixel.hytale.server.core.meta', link: '/javadocs/com.hypixel.hytale.server.core.meta' },
-                        { text: 'com.hypixel.hytale.server.core.modules', link: '/javadocs/com.hypixel.hytale.server.core.modules' },
-                        { text: 'com.hypixel.hytale.server.core.modules.accesscontrol', link: '/javadocs/com.hypixel.hytale.server.core.modules.accesscontrol' },
-                        { text: 'com.hypixel.hytale.server.core.modules.accesscontrol.ban', link: '/javadocs/com.hypixel.hytale.server.core.modules.accesscontrol.ban' },
-                        { text: 'com.hypixel.hytale.server.core.modules.accesscontrol.commands', link: '/javadocs/com.hypixel.hytale.server.core.modules.accesscontrol.commands' },
-                        { text: 'com.hypixel.hytale.server.core.modules.accesscontrol.provider', link: '/javadocs/com.hypixel.hytale.server.core.modules.accesscontrol.provider' },
-                        { text: 'com.hypixel.hytale.server.core.modules.camera', link: '/javadocs/com.hypixel.hytale.server.core.modules.camera' },
-                        { text: 'com.hypixel.hytale.server.core.modules.collision', link: '/javadocs/com.hypixel.hytale.server.core.modules.collision' },
-                        { text: 'com.hypixel.hytale.server.core.modules.collision.commands', link: '/javadocs/com.hypixel.hytale.server.core.modules.collision.commands' },
-                        { text: 'com.hypixel.hytale.server.core.modules.debug', link: '/javadocs/com.hypixel.hytale.server.core.modules.debug' },
-                        { text: 'com.hypixel.hytale.server.core.modules.debug.commands', link: '/javadocs/com.hypixel.hytale.server.core.modules.debug.commands' },
-                        { text: 'com.hypixel.hytale.server.core.modules.i18n', link: '/javadocs/com.hypixel.hytale.server.core.modules.i18n' },
-                        { text: 'com.hypixel.hytale.server.core.modules.i18n.commands', link: '/javadocs/com.hypixel.hytale.server.core.modules.i18n.commands' },
-                        { text: 'com.hypixel.hytale.server.core.modules.i18n.event', link: '/javadocs/com.hypixel.hytale.server.core.modules.i18n.event' },
-                        { text: 'com.hypixel.hytale.server.core.modules.i18n.generator', link: '/javadocs/com.hypixel.hytale.server.core.modules.i18n.generator' },
-                        { text: 'com.hypixel.hytale.server.core.modules.i18n.parser', link: '/javadocs/com.hypixel.hytale.server.core.modules.i18n.parser' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.blocktrack', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.blocktrack' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.commands', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.commands' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.components', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.components' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.interaction', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.interaction.config', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.interaction.config.client', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.client' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.interaction.config.data', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.data' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.interaction.config.none', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.none' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.interaction.config.none.simple', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.none.simple' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.interaction.config.selector', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.selector' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.interaction.config.server', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.server' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.interaction.config.server.combat', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.server.combat' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.interaction.operation', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.operation' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.interaction.util', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.util' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.suppliers', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.suppliers' },
-                        { text: 'com.hypixel.hytale.server.core.modules.interaction.system', link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.system' },
-                        { text: 'com.hypixel.hytale.server.core.modules.migrations', link: '/javadocs/com.hypixel.hytale.server.core.modules.migrations' },
-                        { text: 'com.hypixel.hytale.server.core.modules.physics', link: '/javadocs/com.hypixel.hytale.server.core.modules.physics' },
-                        { text: 'com.hypixel.hytale.server.core.modules.physics.component', link: '/javadocs/com.hypixel.hytale.server.core.modules.physics.component' },
-                        { text: 'com.hypixel.hytale.server.core.modules.physics.systems', link: '/javadocs/com.hypixel.hytale.server.core.modules.physics.systems' },
-                        { text: 'com.hypixel.hytale.server.core.modules.physics.util', link: '/javadocs/com.hypixel.hytale.server.core.modules.physics.util' },
-                        { text: 'com.hypixel.hytale.server.core.modules.prefabspawner', link: '/javadocs/com.hypixel.hytale.server.core.modules.prefabspawner' },
-                        { text: 'com.hypixel.hytale.server.core.modules.prefabspawner.commands', link: '/javadocs/com.hypixel.hytale.server.core.modules.prefabspawner.commands' },
-                        { text: 'com.hypixel.hytale.server.core.modules.projectile', link: '/javadocs/com.hypixel.hytale.server.core.modules.projectile' },
-                        { text: 'com.hypixel.hytale.server.core.modules.projectile.component', link: '/javadocs/com.hypixel.hytale.server.core.modules.projectile.component' },
-                        { text: 'com.hypixel.hytale.server.core.modules.projectile.config', link: '/javadocs/com.hypixel.hytale.server.core.modules.projectile.config' },
-                        { text: 'com.hypixel.hytale.server.core.modules.projectile.interaction', link: '/javadocs/com.hypixel.hytale.server.core.modules.projectile.interaction' },
-                        { text: 'com.hypixel.hytale.server.core.modules.projectile.system', link: '/javadocs/com.hypixel.hytale.server.core.modules.projectile.system' },
-                        { text: 'com.hypixel.hytale.server.core.modules.serverplayerlist', link: '/javadocs/com.hypixel.hytale.server.core.modules.serverplayerlist' },
-                        { text: 'com.hypixel.hytale.server.core.modules.singleplayer', link: '/javadocs/com.hypixel.hytale.server.core.modules.singleplayer' },
-                        { text: 'com.hypixel.hytale.server.core.modules.singleplayer.commands', link: '/javadocs/com.hypixel.hytale.server.core.modules.singleplayer.commands' },
-                        { text: 'com.hypixel.hytale.server.core.modules.splitvelocity', link: '/javadocs/com.hypixel.hytale.server.core.modules.splitvelocity' },
-                        { text: 'com.hypixel.hytale.server.core.modules.time', link: '/javadocs/com.hypixel.hytale.server.core.modules.time' },
-                        { text: 'com.hypixel.hytale.server.core.modules.time.commands', link: '/javadocs/com.hypixel.hytale.server.core.modules.time.commands' },
-                        { text: 'com.hypixel.hytale.server.core.receiver', link: '/javadocs/com.hypixel.hytale.server.core.receiver' },
-                        { text: 'com.hypixel.hytale.server.core.registry', link: '/javadocs/com.hypixel.hytale.server.core.registry' },
-                        { text: 'com.hypixel.hytale.server.core.task', link: '/javadocs/com.hypixel.hytale.server.core.task' },
-                        { text: 'com.hypixel.hytale.server.core.ui', link: '/javadocs/com.hypixel.hytale.server.core.ui' },
-                        { text: 'com.hypixel.hytale.server.core.ui.browser', link: '/javadocs/com.hypixel.hytale.server.core.ui.browser' },
-                        { text: 'com.hypixel.hytale.server.core.ui.builder', link: '/javadocs/com.hypixel.hytale.server.core.ui.builder' },
+                    {
+                        text: 'com.hypixel.hytale',
+                        link: '/javadocs/com.hypixel.hytale',
+                        collapsed: true,
+                        items: [
+                        {
+                            text: 'function',
+                            link: '/javadocs/com.hypixel.hytale.function',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'consumer',
+                                link: '/javadocs/com.hypixel.hytale.function.consumer',
+                            },
+                            {
+                                text: 'function',
+                                link: '/javadocs/com.hypixel.hytale.function.function',
+                            },
+                            {
+                                text: 'predicate',
+                                link: '/javadocs/com.hypixel.hytale.function.predicate',
+                            },
+                            {
+                                text: 'supplier',
+                                link: '/javadocs/com.hypixel.hytale.function.supplier',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'logger',
+                            link: '/javadocs/com.hypixel.hytale.logger',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'backend',
+                                link: '/javadocs/com.hypixel.hytale.logger.backend',
+                            },
+                            {
+                                text: 'sentry',
+                                link: '/javadocs/com.hypixel.hytale.logger.sentry',
+                            },
+                            {
+                                text: 'util',
+                                link: '/javadocs/com.hypixel.hytale.logger.util',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'plugin.early',
+                            link: '/javadocs/com.hypixel.hytale.plugin.early',
+                        },
+                        {
+                            text: 'server.core',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'asset',
+                                link: '/javadocs/com.hypixel.hytale.server.core.asset',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'common',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.asset.common',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'asset',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.common.asset',
+                                    },
+                                    {
+                                        text: 'events',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.common.events',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'modifiers',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.asset.modifiers',
+                                },
+                                {
+                                    text: 'monitor',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.asset.monitor',
+                                },
+                                {
+                                    text: 'packet',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.asset.packet',
+                                },
+                                {
+                                    text: 'type',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'ambiencefx',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.ambiencefx',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.ambiencefx.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'attitude',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.attitude',
+                                    },
+                                    {
+                                        text: 'audiocategory',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.audiocategory',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.audiocategory.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'blockbreakingdecal',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockbreakingdecal',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockbreakingdecal.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'blockhitbox',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockhitbox',
+                                    },
+                                    {
+                                        text: 'blockparticle',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockparticle',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockparticle.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'blockset',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockset',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blockset.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'blocksound',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocksound',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocksound.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'blocktick',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktick',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktick.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'blocktype',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktype',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktype.config',
+                                            collapsed: true,
+                                            items: [
+                                            {
+                                                text: 'bench',
+                                                link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktype.config.bench',
+                                            },
+                                            {
+                                                text: 'farming',
+                                                link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktype.config.farming',
+                                            },
+                                            {
+                                                text: 'mountpoints',
+                                                link: '/javadocs/com.hypixel.hytale.server.core.asset.type.blocktype.config.mountpoints',
+                                            },
+                                            ]
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'buildertool.config',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.buildertool.config',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'args',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.buildertool.config.args',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'camera',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.camera',
+                                    },
+                                    {
+                                        text: 'entityeffect',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.entityeffect',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.entityeffect.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'environment',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.environment',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.environment.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'equalizereffect',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.equalizereffect',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.equalizereffect.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'fluid',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.fluid',
+                                    },
+                                    {
+                                        text: 'fluidfx',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.fluidfx',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.fluidfx.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'gamemode',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.gamemode',
+                                    },
+                                    {
+                                        text: 'gameplay',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.gameplay',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'respawn',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.gameplay.respawn',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'model.config',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.model.config',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'camera',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.model.config.camera',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'modelvfx',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.modelvfx',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.modelvfx.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'particle',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.particle',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'commands',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.particle.commands',
+                                        },
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.particle.config',
+                                        },
+                                        {
+                                            text: 'pages',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.particle.pages',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'portalworld',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.portalworld',
+                                    },
+                                    {
+                                        text: 'projectile.config',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.projectile.config',
+                                    },
+                                    {
+                                        text: 'responsecurve',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.responsecurve',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.responsecurve.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'reverbeffect',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.reverbeffect',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.reverbeffect.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'soundevent',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.soundevent',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.soundevent.config',
+                                        },
+                                        {
+                                            text: 'validator',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.soundevent.validator',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'soundset',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.soundset',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.soundset.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'tagpattern',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.tagpattern',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.tagpattern.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'trail',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.trail',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.trail.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'weather',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.weather',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.asset.type.weather.config',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'wordlist',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.asset.type.wordlist',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'util',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.asset.util',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'auth',
+                                link: '/javadocs/com.hypixel.hytale.server.core.auth',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'oauth',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.auth.oauth',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'client',
+                                link: '/javadocs/com.hypixel.hytale.server.core.client',
+                            },
+                            {
+                                text: 'codec',
+                                link: '/javadocs/com.hypixel.hytale.server.core.codec',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'protocol',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.codec.protocol',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'cosmetics',
+                                link: '/javadocs/com.hypixel.hytale.server.core.cosmetics',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'commands',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.cosmetics.commands',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'meta',
+                                link: '/javadocs/com.hypixel.hytale.server.core.meta',
+                            },
+                            {
+                                text: 'modules',
+                                link: '/javadocs/com.hypixel.hytale.server.core.modules',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'accesscontrol',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.accesscontrol',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'ban',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.accesscontrol.ban',
+                                    },
+                                    {
+                                        text: 'commands',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.accesscontrol.commands',
+                                    },
+                                    {
+                                        text: 'provider',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.accesscontrol.provider',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'camera',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.camera',
+                                },
+                                {
+                                    text: 'collision',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.collision',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'commands',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.collision.commands',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'debug',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.debug',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'commands',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.debug.commands',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'i18n',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.i18n',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'commands',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.i18n.commands',
+                                    },
+                                    {
+                                        text: 'event',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.i18n.event',
+                                    },
+                                    {
+                                        text: 'generator',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.i18n.generator',
+                                    },
+                                    {
+                                        text: 'parser',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.i18n.parser',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'interaction',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'blocktrack',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.blocktrack',
+                                    },
+                                    {
+                                        text: 'commands',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.commands',
+                                    },
+                                    {
+                                        text: 'components',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.components',
+                                    },
+                                    {
+                                        text: 'interaction',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction',
+                                        collapsed: true,
+                                        items: [
+                                        {
+                                            text: 'config',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config',
+                                            collapsed: true,
+                                            items: [
+                                            {
+                                                text: 'client',
+                                                link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.client',
+                                            },
+                                            {
+                                                text: 'data',
+                                                link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.data',
+                                            },
+                                            {
+                                                text: 'none',
+                                                link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.none',
+                                                collapsed: true,
+                                                items: [
+                                                {
+                                                    text: 'simple',
+                                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.none.simple',
+                                                },
+                                                ]
+                                            },
+                                            {
+                                                text: 'selector',
+                                                link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.selector',
+                                            },
+                                            {
+                                                text: 'server',
+                                                link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.server',
+                                                collapsed: true,
+                                                items: [
+                                                {
+                                                    text: 'combat',
+                                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.config.server.combat',
+                                                },
+                                                ]
+                                            },
+                                            ]
+                                        },
+                                        {
+                                            text: 'operation',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.operation',
+                                        },
+                                        {
+                                            text: 'util',
+                                            link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.interaction.util',
+                                        },
+                                        ]
+                                    },
+                                    {
+                                        text: 'suppliers',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.suppliers',
+                                    },
+                                    {
+                                        text: 'system',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.interaction.system',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'migrations',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.migrations',
+                                },
+                                {
+                                    text: 'physics',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.physics',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'component',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.physics.component',
+                                    },
+                                    {
+                                        text: 'systems',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.physics.systems',
+                                    },
+                                    {
+                                        text: 'util',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.physics.util',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'prefabspawner',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.prefabspawner',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'commands',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.prefabspawner.commands',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'projectile',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.projectile',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'component',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.projectile.component',
+                                    },
+                                    {
+                                        text: 'config',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.projectile.config',
+                                    },
+                                    {
+                                        text: 'interaction',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.projectile.interaction',
+                                    },
+                                    {
+                                        text: 'system',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.projectile.system',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'serverplayerlist',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.serverplayerlist',
+                                },
+                                {
+                                    text: 'singleplayer',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.singleplayer',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'commands',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.singleplayer.commands',
+                                    },
+                                    ]
+                                },
+                                {
+                                    text: 'splitvelocity',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.splitvelocity',
+                                },
+                                {
+                                    text: 'time',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.modules.time',
+                                    collapsed: true,
+                                    items: [
+                                    {
+                                        text: 'commands',
+                                        link: '/javadocs/com.hypixel.hytale.server.core.modules.time.commands',
+                                    },
+                                    ]
+                                },
+                                ]
+                            },
+                            {
+                                text: 'receiver',
+                                link: '/javadocs/com.hypixel.hytale.server.core.receiver',
+                            },
+                            {
+                                text: 'registry',
+                                link: '/javadocs/com.hypixel.hytale.server.core.registry',
+                            },
+                            {
+                                text: 'task',
+                                link: '/javadocs/com.hypixel.hytale.server.core.task',
+                            },
+                            {
+                                text: 'ui',
+                                link: '/javadocs/com.hypixel.hytale.server.core.ui',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'browser',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.ui.browser',
+                                },
+                                {
+                                    text: 'builder',
+                                    link: '/javadocs/com.hypixel.hytale.server.core.ui.builder',
+                                },
+                                ]
+                            },
+                            ]
+                        },
+                        ]
+                    },
                     ]
                 },
                 {
                     text: 'Libraries & Dependencies',
                     collapsed: true,
                     items: [
-                        { text: 'com.github.luben.zstd', link: '/javadocs/com.github.luben.zstd' },
-                        { text: 'com.github.luben.zstd.util', link: '/javadocs/com.github.luben.zstd.util' },
-                        { text: 'com.google.common.flogger', link: '/javadocs/com.google.common.flogger' },
-                        { text: 'com.google.common.flogger.backend', link: '/javadocs/com.google.common.flogger.backend' },
-                        { text: 'com.google.common.flogger.backend.system', link: '/javadocs/com.google.common.flogger.backend.system' },
-                        { text: 'com.google.common.flogger.context', link: '/javadocs/com.google.common.flogger.context' },
-                        { text: 'com.google.common.flogger.parameter', link: '/javadocs/com.google.common.flogger.parameter' },
-                        { text: 'com.google.common.flogger.parser', link: '/javadocs/com.google.common.flogger.parser' },
-                        { text: 'com.google.common.flogger.util', link: '/javadocs/com.google.common.flogger.util' },
-                        { text: 'io.sentry', link: '/javadocs/io.sentry' },
-                        { text: 'io.sentry.backpressure', link: '/javadocs/io.sentry.backpressure' },
-                        { text: 'io.sentry.cache', link: '/javadocs/io.sentry.cache' },
-                        { text: 'io.sentry.cache.tape', link: '/javadocs/io.sentry.cache.tape' },
-                        { text: 'io.sentry.clientreport', link: '/javadocs/io.sentry.clientreport' },
-                        { text: 'io.sentry.config', link: '/javadocs/io.sentry.config' },
-                        { text: 'io.sentry.exception', link: '/javadocs/io.sentry.exception' },
-                        { text: 'io.sentry.featureflags', link: '/javadocs/io.sentry.featureflags' },
-                        { text: 'io.sentry.hints', link: '/javadocs/io.sentry.hints' },
-                        { text: 'io.sentry.instrumentation.file', link: '/javadocs/io.sentry.instrumentation.file' },
-                        { text: 'io.sentry.internal', link: '/javadocs/io.sentry.internal' },
-                        { text: 'io.sentry.internal.debugmeta', link: '/javadocs/io.sentry.internal.debugmeta' },
-                        { text: 'io.sentry.internal.eventprocessor', link: '/javadocs/io.sentry.internal.eventprocessor' },
-                        { text: 'io.sentry.internal.gestures', link: '/javadocs/io.sentry.internal.gestures' },
-                        { text: 'io.sentry.internal.modules', link: '/javadocs/io.sentry.internal.modules' },
-                        { text: 'io.sentry.internal.viewhierarchy', link: '/javadocs/io.sentry.internal.viewhierarchy' },
-                        { text: 'io.sentry.logger', link: '/javadocs/io.sentry.logger' },
-                        { text: 'io.sentry.opentelemetry', link: '/javadocs/io.sentry.opentelemetry' },
-                        { text: 'io.sentry.profilemeasurements', link: '/javadocs/io.sentry.profilemeasurements' },
-                        { text: 'io.sentry.profiling', link: '/javadocs/io.sentry.profiling' },
-                        { text: 'io.sentry.protocol', link: '/javadocs/io.sentry.protocol' },
-                        { text: 'io.sentry.protocol.profiling', link: '/javadocs/io.sentry.protocol.profiling' },
-                        { text: 'io.sentry.rrweb', link: '/javadocs/io.sentry.rrweb' },
-                        { text: 'io.sentry.transport', link: '/javadocs/io.sentry.transport' },
-                        { text: 'io.sentry.util', link: '/javadocs/io.sentry.util' },
-                        { text: 'io.sentry.util.network', link: '/javadocs/io.sentry.util.network' },
-                        { text: 'io.sentry.util.runtime', link: '/javadocs/io.sentry.util.runtime' },
-                        { text: 'io.sentry.util.thread', link: '/javadocs/io.sentry.util.thread' },
-                        { text: 'io.sentry.vendor', link: '/javadocs/io.sentry.vendor' },
-                        { text: 'io.sentry.vendor.gson.internal.bind.util', link: '/javadocs/io.sentry.vendor.gson.internal.bind.util' },
-                        { text: 'io.sentry.vendor.gson.stream', link: '/javadocs/io.sentry.vendor.gson.stream' },
-                        { text: 'it.unimi.dsi.fastutil', link: '/javadocs/it.unimi.dsi.fastutil' },
-                        { text: 'it.unimi.dsi.fastutil.booleans', link: '/javadocs/it.unimi.dsi.fastutil.booleans' },
-                        { text: 'it.unimi.dsi.fastutil.bytes', link: '/javadocs/it.unimi.dsi.fastutil.bytes' },
-                        { text: 'it.unimi.dsi.fastutil.chars', link: '/javadocs/it.unimi.dsi.fastutil.chars' },
-                        { text: 'it.unimi.dsi.fastutil.doubles', link: '/javadocs/it.unimi.dsi.fastutil.doubles' },
-                        { text: 'it.unimi.dsi.fastutil.floats', link: '/javadocs/it.unimi.dsi.fastutil.floats' },
-                        { text: 'it.unimi.dsi.fastutil.ints', link: '/javadocs/it.unimi.dsi.fastutil.ints' },
-                        { text: 'it.unimi.dsi.fastutil.io', link: '/javadocs/it.unimi.dsi.fastutil.io' },
-                        { text: 'it.unimi.dsi.fastutil.longs', link: '/javadocs/it.unimi.dsi.fastutil.longs' },
-                        { text: 'it.unimi.dsi.fastutil.objects', link: '/javadocs/it.unimi.dsi.fastutil.objects' },
-                        { text: 'org.checkerframework.checker.nullness.compatqual', link: '/javadocs/org.checkerframework.checker.nullness.compatqual' },
+                    {
+                        text: 'com',
+                        collapsed: true,
+                        items: [
+                        {
+                            text: 'github.luben.zstd',
+                            link: '/javadocs/com.github.luben.zstd',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'util',
+                                link: '/javadocs/com.github.luben.zstd.util',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'google.common.flogger',
+                            link: '/javadocs/com.google.common.flogger',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'backend',
+                                link: '/javadocs/com.google.common.flogger.backend',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'system',
+                                    link: '/javadocs/com.google.common.flogger.backend.system',
+                                },
+                                ]
+                            },
+                            {
+                                text: 'context',
+                                link: '/javadocs/com.google.common.flogger.context',
+                            },
+                            {
+                                text: 'parameter',
+                                link: '/javadocs/com.google.common.flogger.parameter',
+                            },
+                            {
+                                text: 'parser',
+                                link: '/javadocs/com.google.common.flogger.parser',
+                            },
+                            {
+                                text: 'util',
+                                link: '/javadocs/com.google.common.flogger.util',
+                            },
+                            ]
+                        },
+                        ]
+                    },
+                    {
+                        text: 'io.sentry',
+                        link: '/javadocs/io.sentry',
+                        collapsed: true,
+                        items: [
+                        {
+                            text: 'backpressure',
+                            link: '/javadocs/io.sentry.backpressure',
+                        },
+                        {
+                            text: 'cache',
+                            link: '/javadocs/io.sentry.cache',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'tape',
+                                link: '/javadocs/io.sentry.cache.tape',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'clientreport',
+                            link: '/javadocs/io.sentry.clientreport',
+                        },
+                        {
+                            text: 'config',
+                            link: '/javadocs/io.sentry.config',
+                        },
+                        {
+                            text: 'exception',
+                            link: '/javadocs/io.sentry.exception',
+                        },
+                        {
+                            text: 'featureflags',
+                            link: '/javadocs/io.sentry.featureflags',
+                        },
+                        {
+                            text: 'hints',
+                            link: '/javadocs/io.sentry.hints',
+                        },
+                        {
+                            text: 'instrumentation.file',
+                            link: '/javadocs/io.sentry.instrumentation.file',
+                        },
+                        {
+                            text: 'internal',
+                            link: '/javadocs/io.sentry.internal',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'debugmeta',
+                                link: '/javadocs/io.sentry.internal.debugmeta',
+                            },
+                            {
+                                text: 'eventprocessor',
+                                link: '/javadocs/io.sentry.internal.eventprocessor',
+                            },
+                            {
+                                text: 'gestures',
+                                link: '/javadocs/io.sentry.internal.gestures',
+                            },
+                            {
+                                text: 'modules',
+                                link: '/javadocs/io.sentry.internal.modules',
+                            },
+                            {
+                                text: 'viewhierarchy',
+                                link: '/javadocs/io.sentry.internal.viewhierarchy',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'logger',
+                            link: '/javadocs/io.sentry.logger',
+                        },
+                        {
+                            text: 'opentelemetry',
+                            link: '/javadocs/io.sentry.opentelemetry',
+                        },
+                        {
+                            text: 'profilemeasurements',
+                            link: '/javadocs/io.sentry.profilemeasurements',
+                        },
+                        {
+                            text: 'profiling',
+                            link: '/javadocs/io.sentry.profiling',
+                        },
+                        {
+                            text: 'protocol',
+                            link: '/javadocs/io.sentry.protocol',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'profiling',
+                                link: '/javadocs/io.sentry.protocol.profiling',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'rrweb',
+                            link: '/javadocs/io.sentry.rrweb',
+                        },
+                        {
+                            text: 'transport',
+                            link: '/javadocs/io.sentry.transport',
+                        },
+                        {
+                            text: 'util',
+                            link: '/javadocs/io.sentry.util',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'network',
+                                link: '/javadocs/io.sentry.util.network',
+                            },
+                            {
+                                text: 'runtime',
+                                link: '/javadocs/io.sentry.util.runtime',
+                            },
+                            {
+                                text: 'thread',
+                                link: '/javadocs/io.sentry.util.thread',
+                            },
+                            ]
+                        },
+                        {
+                            text: 'vendor',
+                            link: '/javadocs/io.sentry.vendor',
+                            collapsed: true,
+                            items: [
+                            {
+                                text: 'gson',
+                                collapsed: true,
+                                items: [
+                                {
+                                    text: 'internal.bind.util',
+                                    link: '/javadocs/io.sentry.vendor.gson.internal.bind.util',
+                                },
+                                {
+                                    text: 'stream',
+                                    link: '/javadocs/io.sentry.vendor.gson.stream',
+                                },
+                                ]
+                            },
+                            ]
+                        },
+                        ]
+                    },
+                    {
+                        text: 'it.unimi.dsi.fastutil',
+                        link: '/javadocs/it.unimi.dsi.fastutil',
+                        collapsed: true,
+                        items: [
+                        {
+                            text: 'booleans',
+                            link: '/javadocs/it.unimi.dsi.fastutil.booleans',
+                        },
+                        {
+                            text: 'bytes',
+                            link: '/javadocs/it.unimi.dsi.fastutil.bytes',
+                        },
+                        {
+                            text: 'chars',
+                            link: '/javadocs/it.unimi.dsi.fastutil.chars',
+                        },
+                        {
+                            text: 'doubles',
+                            link: '/javadocs/it.unimi.dsi.fastutil.doubles',
+                        },
+                        {
+                            text: 'floats',
+                            link: '/javadocs/it.unimi.dsi.fastutil.floats',
+                        },
+                        {
+                            text: 'ints',
+                            link: '/javadocs/it.unimi.dsi.fastutil.ints',
+                        },
+                        {
+                            text: 'io',
+                            link: '/javadocs/it.unimi.dsi.fastutil.io',
+                        },
+                        {
+                            text: 'longs',
+                            link: '/javadocs/it.unimi.dsi.fastutil.longs',
+                        },
+                        {
+                            text: 'objects',
+                            link: '/javadocs/it.unimi.dsi.fastutil.objects',
+                        },
+                        ]
+                    },
+                    {
+                        text: 'org.checkerframework.checker.nullness.compatqual',
+                        link: '/javadocs/org.checkerframework.checker.nullness.compatqual',
+                    },
                     ]
                 },
             ],
