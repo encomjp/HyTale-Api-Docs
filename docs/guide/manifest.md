@@ -22,10 +22,10 @@ Let's create a manifest step by step. Start with the bare minimum:
 
 ```json
 {
-  "id": "com.yourname.my-plugin",
-  "name": "My Plugin",
-  "version": "1.0.0",
-  "entrypoint": "com.yourname.myplugin.MyPlugin"
+  "Group": "com.yourname",
+  "Name": "my-plugin",
+  "Version": "1.0.0",
+  "Main": "com.yourname.myplugin.MyPlugin"
 }
 ```
 
@@ -35,13 +35,13 @@ That's it! Just 4 fields and your plugin is valid.
 
 | Field | What It Does | Example |
 |-------|--------------|---------|
-| `id` | Unique identifier for your plugin | `"com.yourname.my-plugin"` |
-| `name` | Human-readable name shown in logs | `"My Awesome Plugin"` |
-| `version` | Your plugin's version number | `"1.0.0"` |
-| `entrypoint` | The full path to your main class | `"com.yourname.myplugin.MyPlugin"` |
+| `Group` | Your organization or username (reverse domain) | `"com.yourname"` |
+| `Name` | The name of your plugin (ID) | `"my-plugin"` |
+| `Version` | Your plugin's version number | `"1.0.0"` |
+| `Main` | The full path to your main class | `"com.yourname.myplugin.MyPlugin"` |
 
-::: tip About the Entrypoint
-The `entrypoint` is the **fully qualified class name** of your main plugin class. This is the class that implements `Plugin` and has `onEnable()`.
+::: tip About the Main Class
+The `Main` field is the **fully qualified class name** of your main plugin class. This is the class that implements `Plugin` and has `onEnable()`.
 
 It must match exactly - including capitalization!
 :::
@@ -50,40 +50,24 @@ It must match exactly - including capitalization!
 
 ## Step by Step: Creating Your ID
 
-The `id` field is the most important. It must be **unique across all plugins**.
+The combination of `Group` and `Name` creates your unique ID.
 
-### Use Reverse Domain Notation
+### Use Reverse Domain Notation for Group
 
 Just like Java packages, use your domain name backwards:
 
 ```
 Your domain: yourname.com
-Your ID:     com.yourname.plugin-name
+Your Group:  com.yourname
 ```
 
 ### Examples
 
-| Who You Are | Plugin ID |
-|-------------|-----------|
-| Personal project | `com.myname.my-plugin` |
-| Organization | `org.myorg.cool-plugin` |
-| GitHub username | `io.github.myname.plugin` |
-
-### What to Avoid
-
-[BAD] **Don't use generic names:**
-```json
-// Bad - will conflict with others
-"id": "utils"
-"id": "core"
-"id": "plugin"
-```
-
-[GOOD] **Do be specific:**
-```json
-// Good - unique to you
-"id": "com.example.essentials-lite"
-```
+| Who You Are | Group | Name | Resulting ID |
+|-------------|-------|------|--------------|
+| Personal project | `com.myname` | `my-plugin` | `com.myname.my-plugin` |
+| Organization | `org.myorg` | `cool-plugin` | `org.myorg.cool-plugin` |
+| GitHub username | `io.github.myname` | `plugin` | `io.github.myname.plugin` |
 
 ---
 
@@ -93,12 +77,12 @@ You can add optional fields to describe your plugin better:
 
 ```json
 {
-  "id": "com.yourname.my-plugin",
-  "name": "My Plugin",
-  "version": "1.0.0",
-  "description": "Adds cool features to your server",
-  "authors": ["YourName", "ContributorName"],
-  "entrypoint": "com.yourname.myplugin.MyPlugin"
+  "Group": "com.yourname",
+  "Name": "my-plugin",
+  "Version": "1.0.0",
+  "Main": "com.yourname.myplugin.MyPlugin",
+  "Description": "Adds cool features to your server",
+  "Authors": ["YourName", "ContributorName"]
 }
 ```
 
@@ -106,10 +90,11 @@ You can add optional fields to describe your plugin better:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `description` | string | Brief description of what your plugin does |
-| `authors` | string[] | List of people who made the plugin |
-| `dependencies` | object[] | Other plugins yours requires |
-| `softDependencies` | string[] | Optional plugins yours can use |
+| `Description` | string | Brief description of what your plugin does |
+| `Authors` | string[] | List of people who made the plugin |
+| `Dependencies` | object[] | Other plugins yours requires |
+| `SoftDependencies` | string[] | Optional plugins yours can use |
+| `IncludesAssetPack` | boolean | Set to `true` if your plugin has a `assets` folder |
 
 ---
 
@@ -123,14 +108,15 @@ If your plugin **cannot work** without another plugin:
 
 ```json
 {
-  "id": "com.yourname.shops",
-  "name": "Shops",
-  "version": "1.0.0",
-  "entrypoint": "com.yourname.shops.ShopsPlugin",
-  "dependencies": [
+  "Group": "com.yourname",
+  "Name": "shops",
+  "Version": "1.0.0",
+  "Main": "com.yourname.shops.ShopsPlugin",
+  "Dependencies": [
     {
-      "id": "com.example.economy",
-      "version": ">=1.0.0"
+      "Name": "economy",
+      "Group": "com.example",
+      "Version": ">=1.0.0"
     }
   ]
 }
@@ -166,11 +152,11 @@ Sometimes you want to **optionally** integrate with another plugin. If it's ther
 
 ```json
 {
-  "id": "com.yourname.my-plugin",
-  "name": "My Plugin",
-  "version": "1.0.0",
-  "entrypoint": "com.yourname.myplugin.MyPlugin",
-  "softDependencies": ["com.example.optional-plugin"]
+  "Group": "com.yourname",
+  "Name": "my-plugin",
+  "Version": "1.0.0",
+  "Main": "com.yourname.myplugin.MyPlugin",
+  "SoftDependencies": ["com.example.optional-plugin"]
 }
 ```
 
@@ -228,19 +214,21 @@ Here's a full manifest with all common fields:
 
 ```json
 {
-  "id": "com.example.essentials-lite",
-  "name": "Essentials Lite",
-  "version": "1.2.0",
-  "description": "Essential commands for your Hytale server",
-  "authors": ["EuropeanPepe"],
-  "entrypoint": "com.example.essentialslite.EssentialsLite",
-  "dependencies": [
+  "Group": "com.example",
+  "Name": "essentials-lite",
+  "Version": "1.2.0",
+  "Description": "Essential commands for your Hytale server",
+  "Authors": ["EuropeanPepe"],
+  "Main": "com.example.essentialslite.EssentialsLite",
+  "IncludesAssetPack": true,
+  "Dependencies": [
     {
-      "id": "com.example.permissions-api",
-      "version": ">=1.0.0"
+      "Name": "permissions-api",
+      "Group": "com.example",
+      "Version": ">=1.0.0"
     }
   ],
-  "softDependencies": ["com.example.economy"]
+  "SoftDependencies": ["com.example.economy"]
 }
 ```
 
@@ -252,8 +240,8 @@ Here's a full manifest with all common fields:
 
 | Error Message | What It Means | How to Fix |
 |---------------|---------------|------------|
-| `Missing required field: id` | Your manifest doesn't have an `id` | Add the `id` field |
-| `Invalid entrypoint` | Can't find your main class | Check the class path and spelling |
+| `Missing required field: Name` | Your manifest doesn't have a `Name` | Add the `Name` field |
+| `Invalid Main` | Can't find your main class | Check the class path and spelling |
 | `Dependency not found` | A required plugin isn't installed | Install the dependency or remove it from manifest |
 | `Could not parse manifest.json` | JSON syntax error | Check for missing commas or quotes |
 
@@ -264,26 +252,26 @@ JSON is strict about syntax. Common mistakes:
 ```json
 // [BAD] Wrong: trailing comma
 {
-  "id": "my-plugin",
-  "name": "My Plugin",  // ← This comma is wrong because it's the last item
+  "Name": "my-plugin",
+  "Version": "1.0.0",  // ← This comma is wrong because it's the last item
 }
 
 // [GOOD] Correct: no trailing comma
 {
-  "id": "my-plugin",
-  "name": "My Plugin"
+  "Name": "my-plugin",
+  "Version": "1.0.0"
 }
 ```
 
 ```json
 // [BAD] Wrong: single quotes
 {
-  'id': 'my-plugin'
+  'Name': 'my-plugin'
 }
 
 // [GOOD] Correct: double quotes only
 {
-  "id": "my-plugin"
+  "Name": "my-plugin"
 }
 ```
 

@@ -221,6 +221,6 @@ Open the JAR with any ZIP tool and verify `manifest.json` is at the root level, 
 
 ## Next Steps
 
-With your project set up, you're ready to write your first plugin:
+Now that your project is set up, it's time to write some code!
 
-→ [Hello World Plugin](/getting-started/hello-world)
+[**Next Step: Your First Plugin →**](/getting-started/first-plugin)

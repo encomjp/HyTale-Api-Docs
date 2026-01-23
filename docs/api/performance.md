@@ -27,7 +27,7 @@ logger.info("RAM Usage - Heap: " + heapMB + "MB | Direct: " + directMB + "MB");
 ### 1. Avoid Blocking the Main Thread
 The Hytale server is logic-threaded. If you sleep or wait, the **whole server stops**.
 - **Bad**: `Thread.sleep(1000)` or querying a Database.
-- **Good**: Use the [Scheduler](./scheduler) to run async.
+- **Good**: Use the [Scheduler](/api/systems/scheduler) to run async.
 
 ### 2. Bulk Block Updates
 Setting blocks one-by-one triggers lighting updates every time.

@@ -1,4 +1,4 @@
-﻿# Your First Plugin
+# Your First Plugin
 
 In this tutorial, you'll create a simple "Hello World" plugin that responds when players join the server. By the end, you'll understand the basic structure of a Hytale plugin.
 
@@ -8,16 +8,18 @@ About 10-15 minutes if you have your development environment ready.
 
 ## Quick Start Template
 
-Don't want to read everything? Here is the full code for `HelloWorldPlugin.java`. Just replace the package name!
+Here is the full code for `HelloWorldPlugin.java`. Just replace the package name!
 
 [**Download HelloWorld.jar**](/downloads/HelloWorld.jar)
 
 ```java
 package com.example;
 
+import com.hypixel.hytale.server.core.plugin.JavaPlugin;
+import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.core.HytaleServer;
-import com.hypixel.hytale.event.EventPriority;
 import com.hypixel.hytale.server.core.event.events.player.PlayerConnectEvent;
+import com.hypixel.hytale.server.core.Message;
 
 public class HelloWorldPlugin extends JavaPlugin {
     
@@ -29,8 +31,11 @@ public class HelloWorldPlugin extends JavaPlugin {
     public void start() {
         System.out.println("Plugin Enabled!");
         
+        // Register an event listener for player connections
         HytaleServer.get().getEventBus().register(
-            EventPriority.NORMAL,
+            // Note: EventPriority and registration method signatures 
+            // may vary based on exact server version. 
+            // This is a conceptual example of the functional style.
             PlayerConnectEvent.class,
             event -> {
                 String playerName = event.getPlayer().getDisplayName();
@@ -40,11 +45,8 @@ public class HelloWorldPlugin extends JavaPlugin {
     }
 
     @Override
-    public void onDisable() {}
-
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        event.getPlayer().sendMessage(Message.raw("Welcome, " + event.getPlayer().getName() + "!"));
+    public void stop() {
+        System.out.println("Plugin Disabled!");
     }
 }
 ```
@@ -59,8 +61,7 @@ You can create this structure manually or use your IDE.
 hello-world/
 ├── build.gradle.kts
 ├── settings.gradle.kts
-├── manifest.json
-└── src/
+├── src/
     └── main/
         ├── java/
         │   └── com/
@@ -132,7 +133,9 @@ If you don't have a `gradlew` wrapper file yet, run `gradle wrapper` in your pro
 
 ## Step 3: Create the Manifest
 
-The `manifest.json` tells the server about your plugin. Place this in `src/main/resources/manifest.json`:
+The `manifest.json` tells the server about your plugin. Place this in `src/main/resources/manifest.json`.
+
+**Note:** Ensure you use the correct capitalization for fields!
 
 ```json
 {
@@ -175,9 +178,9 @@ public HelloWorldPlugin(JavaPluginInit init) {
 ### 4. Lifecycle Methods
 ```java
 @Override
-public void onEnable() {
+public void start() {
 ```
-- **Method**: Instructions for "What to do when the plugin starts."
+- **Method**: Instructions for "What to do when the plugin starts." (Sometimes called `onEnable` in other APIs, but Hytale uses `start`).
 
 ### 5. Messaging
 ```java
@@ -223,7 +226,7 @@ You've built your first Hytale plugin! Continue to learn about [Commands](/guide
 
 ::: warning Verified Code
 The code in this tutorial is based on the structure found in `HytaleServer.jar`.
-**Always check `HytaleServer.jar` directly** if you encounter "Class Not Found" errors, as package names (`com.hypixel.hytale...`) can match internal vs public API differences.
+**Always check `HytaleServer.jar` directly** if you encounter "Class Not Found" errors.
 :::
 
 ## Next Steps

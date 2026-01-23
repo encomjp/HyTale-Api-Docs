@@ -55,4 +55,4 @@ Your IDE is ready! Now create your first plugin project:
 
 → **[Project Setup](/getting-started/project-setup)** - Create a Gradle or Maven project
 
-→ **[Hello World](/getting-started/hello-world)** - Write your first plugin code
+→ **[Hello World](/getting-started/first-plugin)** - Write your first plugin code

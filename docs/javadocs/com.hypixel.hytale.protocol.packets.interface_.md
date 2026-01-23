@@ -1,0 +1,46 @@
+﻿# Package: com.hypixel.hytale.protocol.packets.interface_
+
+| Class | Description |
+| :--- | :--- |
+| **AddToServerPlayerList** | Class/Interface |
+| **BlockChange** | Class/Interface |
+| **ChatMessage** | Class/Interface |
+| **ChatTagType** | Class/Interface |
+| **ChatType** | Class/Interface |
+| **CustomHud** | Class/Interface |
+| **CustomPage** | Class/Interface |
+| **CustomPageEvent** | Class/Interface |
+| **CustomPageEventType** | Class/Interface |
+| **CustomPageLifetime** | Class/Interface |
+| **CustomUICommand** | Class/Interface |
+| **CustomUICommandType** | Class/Interface |
+| **CustomUIEventBinding** | Class/Interface |
+| **CustomUIEventBindingType** | Class/Interface |
+| **EditorBlocksChange** | Class/Interface |
+| **EditorSelection** | Class/Interface |
+| **FluidChange** | Class/Interface |
+| **HideEventTitle** | Class/Interface |
+| **HudComponent** | Class/Interface |
+| **KillFeedMessage** | Class/Interface |
+| **Notification** | Class/Interface |
+| **NotificationStyle** | Class/Interface |
+| **OpenChatWithCommand** | Class/Interface |
+| **Page** | Class/Interface |
+| **PortalDef** | Class/Interface |
+| **PortalState** | Class/Interface |
+| **RemoveFromServerPlayerList** | Class/Interface |
+| **ResetUserInterfaceState** | Class/Interface |
+| **ServerInfo** | Class/Interface |
+| **ServerMessage** | Class/Interface |
+| **ServerPlayerListPlayer** | Class/Interface |
+| **ServerPlayerListUpdate** | Class/Interface |
+| **SetPage** | Class/Interface |
+| **ShowEventTitle** | Class/Interface |
+| **UpdateKnownRecipes** | Class/Interface |
+| **UpdateLanguage** | Class/Interface |
+| **UpdatePortal** | Class/Interface |
+| **UpdateServerPlayerList** | Class/Interface |
+| **UpdateServerPlayerListPing** | Class/Interface |
+| **UpdateVisibleHudComponents** | Class/Interface |
+| **WorldSavingStatus** | Class/Interface |
+

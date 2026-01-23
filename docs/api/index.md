@@ -2,6 +2,11 @@
 
 Complete reference documentation for the Hytale server API.
 
+::: tip Class Reference
+Looking for the complete list of all classes and methods?
+Check out the **[Class Reference](/javadocs/)** for the raw API documentation generated from the server JAR.
+:::
+
 ## Core APIs
 
 | API | Description |

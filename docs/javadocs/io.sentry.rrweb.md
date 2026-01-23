@@ -1,0 +1,43 @@
+﻿# Package: io.sentry.rrweb
+
+| Class | Description |
+| :--- | :--- |
+| **RRWebBreadcrumbEvent.Deserializer** | Class/Interface |
+| **RRWebBreadcrumbEvent.JsonKeys** | Class/Interface |
+| **RRWebBreadcrumbEvent** | Class/Interface |
+| **RRWebEvent.Deserializer** | Class/Interface |
+| **RRWebEvent.JsonKeys** | Class/Interface |
+| **RRWebEvent.Serializer** | Class/Interface |
+| **RRWebEvent** | Class/Interface |
+| **RRWebEventType.Deserializer** | Class/Interface |
+| **RRWebEventType** | Class/Interface |
+| **RRWebIncrementalSnapshotEvent.Deserializer** | Class/Interface |
+| **RRWebIncrementalSnapshotEvent.IncrementalSource.Deserializer** | Class/Interface |
+| **RRWebIncrementalSnapshotEvent.IncrementalSource** | Class/Interface |
+| **RRWebIncrementalSnapshotEvent.JsonKeys** | Class/Interface |
+| **RRWebIncrementalSnapshotEvent.Serializer** | Class/Interface |
+| **RRWebIncrementalSnapshotEvent** | Class/Interface |
+| **RRWebInteractionEvent.Deserializer** | Class/Interface |
+| **RRWebInteractionEvent.InteractionType.Deserializer** | Class/Interface |
+| **RRWebInteractionEvent.InteractionType** | Class/Interface |
+| **RRWebInteractionEvent.JsonKeys** | Class/Interface |
+| **RRWebInteractionEvent** | Class/Interface |
+| **RRWebInteractionMoveEvent.Deserializer** | Class/Interface |
+| **RRWebInteractionMoveEvent.JsonKeys** | Class/Interface |
+| **RRWebInteractionMoveEvent.Position.Deserializer** | Class/Interface |
+| **RRWebInteractionMoveEvent.Position.JsonKeys** | Class/Interface |
+| **RRWebInteractionMoveEvent.Position** | Class/Interface |
+| **RRWebInteractionMoveEvent** | Class/Interface |
+| **RRWebMetaEvent.Deserializer** | Class/Interface |
+| **RRWebMetaEvent.JsonKeys** | Class/Interface |
+| **RRWebMetaEvent** | Class/Interface |
+| **RRWebOptionsEvent.Deserializer** | Class/Interface |
+| **RRWebOptionsEvent.JsonKeys** | Class/Interface |
+| **RRWebOptionsEvent** | Class/Interface |
+| **RRWebSpanEvent.Deserializer** | Class/Interface |
+| **RRWebSpanEvent.JsonKeys** | Class/Interface |
+| **RRWebSpanEvent** | Class/Interface |
+| **RRWebVideoEvent.Deserializer** | Class/Interface |
+| **RRWebVideoEvent.JsonKeys** | Class/Interface |
+| **RRWebVideoEvent** | Class/Interface |
+

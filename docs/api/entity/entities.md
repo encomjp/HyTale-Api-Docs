@@ -2,7 +2,7 @@
 
 Manage living entities, monsters, and detailed visual components.
 
-This API handles "traditional" entity interaction. For low-level data access, see the [Components API](./components).
+This API handles "traditional" entity interaction. For low-level data access, see the [Components API](/api/core/components).
 
 ## Verified Classes
 - `com.hypixel.hytale.protocol.EntityEffect`
@@ -67,7 +67,7 @@ entity.addEffect(poison);
 
 ## Spawning Entities
 
-See the [World API](./world) or [Prefabs API](./prefabs) for spawning logic.
+See the [World API](/api/world/world) or [Prefabs API](/api/world/prefabs) for spawning logic.
 
 ```java
 // Quick example

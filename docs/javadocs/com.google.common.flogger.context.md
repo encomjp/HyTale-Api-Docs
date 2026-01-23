@@ -1,0 +1,43 @@
+﻿# Package: com.google.common.flogger.context
+
+| Class | Description |
+| :--- | :--- |
+| **ContextDataProvider** | Class/Interface |
+| **LogLevelMap.1** | Class/Interface |
+| **LogLevelMap.Builder** | Class/Interface |
+| **LogLevelMap** | Class/Interface |
+| **ScopedLoggingContext.Builder.1** | Class/Interface |
+| **ScopedLoggingContext.Builder.2** | Class/Interface |
+| **ScopedLoggingContext.Builder** | Class/Interface |
+| **ScopedLoggingContext.InvalidLoggingContextStateException** | Class/Interface |
+| **ScopedLoggingContext.LoggingContextCloseable** | Class/Interface |
+| **ScopedLoggingContext.ScopeList** | Class/Interface |
+| **ScopedLoggingContext** | Class/Interface |
+| **ScopedLoggingContexts** | Class/Interface |
+| **ScopeMetadata.1** | Class/Interface |
+| **ScopeMetadata.Builder** | Class/Interface |
+| **ScopeMetadata.EmptyMetadata** | Class/Interface |
+| **ScopeMetadata.Entry** | Class/Interface |
+| **ScopeMetadata.ImmutableScopeMetadata** | Class/Interface |
+| **ScopeMetadata.SingletonMetadata** | Class/Interface |
+| **ScopeMetadata** | Class/Interface |
+| **ScopeType** | Class/Interface |
+| **SegmentTrie.EmptyTrie** | Class/Interface |
+| **SegmentTrie.SingletonTrie** | Class/Interface |
+| **SegmentTrie.SortedTrie** | Class/Interface |
+| **SegmentTrie** | Class/Interface |
+| **Tags.1** | Class/Interface |
+| **Tags.2** | Class/Interface |
+| **Tags.Builder** | Class/Interface |
+| **Tags.KeyValuePair** | Class/Interface |
+| **Tags.LightweightTagMap.1** | Class/Interface |
+| **Tags.LightweightTagMap.SortedArraySet.1** | Class/Interface |
+| **Tags.LightweightTagMap.SortedArraySet** | Class/Interface |
+| **Tags.LightweightTagMap** | Class/Interface |
+| **Tags.Type.1** | Class/Interface |
+| **Tags.Type.2** | Class/Interface |
+| **Tags.Type.3** | Class/Interface |
+| **Tags.Type.4** | Class/Interface |
+| **Tags.Type** | Class/Interface |
+| **Tags** | Class/Interface |
+

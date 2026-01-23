@@ -1,0 +1,43 @@
+﻿# Package: com.hypixel.hytale.server.core.asset.type.blocktype.config
+
+| Class | Description |
+| :--- | :--- |
+| **BlockBreakingDropType** | Class/Interface |
+| **BlockFace.1** | Class/Interface |
+| **BlockFace.FaceConnectionType** | Class/Interface |
+| **BlockFace** | Class/Interface |
+| **BlockFaceSupport** | Class/Interface |
+| **BlockFlipType** | Class/Interface |
+| **BlockGathering.BlockToolData** | Class/Interface |
+| **BlockGathering** | Class/Interface |
+| **BlockMigration** | Class/Interface |
+| **BlockMovementSettings** | Class/Interface |
+| **BlockPlacementSettings.BlockPreviewVisibility** | Class/Interface |
+| **BlockPlacementSettings.RotationMode** | Class/Interface |
+| **BlockPlacementSettings** | Class/Interface |
+| **BlockSupportsRequiredForType** | Class/Interface |
+| **BlockType.1** | Class/Interface |
+| **BlockType.2** | Class/Interface |
+| **BlockType.3** | Class/Interface |
+| **BlockType.4** | Class/Interface |
+| **BlockType.5** | Class/Interface |
+| **BlockType.6** | Class/Interface |
+| **BlockType.7** | Class/Interface |
+| **BlockType** | Class/Interface |
+| **BlockTypeTextures** | Class/Interface |
+| **CustomModelTexture** | Class/Interface |
+| **HarvestingDropType** | Class/Interface |
+| **MergedBlockFaces** | Class/Interface |
+| **PhysicsDropType** | Class/Interface |
+| **RequiredBlockFaceSupport.Match** | Class/Interface |
+| **RequiredBlockFaceSupport** | Class/Interface |
+| **RequiredBlockFaceSupportValidator** | Class/Interface |
+| **Rotation.1** | Class/Interface |
+| **Rotation** | Class/Interface |
+| **RotationTuple** | Class/Interface |
+| **SoftBlockDropType** | Class/Interface |
+| **StateData** | Class/Interface |
+| **SupportDropType** | Class/Interface |
+| **VariantRotation.1** | Class/Interface |
+| **VariantRotation** | Class/Interface |
+

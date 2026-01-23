@@ -55,7 +55,7 @@ Choose your editor:
 Now the fun part! You'll create a project and write your first plugin.
 
 1. **[Project Setup](./project-setup)** - Create a Gradle or Maven project
-2. **[Hello World](./hello-world)** - Write code that welcomes players
+2. **[Hello World](./first-plugin)** - Write code that welcomes players
 
 After completing these, your plugin will:
 - [DONE] Load when the server starts

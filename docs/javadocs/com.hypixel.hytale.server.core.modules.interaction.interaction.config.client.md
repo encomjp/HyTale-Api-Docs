@@ -1,0 +1,41 @@
+﻿# Package: com.hypixel.hytale.server.core.modules.interaction.interaction.config.client
+
+| Class | Description |
+| :--- | :--- |
+| **AddItemInteraction** | Class/Interface |
+| **ApplyForceInteraction.1** | Class/Interface |
+| **ApplyForceInteraction.Force** | Class/Interface |
+| **ApplyForceInteraction** | Class/Interface |
+| **BlockConditionInteraction.BlockIdMatcher** | Class/Interface |
+| **BlockConditionInteraction.BlockMatcher** | Class/Interface |
+| **BlockConditionInteraction** | Class/Interface |
+| **BreakBlockInteraction** | Class/Interface |
+| **ChainingInteraction.ChainingTag** | Class/Interface |
+| **ChainingInteraction.Data** | Class/Interface |
+| **ChainingInteraction** | Class/Interface |
+| **ChangeBlockInteraction** | Class/Interface |
+| **ChangeStateInteraction** | Class/Interface |
+| **ChargingInteraction.ChargingTag** | Class/Interface |
+| **ChargingInteraction** | Class/Interface |
+| **CooldownConditionInteraction** | Class/Interface |
+| **CycleBlockGroupInteraction** | Class/Interface |
+| **DestroyBlockInteraction** | Class/Interface |
+| **ExplodeInteraction** | Class/Interface |
+| **FirstClickInteraction** | Class/Interface |
+| **IncrementCooldownInteraction** | Class/Interface |
+| **MovementConditionInteraction.1** | Class/Interface |
+| **MovementConditionInteraction** | Class/Interface |
+| **PickBlockInteraction** | Class/Interface |
+| **PlaceBlockInteraction** | Class/Interface |
+| **PlaceFluidInteraction** | Class/Interface |
+| **ResetCooldownInteraction** | Class/Interface |
+| **SimpleBlockInteraction** | Class/Interface |
+| **ToggleGliderInteraction** | Class/Interface |
+| **TriggerCooldownInteraction** | Class/Interface |
+| **UseBlockInteraction** | Class/Interface |
+| **UseEntityInteraction** | Class/Interface |
+| **WieldingInteraction.AngledWielding** | Class/Interface |
+| **WieldingInteraction.StaminaCost.CostType** | Class/Interface |
+| **WieldingInteraction.StaminaCost** | Class/Interface |
+| **WieldingInteraction** | Class/Interface |
+

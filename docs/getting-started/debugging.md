@@ -3,7 +3,7 @@
 Things go wrong. Here is how to fix them.
 
 ## Reading the Logs
-Logs are located in the `logs/` folder of your server. The latest log is always `latest.log`.
+Logs are located in the `logs/` folder of your server. The latest log is always `server.log` (in the server root).
 
 **Log Format:**
 `[Time] [Thread/LEVEL] [Logger]: Message`

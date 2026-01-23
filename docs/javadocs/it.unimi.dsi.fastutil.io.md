@@ -1,0 +1,40 @@
+﻿# Package: it.unimi.dsi.fastutil.io
+
+| Class | Description |
+| :--- | :--- |
+| **BinIO.BooleanDataInputWrapper** | Class/Interface |
+| **BinIO.ByteDataInputWrapper** | Class/Interface |
+| **BinIO.CharDataInputWrapper** | Class/Interface |
+| **BinIO.CharDataNioInputWrapper** | Class/Interface |
+| **BinIO.DoubleDataInputWrapper** | Class/Interface |
+| **BinIO.DoubleDataNioInputWrapper** | Class/Interface |
+| **BinIO.FloatDataInputWrapper** | Class/Interface |
+| **BinIO.FloatDataNioInputWrapper** | Class/Interface |
+| **BinIO.IntDataInputWrapper** | Class/Interface |
+| **BinIO.IntDataNioInputWrapper** | Class/Interface |
+| **BinIO.LongDataInputWrapper** | Class/Interface |
+| **BinIO.LongDataNioInputWrapper** | Class/Interface |
+| **BinIO.ShortDataInputWrapper** | Class/Interface |
+| **BinIO.ShortDataNioInputWrapper** | Class/Interface |
+| **BinIO** | Class/Interface |
+| **FastBufferedInputStream.LineTerminator** | Class/Interface |
+| **FastBufferedInputStream** | Class/Interface |
+| **FastBufferedOutputStream** | Class/Interface |
+| **FastByteArrayInputStream** | Class/Interface |
+| **FastByteArrayOutputStream** | Class/Interface |
+| **FastMultiByteArrayInputStream** | Class/Interface |
+| **InspectableFileCachedInputStream** | Class/Interface |
+| **MeasurableInputStream** | Class/Interface |
+| **MeasurableOutputStream** | Class/Interface |
+| **MeasurableStream** | Class/Interface |
+| **package-info** | Class/Interface |
+| **RepositionableStream** | Class/Interface |
+| **TextIO.BooleanReaderWrapper** | Class/Interface |
+| **TextIO.ByteReaderWrapper** | Class/Interface |
+| **TextIO.DoubleReaderWrapper** | Class/Interface |
+| **TextIO.FloatReaderWrapper** | Class/Interface |
+| **TextIO.IntReaderWrapper** | Class/Interface |
+| **TextIO.LongReaderWrapper** | Class/Interface |
+| **TextIO.ShortReaderWrapper** | Class/Interface |
+| **TextIO** | Class/Interface |
+
